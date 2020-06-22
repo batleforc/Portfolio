@@ -25,9 +25,11 @@ class App extends React.Component{
                   <p>Developpeur et Etudiant</p>
                 </header>
                 <About/>
-                <div width="932" height="1048" style={{display:"inline-flex",marginLeft:"auto",marginRight:"auto"}}>
-                <img src="media/morpheus_left.png" alt="boy" className="w3-image" width="466" height="1048" onClick={function(){alert("Gauche")}}/>
-                <img src="media/morpheus_right.png" alt="boy" className="w3-image" width="466" height="1048" onClick={function(){alert("Droite")}}/>
+                <h2>Choisi la pilule bleue et tout s'arrête, après tu pourras faire de beaux rêves et ne jamais avoir de notification de ma part.</h2>
+                <h2>Choisi la pilule rouge et active les notifications afin d'en savoir plus sur ce que je fais et peut-être découvrir des choses qui changeront ta vie.</h2>
+                <div width="932" height="1048" className="morpheus" style={{display:"inline-flex",marginLeft:"auto",marginRight:"auto",overflow:"hidden"}}>
+                <img src="media/morpheus_left.png" alt="boy" className="w3-image" width="466" height="1048" onClick={function(){Notification.requestPermission().then(alert("Merci d'avoir activer les notification"))}}/>
+                <img src="media/morpheus_right.png" alt="boy" className="w3-image" width="466" height="1048" onClick={function(){alert("Vous ne voulez vraiment pas de mes notification ?")}}/>
                 </div>
                 </div>
             </div>
