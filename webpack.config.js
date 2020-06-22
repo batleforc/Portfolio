@@ -22,7 +22,12 @@ module.exports = ({mode,presets}) =>{
                 use: {
                   loader: "babel-loader"
                 }
-            }
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader'],
+                exclude: /node_modules/,
+              }
         ],
        } ,
         plugins:[
@@ -37,7 +42,8 @@ module.exports = ({mode,presets}) =>{
                     { from: 'src/media', to: 'media/' }, 
                     'src/manifest.json',
                     {from: 'src/Notif.js', to:'Notif.js'},
-                    {from:'src/Rapp', to:'Rapp/'}
+                    {from:'src/Rapp', to:'Rapp/'},
+                    {from:'src/styles', to:'styles/'}
                 ]
             })
         ]
