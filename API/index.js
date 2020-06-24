@@ -2,7 +2,18 @@ const webpush = require('web-push');
 const express = require('express');
 const app = express();
 const http = require(`http`).createServer(app);
- 
+var SibApiV3Sdk = require('sib-api-v3-sdk');
+
+var defaultClient = SibApiV3Sdk.ApiClient.instance;
+var apiKey = defaultClient.authentications['api-key'];
+apiKey.apiKey = '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';
+var apiInstance = new SibApiV3Sdk.EmailCampaignsApi();
+var emailCampaigns = new SibApiV3Sdk.CreateEmailCampaign();
+emailCampaigns.name = "Email sent via the form of weebo.Fr";
+emailCampaigns.subject = 'Form sended';
+emailCampaigns.sender = {"name": "Maxime", "email":"maxleriche.60@gmail.com"};
+emailCampaigns.type = "classic";
+
 const port = process.env.PORT || 5000;
 var test={
     endpoint: 'https://fcm.googleapis.com/fcm/send/eRiR0_2zoBs:APA91bG1So1zvIlM6nV5HogtMrI-g0oCWqFApsQxO0b0pWt3b_G1_1oPBtTDns_StUhlXrQLuAMSC3aSBdAjRLaZL9TkGIdIZEZhfx7WvCwJiYnrFku6YwATsGPV-P429xX3CUtdCwQi',
@@ -47,6 +58,26 @@ app.get('/notif',(req,res)=>{
     });
     return res.status(200).send("Send")
 })
+app.post('/mail',(req,res)=>{
+  console.log(req.body)
+  if(req.body.Name&&req.body.Email&&req.body.Subject&&req.body.Message){
+    emailCampaigns.htmlContent= `You have received a new message from your website contact form.\n\nHere are the details:\n\nName: ${req.body.Name}\n\nEmail: ${req.body.Email}${req.body.Phone?"\n\nPhone:"+req.body.phone:""}\n\nMessage:\n${req.body.Message}`;
+    apiInstance.createEmailCampaign(emailCampaigns).then(function(data) {
+      console.log('API called successfully. Returned data: ' + data);
+      console.log(emailCampaigns.htmlContent);
+      res.status(200)
+      }, function(error) {
+      console.error(error);
+      res.status(400).send(error)
+      });
+      return;
+  }
+  res.status(400).send("Bad request arg isnt well formed")
+})
+
+
+
+
 
 http.listen(port);
 console.log("app is listening on port "+ port)

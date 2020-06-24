@@ -1,6 +1,6 @@
 import './styles.css';  
-import './Rapp/RApp';
 import './Notif';
+import(/* webpackPrefetch: true */  './Rapp/RApp')
 
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
