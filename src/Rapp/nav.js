@@ -11,6 +11,7 @@ class Nav extends React.Component{
         return(
             <div>
             <nav className="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+            <img src="/media/android-chrome-192x192.png" style={{width:"100%"}} />
               {this.arewehome()&&<a href="#" key="/" className="w3-bar-item w3-button w3-padding-large w3-black">
               <i className="fa fa-home w3-xxlarge"></i>
               <p>HOME</p>

@@ -1,18 +1,26 @@
 {
-    "name": "HTML5 TEMPLATE",
+    "name": "Maxime Leriche",
     "gcm_sender_id":"180169598396",
-    "short_name": "TEMPLATE",
+    "short_name": "MLeriche",
     "lang": "fr-FR",
     "start_url": "/index.html",
     "display": "standalone",
-    "theme_color": "#FF9800",
-    "background_color": "#FF9800",
+    "theme_color": "#0000",
+    "background_color": "#565554",
     "icons": [
         {
             "src": "media/maskicon.png",
             "sizes": "192x192",
             "type": "image/png",
             "purpose": "any maskable"
+          },{
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+          }, {
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
           }
     ]
   }

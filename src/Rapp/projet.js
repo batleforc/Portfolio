@@ -10,16 +10,16 @@ class Projet extends React.Component{
 
                  <div className="w3-row-padding" style={{margin:"0 -16px"}}>
                   <div className="w3-half">
-                    <img src="media/logo_size.jpg" style={{width:"100%"}}/>
-                    <img src="media/logo_size.jpg" style={{width:"100%"}}/>
-                    <img src="media/logo_size.jpg" style={{width:"100%"}}/>
+                    <img src="media/android-chrome-512x512.png" style={{width:"100%"}}/>
+                    <img src="media/android-chrome-512x512.png" style={{width:"100%"}}/>
+                    <img src="media/android-chrome-512x512.png" style={{width:"100%"}}/>
                   </div>            
 
                   <div className="w3-half">
-                    <img src="media/logo_size.jpg" style={{width:"100%"}}/>
-                    <img src="media/logo_size.jpg" style={{width:"100%"}}/>
-                    <img src="media/logo_size.jpg" style={{width:"100%"}}/>
-                    <img src="media/logo_size.jpg" style={{width:"100%"}}/>
+                    <a href="/article/3"> <img src="media/android-chrome-512x512.png" style={{width:"100%"}}/></a>
+                    <a href="/article/3"><img src="media/android-chrome-512x512.png" style={{width:"100%"}}/></a>
+                    <a href="/article/3"><img src="media/android-chrome-512x512.png" style={{width:"100%"}}/></a>
+                    <a href="/article/3"><img src="media/android-chrome-512x512.png" style={{width:"100%"}}/></a>
                   </div>
                 </div>
             </div>)
