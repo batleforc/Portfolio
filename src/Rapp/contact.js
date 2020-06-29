@@ -1,6 +1,6 @@
 import React from 'react';
 import ReCAPTCHA from "react-google-recaptcha";
-const recaptchaRef = React.createRef();
+import Profil from './ResumeData';
 
 class Contact extends React.Component{
     constructor(props){
@@ -15,6 +15,7 @@ class Contact extends React.Component{
         }
         this.submitform=this.submitform.bind(this)
         this.myChangeHandler=this.myChangeHandler.bind(this)
+        this.recaptchaRef=React.createRef();
     }
     myChangeHandler(event) {
         let nam = event.target.name;
@@ -23,8 +24,7 @@ class Contact extends React.Component{
       }
     submitform(event){
       event.preventDefault();
-      console.log(recaptchaRef.current.getValue());
-      if(recaptchaRef.current.getValue()!=""){
+      if(this.recaptchaRef.current.getValue()!=""){
         console.log(this.state)
         fetch('http://localhost:5000/mail', {
           method: 'post',
@@ -42,7 +42,6 @@ class Contact extends React.Component{
       }else{
         this.setState({"status":"ReCaptcha Non valider"})
       }
-       
     }
     render(){
         return(
@@ -63,7 +62,7 @@ class Contact extends React.Component{
                   <p><input className="w3-input w3-padding-16" type="text" placeholder="Sujet" required name="Subject" onChange={this.myChangeHandler}/></p>
                   <p><input className="w3-input w3-padding-16" type="text" placeholder="Message" required name="Message" onChange={this.myChangeHandler}/></p>
                   {this.state.status!=""&&<p>{this.state.status}</p>}
-                  <ReCAPTCHA ref={recaptchaRef} sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" theme="dark"/>
+                  <ReCAPTCHA ref={this.recaptchaRef} sitekey={Profil.RecaptchaKEY}theme="dark"/>
                   <p> 
                     <button className="w3-button w3-light-grey w3-padding-large" type="submit">
                       <i className="fa fa-paper-plane"></i> Envoi du message
