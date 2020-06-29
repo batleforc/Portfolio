@@ -1,4 +1,6 @@
 import React from 'react';
+import ReCAPTCHA from "react-google-recaptcha";
+const recaptchaRef = React.createRef();
 
 class Contact extends React.Component{
     constructor(props){
@@ -8,7 +10,8 @@ class Contact extends React.Component{
             Email:"",
             Telephone:"",
             Subject:"",
-            Message:""
+            Message:"",
+            fake:"",
         }
         this.submitform=this.submitform.bind(this)
         this.myChangeHandler=this.myChangeHandler.bind(this)
@@ -19,7 +22,9 @@ class Contact extends React.Component{
         this.setState({[nam]: val});
       }
     submitform(event){
-        event.preventDefault();
+      event.preventDefault();
+      console.log(recaptchaRef.current.getValue());
+      if(recaptchaRef.current.getValue()!=""){
         console.log(this.state)
         fetch('http://localhost:5000/mail', {
           method: 'post',
@@ -30,8 +35,14 @@ class Contact extends React.Component{
         }).then(function(response) {
           return response.json();
         }).then(function(data) {
+          this.setState({"status":"Formulaire envoyer"})
           console.log(data)
         }).catch(function(error){console.log(error)})
+        this.setState({"status":""})
+      }else{
+        this.setState({"status":"ReCaptcha Non valider"})
+      }
+       
     }
     render(){
         return(
@@ -51,10 +62,13 @@ class Contact extends React.Component{
                   <p><input className="w3-input w3-padding-16" type="text" placeholder="Telephone"  name="Telephone" onChange={this.myChangeHandler}/></p>
                   <p><input className="w3-input w3-padding-16" type="text" placeholder="Sujet" required name="Subject" onChange={this.myChangeHandler}/></p>
                   <p><input className="w3-input w3-padding-16" type="text" placeholder="Message" required name="Message" onChange={this.myChangeHandler}/></p>
-                  <p>
+                  {this.state.status!=""&&<p>{this.state.status}</p>}
+                  <ReCAPTCHA ref={recaptchaRef} sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" theme="dark"/>
+                  <p> 
                     <button className="w3-button w3-light-grey w3-padding-large" type="submit">
                       <i className="fa fa-paper-plane"></i> Envoi du message
                     </button>
+                    <input type="text" name="bot" onChange={this.myChangeHandler} style={{visibility:"hidden"}}/> 
                   </p>
                 </form>
               </div>)
