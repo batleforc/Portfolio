@@ -116,3 +116,5 @@ dist
 #Dont push build folder
 dist/*
 build/*
+
+Config.all.js

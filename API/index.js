@@ -3,10 +3,13 @@ const express = require('express');
 const app = express();
 const http = require(`http`).createServer(app);
 var SibApiV3Sdk = require('sib-api-v3-sdk');
+const MongoClient = require('mongodb').MongoClient;
+const assert = require('assert');
+const Config = require('./Config.all')
 
 var defaultClient = SibApiV3Sdk.ApiClient.instance;
 var apiKey = defaultClient.authentications['api-key'];
-apiKey.apiKey = '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';
+apiKey.apiKey = Config.mail.apikey;
 var apiInstance = new SibApiV3Sdk.EmailCampaignsApi();
 var emailCampaigns = new SibApiV3Sdk.CreateEmailCampaign();
 emailCampaigns.name = "Email sent via the form of weebo.Fr";
@@ -15,14 +18,18 @@ emailCampaigns.sender = {"name": "Maxime", "email":"maxleriche.60@gmail.com"};
 emailCampaigns.type = "classic";
 
 const port = process.env.PORT || 5000;
-var test={
-    endpoint: 'https://fcm.googleapis.com/fcm/send/eRiR0_2zoBs:APA91bG1So1zvIlM6nV5HogtMrI-g0oCWqFApsQxO0b0pWt3b_G1_1oPBtTDns_StUhlXrQLuAMSC3aSBdAjRLaZL9TkGIdIZEZhfx7WvCwJiYnrFku6YwATsGPV-P429xX3CUtdCwQi',
-    expirationTime: null,
-    keys: {
-      p256dh: 'BErEtn2a4y0VhXk_Soe43SZ0kUcTe8rkTHZXvaL7IC3SmUnscArKO3IbG20DtyBsGgVv3W5ZkLied7SaWD9QHPM',
-      auth: '7W6d-LxiBHF7vRJUi3Cpig'
-    }
-  };
+const client = new MongoClient(Config.mongo.url);
+var Projet;
+client.connect(function(err){
+  if(err==null){
+    console.log("Loged in")
+    Projet= client.db(Config.mongo.Bdd);
+  }else{
+    console.log("Erreur: ",err)
+  }
+})
+
+var test;
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -30,23 +37,41 @@ app.use(function(req, res, next) {
   });
 app.use(express.json());
  
-webpush.setGCMAPIKey('AAAAKfLx5bw:APA91bHDv2yxoFf8YpH-sD6TtBfXJsDyoO3kf8mHVDEt9gfYMfjIbqD0R-zY3mRGZwe-LtYNlcFlDVzffirVhgE0z5tWAiylwHjcxJuSqOxZ9I0z9v-OxwbWkYvaCllU6GRm9O6JgwPk');
-webpush.setVapidDetails(
-  'mailto:maxime.lerichepro@gmail.com',
-  "BOlh24I5TR7jPJJUNHT7UAG7oZr90fjAB8OGuPVvHhDC21VBfwypluguEysXpCuEK-paELmJFO1OXGM5raboQl8",
-  "SFwya9cIk3PX_1tPBZ_KAk1XJSmGewOJX1xG3iDB6ho"
-);
+webpush.setGCMAPIKey(Config.notif.gcm);
+webpush.setVapidDetails(Config.notif.mailto,Config.notif.vapid1,Config.notif.vapid2);
  
 app.post('/subscribe',(req,res)=>{
     const subscription = req.body;
     res.status(201).json({});
-    const payload = JSON.stringify({"body": "Bienvenue sur le moteur de Template","title": "Template :D",	"action": [{"action": "explore","title": "Go to the site"},{"action": "close","title": "Close the notification"}]});
-
+    const payload = JSON.stringify({"body": "Merci d'avoir accepter les notification"+subscription.mail?subscription.mail:" Malgrer sa vous ne pouvez pas désactiver votre souscription, celle ci sera désactiver apres 1 mois par défault","title": "Portfolio Max",	"action": [{"action": "explore","title": "Go to the site"},{"action": "close","title": "Close the notification"}]});
+    var subs={};
+    subs.endpoint=subscription.endpoint;
+    subs.keys=subscription.keys
+    subs.mail=subscription.mail;
     console.log(subscription);
+    Projet.collection(Config.mongo.notif).find({"endpoint":subs.endpoint}).toArray(function(err,docs){
+      if(docs.length==0){
+        Projet.collection(Config.mongo.notif).insertOne(subs,function(err,result){
+          console.log(err);
+          console.log(result)
+          assert.equal(err,null);
+        })
+      }
+    })
     test=subscription;
     webpush.sendNotification(subscription,payload).catch(error=>{
         console.error(error.stack)
     });
+})
+app.post('/unsubscribe',(req,res)=>{
+  const mail = req.body.mail;
+  if(mail==null){
+    return res.status(400).json("Mail non présent")
+  }
+  Projet.collection(Config.mongo.notif).deleteOne({mail:""},function(err,result){
+    assert.equal(err,null);
+    res.status(200).json("Unsubscribe done")
+  })
 })
 app.get('/',(req,res)=>{
     res.status(200).send("Index.JS Template API")
@@ -75,7 +100,25 @@ app.post('/mail',(req,res)=>{
   res.status(400).send("Bad request arg isnt well formed")
 })
 
-
+app.get('/projet',(req,res)=>{
+  Projet.collection(Config.mongo.article).find({}).toArray(function(err,docs){
+    assert.equal(err,null);
+    res.status(200).json(docs);
+  })
+})
+app.get('/projet/count',(req,res)=>{
+  Projet.collection(Config.mongo.article).find({}).toArray(function(err,docs){
+    assert.equal(err,null);
+    res.status(200).json(docs.length);
+  })
+})
+app.post('/projet',(req,res)=>{
+  const projet = req.body.proj;
+  Projet.collection(Config.mongo.article).find({slug:projet}).toArray(function(err,docs){
+    assert.equal(err,null);
+    res.status(200).json(docs);
+  })
+})
 
 
 

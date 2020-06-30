@@ -26,7 +26,7 @@ class App extends React.Component{
     render(){
         // <img src={Profil.img} alt="boy" className="w3-image" width="992" height="1108"/>
         //<img src="media/morpheus.png" alt="boy" className="w3-image" width="992" height="1108" style={{display:"block",marginLeft:"auto",marginRight:"auto"}} useMap="#image-map"/>
-        var test = new SpeechSynthesisUtterance("Bonjours Claire")
+        var test = new SpeechSynthesisUtterance("Bonjour")
         test.voice=speechSynthesis.getVoices()[8];
 
         return(

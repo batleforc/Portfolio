@@ -20,12 +20,13 @@ let Profil ={
             "url":"https://gitlab.com/maxLeriche.weebo",
             "img":['fab', 'gitlab']
         },
-        {
-            "name":"My Git",
-            "url":"https://weebo.fr",
-            "img":['fab', 'git']
-        }
-    ]
+        //{
+        //    "name":"My Git",
+        //    "url":"https://weebo.fr",
+        //    "img":['fab', 'git']
+        //}
+    ],
+    "RecaptchaKEY":"6LfaTWIUAAAAAPpVwUx-2MD_twYPXkqgU_ZQlaHJ"
 
 }
 
