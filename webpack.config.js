@@ -60,7 +60,7 @@ module.exports = ({mode,presets}) =>{
             extensions: ['.ts', '.tsx', '.js', '.jsx'],
           },
           performance:{
-            maxAssetSize:1300000
+            maxAssetSize:1500000
           }
         },
         modeConfig({mode,presets}),
