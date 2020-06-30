@@ -23,9 +23,6 @@ class Projet extends React.Component{
     }).catch((res)=>this.setState({test:"Le serveur contenant les information des projet est innaccessible veuillez verifier votre connexion: " + res}))
   }
     render(){
-      for(var index =0;index<this.state.Projet;index++){
-
-      }
        return( 
            <div className="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
                  <h2 className="w3-text-light-grey">Mes projets </h2>

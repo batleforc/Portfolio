@@ -114,6 +114,7 @@ app.get('/projet/count',(req,res)=>{
 })
 app.post('/projet',(req,res)=>{
   const projet = req.body.proj;
+  console.log(projet)
   Projet.collection(Config.mongo.article).find({slug:projet}).toArray(function(err,docs){
     assert.equal(err,null);
     res.status(200).json(docs);

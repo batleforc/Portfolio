@@ -7,11 +7,10 @@ import About from './about';
 import Contact from './contact'
 import Footer from './footer'
 import Projet from "./projet"
+import DisplayProjet from './DisplayProjet'
 
 function article(props) {
-    return(<header className="w3-container w3-padding-32 w3-center w3-black" id="home">
-    <h2 className="w3-jumbo"><span className="w3-hide-small"></span> Projet  {props.match.params.id}</h2>
-  </header>)
+    return(<DisplayProjet slug={props.match.params.id}/>)
   }
 
 class App extends React.Component{
