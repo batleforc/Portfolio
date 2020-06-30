@@ -10,7 +10,7 @@ import Projet from "./projet"
 
 function article(props) {
     return(<header className="w3-container w3-padding-32 w3-center w3-black" id="home">
-    <h2 className="w3-jumbo"><span className="w3-hide-small"></span> Article  {props.match.params.id}</h2>
+    <h2 className="w3-jumbo"><span className="w3-hide-small"></span> Projet  {props.match.params.id}</h2>
   </header>)
   }
 
@@ -50,7 +50,7 @@ class App extends React.Component{
                 </div>
                 <Contact/>
                 </Route>
-                <Route path="/article/:id" component={article} />
+                <Route path="/projet/:id" component={article} />
                 <Footer/>
                 </div>
             </div>

@@ -2,7 +2,6 @@ const vapipublic="BOlh24I5TR7jPJJUNHT7UAG7oZr90fjAB8OGuPVvHhDC21VBfwypluguEysXpC
 async function requestPermission(registration) {
   registration.pushManager.getSubscription()
   .then(function(subscription){
-    console.log(subscription);
     if(!subscription){
       registration.pushManager.subscribe({
      userVisibleOnly: true,

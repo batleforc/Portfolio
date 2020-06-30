@@ -26,7 +26,8 @@ let Profil ={
         //    "img":['fab', 'git']
         //}
     ],
-    "RecaptchaKEY":"6LfaTWIUAAAAAPpVwUx-2MD_twYPXkqgU_ZQlaHJ"
+    "RecaptchaKEY":"6LfaTWIUAAAAAPpVwUx-2MD_twYPXkqgU_ZQlaHJ",
+    "ip":"http://localhost:5000"
 
 }
 
