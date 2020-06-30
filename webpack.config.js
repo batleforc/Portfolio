@@ -59,6 +59,9 @@ module.exports = ({mode,presets}) =>{
           resolve: {
             extensions: ['.ts', '.tsx', '.js', '.jsx'],
           },
+          performance:{
+            maxAssetSize:1300000
+          }
         },
         modeConfig({mode,presets}),
         loadPresets({mode,presets})
