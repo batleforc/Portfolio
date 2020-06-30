@@ -2,6 +2,7 @@ const webpush = require('web-push');
 const express = require('express');
 const app = express();
 const http = require(`http`).createServer(app);
+const path = require(`path`);
 var SibApiV3Sdk = require('sib-api-v3-sdk');
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
@@ -39,7 +40,7 @@ app.use(express.json());
  
 webpush.setGCMAPIKey(Config.notif.gcm);
 webpush.setVapidDetails(Config.notif.mailto,Config.notif.vapid1,Config.notif.vapid2);
- 
+app.use(express.static(path.join(__dirname, `/../dist/`)));
 app.post('/subscribe',(req,res)=>{
     const subscription = req.body;
     res.status(201).json({});
@@ -73,11 +74,9 @@ app.post('/unsubscribe',(req,res)=>{
     res.status(200).json("Unsubscribe done")
   })
 })
-app.get('/',(req,res)=>{
-    res.status(200).send("Index.JS Template API")
-})
+
 app.get('/notif',(req,res)=>{
-    const payload = JSON.stringify({"body": "test","title": "Template :D",	"action": [{"action": "explore","title": "Go to the site"},{"action": "close","title": "Close the notification"}]});
+    const payload = JSON.stringify({"body": "test","title": "Maxleriche",	"action": [{"action": "explore","title": "Go to the site"},{"action": "close","title": "Close the notification"}]});
     webpush.sendNotification(test,payload).catch(error=>{
         console.error(error.stack)
     });
@@ -120,6 +119,10 @@ app.post('/projet',(req,res)=>{
     res.status(200).json(docs);
   })
 })
+
+app.get(`*`, (req,res) =>{
+  res.sendFile(path.join(__dirname+`/../dist/index.html`));
+});
 
 http.listen(port);
 console.log("app is listening on port "+port)

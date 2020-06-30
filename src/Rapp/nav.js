@@ -13,23 +13,27 @@ class Nav extends React.Component{
             <nav className="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
             <img src="/media/android-chrome-192x192.png" style={{width:"100%"}} />
               {this.arewehome()&&<a href="#" key="/" className="w3-bar-item w3-button w3-padding-large w3-black">
-              <i className="fa fa-home w3-xxlarge"></i>
+              <FontAwesomeIcon className="w3-xxlarge" icon={["fas","home"]}/>
               <p>HOME</p>
             </a>}
             {!this.arewehome()&&<a href="/" key="/" className="w3-bar-item w3-button w3-padding-large w3-black">
-            <i className="fa fa-home w3-xxlarge"></i>
+            <FontAwesomeIcon className="w3-xxlarge" icon={["fas","home"]}/>
             <p>HOME</p>
           </a>}
             {this.arewehome()&&<a href="#about" key="about" className="w3-bar-item w3-button w3-padding-large w3-hover-black">
-                <i className="fa fa-user w3-xxlarge"></i>
+                <FontAwesomeIcon className="w3-xxlarge" icon={["fas","user"]}/>
                 <p>ABOUT</p>
               </a>}
               {this.arewehome()&&<a href="#projets" key="projets" className="w3-bar-item w3-button w3-padding-large w3-hover-black">
                 <FontAwesomeIcon icon={['fas',"cogs"]} style={{fontSize:"36px"}}/>
                 <p>PROJET</p>
               </a>}
+              {this.arewehome()&&<a href="#notif" key="notif" className="w3-bar-item w3-button w3-padding-large w3-hover-black">
+              <FontAwesomeIcon icon={['fas','bell']} style={{fontSize:"36px"}}/>
+                <p>NOTIF</p>
+              </a>}
               {this.arewehome()&&<a href="#contact" key="contact" className="w3-bar-item w3-button w3-padding-large w3-hover-black">
-                <i className="fa fa-envelope w3-xxlarge"></i>
+                <FontAwesomeIcon className="w3-xxlarge" icon={["fas","envelope"]}/>
                 <p>CONTACT</p>
               </a>}
               {Profil.social.map((item)=>{

@@ -24,7 +24,7 @@ class Projet extends React.Component{
   }
     render(){
        return( 
-           <div className="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
+           <div className="w3-content w3-justify w3-text-grey w3-padding-64" id="projets">
                  <h2 className="w3-text-light-grey">Mes projets </h2>
                  
                  <hr style={{width:"200px"}} className="w3-opacity"/>

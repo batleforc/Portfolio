@@ -1,6 +1,7 @@
 import React from 'react';
-import Profil from './ResumeData'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Profil from './ResumeData';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import parse from 'html-react-parser';
 
 class DisplayProjet extends React.Component{
   constructor(props){
@@ -18,6 +19,7 @@ class DisplayProjet extends React.Component{
       },body:JSON.stringify({proj:this.props.slug})})
     .then(res=>res.json())
     .then((data)=>{
+
       this.setState({Projet:data});
       this.setState({test:""});
     }).catch((res)=>this.setState({test:"Le serveur contenant les information des projet est innaccessible veuillez verifier votre connexion: " + res}))
@@ -33,8 +35,8 @@ class DisplayProjet extends React.Component{
         {todisplay}
             <h2 className="w3-jumbo"><span className="w3-hide-small"></span> Projet  {this.state.Projet[0]!=undefined?this.state.Projet[0].name:this.props.slug}</h2>
          </header>
-         <h5>{this.state.Projet[0]!=undefined?this.state.Projet[0].description:""}</h5>
-         <h3><a href={this.state.Projet[0]!=undefined?this.state.Projet[0].url:""}>Ce projet est accessible ici</a></h3>
+          {parse(this.state.Projet[0]!=undefined?this.state.Projet[0].description:"")}
+         <h3><a href={this.state.Projet[0]!=undefined?this.state.Projet[0].url:""}>Ce projet est accessible ici et est "{this.state.Projet[0]!=undefined?this.state.Projet[0].status:""}"</a></h3>
          
         </div>)
     }

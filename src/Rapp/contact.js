@@ -1,6 +1,8 @@
 import React from 'react';
 import ReCAPTCHA from "react-google-recaptcha";
 import Profil from './ResumeData';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 
 class Contact extends React.Component{
     constructor(props){
@@ -50,8 +52,8 @@ class Contact extends React.Component{
                 <hr style={{width:"200px"}} className="w3-opacity"/>
 
                 <div className="w3-section">
-                  <p><i className="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Phone: +33 6 01 09 57 40</p>
-                  <p><i className="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: maxime.lerichepro@gmail.com</p>
+                  <p><FontAwesomeIcon icon={["fas","phone"]} className="w3-text-white w3-xxlarge w3-margin-right"/> Phone: +33 6 01 09 57 40</p>
+                  <p><FontAwesomeIcon icon={["fas","envelope"]} className="w3-text-white w3-xxlarge w3-margin-right"/> Email: maxime.lerichepro@gmail.com</p>
                 </div><br/>
                 <p>Envie de me contacter? Uttilise ce formulaire:</p>
 
@@ -65,7 +67,7 @@ class Contact extends React.Component{
                   <ReCAPTCHA ref={this.recaptchaRef} sitekey={Profil.RecaptchaKEY}theme="dark"/>
                   <p> 
                     <button className="w3-button w3-light-grey w3-padding-large" type="submit">
-                      <i className="fa fa-paper-plane"></i> Envoi du message
+                      <FontAwesomeIcon icon={["fas",'paper-plane']}/> Envoi du message
                     </button>
                     <input type="text" name="bot" onChange={this.myChangeHandler} style={{visibility:"hidden"}}/> 
                   </p>
