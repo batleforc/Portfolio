@@ -27,7 +27,7 @@ let Profil ={
         //}
     ],
     "RecaptchaKEY":"6LfaTWIUAAAAAPpVwUx-2MD_twYPXkqgU_ZQlaHJ",
-    "ip":"http://localhost:5000"
+    "ip":"http://localhost"
 
 }
 
