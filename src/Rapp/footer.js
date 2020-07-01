@@ -9,7 +9,7 @@ class Footer extends React.Component{
          <div style={{textAlign:"center"}}>
            {Profil.social.map((item)=>{
             return(<a href={item.url} key={item.name} style={{margin:"0px",padding:"0px !important"}} className="w3-bar-item w3-button w3-hover-black">
-            <FontAwesomeIcon icon={item.img}  style={{margin:"0px",padding:"0px !important"}}/>
+            <FontAwesomeIcon icon={item.img}  style={{margin:"0px",padding:"0px !important",fontSize:"38px"}}/>
           </a>)
           })}
           </div>
