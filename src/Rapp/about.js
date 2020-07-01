@@ -49,9 +49,11 @@ class About extends React.Component{
                 Nouvelles idées de projet et solutions
               </div>
             </div>
-            <button className="w3-button w3-light-grey w3-padding-large w3-section">
+           <div style={{textAlign:"center"}}>
+            <button className="w3-button w3-light-grey w3-padding-large w3-section" >
               <a href="media/cv.pdf" target="_blank" download="CvMaximeLeriche.pdf"><FontAwesomeIcon icon={["fas","download"]}/> Mon CV</a>
             </button>
+           </div>
          </div>
         )
     }
