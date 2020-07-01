@@ -26,19 +26,20 @@ class Projet extends React.Component{
        return( 
            <div className="w3-content w3-justify w3-text-grey w3-padding-64" id="projets">
                  <h2 className="w3-text-light-grey">Mes projets </h2>
-                 
                  <hr style={{width:"200px"}} className="w3-opacity"/>
-                  {this.state.test==""?"":<h1>{this.state.test}</h1>}
-                 <div className="w3-row-padding" style={{margin:"0 -16px"}}>
-                 {this.state.Projet.map((value,index)=>{
-                  var todisplay = value.img==""?<FontAwesomeIcon icon={['fas','lightbulb']} size="10x" style={{display:"block",margin:"auto"}}/>:<img src={value.img}/>
-                 return(<div key={value.slug} className="w3-half" style={{display:"inline-block",background:'#222',width:"45%",margin:"2.5%",padding:"8px"}}><a href={"/projet/"+value.slug}>
-                   {todisplay}
-                   <p style={{textAlign:"center"}}>{value.name}</p>
-                   </a>
-                   </div>)
-                })}
+                 <div className="projWrapper">
+                   <div className="projGrid">
+                   {this.state.Projet.map((value,index)=>{
+                    var todisplay = value.img==""?<FontAwesomeIcon icon={['fas','lightbulb']} size="10x" style={{display:"block",margin:"auto"}}/>:<img src={value.img}/>
+                   return(<div key={value.slug} className="projItem" style={{display:"inline-block",background:'#222',margin:"2.5%",padding:"8px",height:"fit-content"}}><a href={"/projet/"+value.slug}>
+                     {todisplay}
+                     <p style={{textAlign:"center"}}>{value.name}</p>
+                     </a>
+                     </div>)
+                  })}
+                   </div>
                 </div>
+                
             </div>)
     }
 }
