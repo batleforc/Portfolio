@@ -3,20 +3,12 @@ const express = require('express');
 const app = express();
 const http = require(`http`).createServer(app);
 const path = require(`path`);
-var SibApiV3Sdk = require('sib-api-v3-sdk');
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 const Config = require('./Config.all')
+const fetch = require("node-fetch");
 
-var defaultClient = SibApiV3Sdk.ApiClient.instance;
-var apiKey = defaultClient.authentications['api-key'];
-apiKey.apiKey = Config.mail.apikey;
-var apiInstance = new SibApiV3Sdk.EmailCampaignsApi();
-var emailCampaigns = new SibApiV3Sdk.CreateEmailCampaign();
-emailCampaigns.name = "Email sent via the form of weebo.Fr";
-emailCampaigns.subject = 'Form sended';
-emailCampaigns.sender = {"name": "Maxime", "email":"maxleriche.60@gmail.com"};
-emailCampaigns.type = "classic";
+
 
 const port = process.env.PORT || 5000;
 const client = new MongoClient(Config.mongo.url);
@@ -82,19 +74,32 @@ app.get('/notif',(req,res)=>{
     });
     return res.status(200).send("Send")
 })
-app.post('/mail',(req,res)=>{
+app.post('/mail',async (req,res)=>{
   console.log(req.body)
   if(req.body.Name&&req.body.Email&&req.body.Subject&&req.body.Message){
-    emailCampaigns.htmlContent= `You have received a new message from your website contact form.\n\nHere are the details:\n\nName: ${req.body.Name}\n\nEmail: ${req.body.Email}${req.body.Phone?"\n\nPhone:"+req.body.phone:""}\n\nMessage:\n${req.body.Message}`;
-    apiInstance.createEmailCampaign(emailCampaigns).then(function(data) {
-      console.log('API called successfully. Returned data: ' + data);
-      console.log(emailCampaigns.htmlContent);
-      res.status(200)
-      }, function(error) {
-      console.error(error);
-      res.status(400).send(error)
-      });
-      return;
+    var options = {
+      method: 'POST',
+      url: 'https://api.sendinblue.com/v3/smtp/email',
+      headers: {
+        accept: 'application/json',
+        'content-type': 'application/json',
+        'api-key': Config.mail.apikey
+      },
+      body: JSON.stringify({
+        sender: {email: 'maxime@maxleriche.tech'},
+        to: [{email: 'maxleriche.60@gmail.com', name: 'maxime'}],
+        replyTo: {email: 'maxime@maxleriche.tech', name: 'maxime'},
+        textContent:`You have received a new message from your website contact form.\n\nHere are the details:\n\nName: ${req.body.Name}\n\nEmail: ${req.body.Email}${req.body.Telephone?"\n\nPhone:"+req.body.Telephone:""}\n\nMessage:\n${req.body.Message}`,
+        subject: 'Message en provenance de maxleriche.tech'
+      })
+};
+    const response = await fetch( 'https://api.sendinblue.com/v3/smtp/email',options);
+    const body=await response.json();
+    console.log(response)
+    console.log(body)
+      if (!response.ok) return res.status(400).json(response.statusText+ body);
+      return res.status(200).send(body)
+    
   }
   res.status(400).send("Bad request arg isnt well formed")
 })
