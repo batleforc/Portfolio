@@ -57,11 +57,14 @@ app.post('/subscribe',(req,res)=>{
     });
 })
 app.post('/unsubscribe',(req,res)=>{
-  const mail = req.body.mail;
+  const mail ={mail: req.body.mail}
   if(mail==null){
-    return res.status(400).json("Mail non présent")
+    if(req.body.endpoint==null){
+      return res.status(400).json("Mail non présent")
+    }
+   mail={"endpoint":req.body.endpoint}
   }
-  Projet.collection(Config.mongo.notif).deleteOne({mail:""},function(err,result){
+  Projet.collection(Config.mongo.notif).deleteOne({mail},function(err,result){
     assert.equal(err,null);
     res.status(200).json("Unsubscribe done")
   })

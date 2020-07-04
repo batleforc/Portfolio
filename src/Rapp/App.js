@@ -1,29 +1,36 @@
 import React, { Suspense } from 'react';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Profil from './ResumeData';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { BrowserRouter as Router, Switch, Route,Redirect } from "react-router-dom";
 import Nav from './nav';
 import About from './about';
 import Contact from './contact'
 import Footer from './footer'
 import Projet from "./projet"
 import DisplayProjet from './DisplayProjet'
-
+import Unsubscribe from './unsubscribe'
 function article(props) {
     return(<DisplayProjet slug={props.match.params.id}/>)
-  }
+}
+
 
 class App extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            notification:false
+            notification:false,
+            where:"home"
         }
+        this._setwaypoint = this._setwaypoint.bind(this)
     }
 
     componentDidMount(){
 
     }
+
+    _setwaypoint(text){
+        if(this.state.where!=text)
+        this.setState({"where":text})
+    }
+
     render(){
         // <img src={Profil.img} alt="boy" className="w3-image" width="992" height="1108"/>
         //<img src="media/morpheus.png" alt="boy" className="w3-image" width="992" height="1108" style={{display:"block",marginLeft:"auto",marginRight:"auto"}} useMap="#image-map"/>
@@ -57,6 +64,7 @@ class App extends React.Component{
                 <Contact/>
                 </Route>
                 <Route path="/projet/:id" component={article} />
+                <Route path="/notif/unsubscribe" component={Unsubscribe} />
                 <Footer/>
                 </div>
             </div>
