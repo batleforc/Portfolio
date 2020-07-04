@@ -3,7 +3,7 @@
     "gcm_sender_id":"180169598396",
     "short_name": "MLeriche",
     "lang": "fr-FR",
-    "start_url": "/index.html",
+    "start_url": "/",
     "display": "standalone",
     "theme_color": "#0000",
     "background_color": "#565554",

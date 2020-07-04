@@ -1,3 +1,4 @@
+git pull
 docker container stop portfolio
 docker container rm portfolio
 docker build -t batlefroc/portfolio .
