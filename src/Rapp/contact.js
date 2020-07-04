@@ -28,7 +28,7 @@ class Contact extends React.Component{
       event.preventDefault();
       if(this.recaptchaRef.current.getValue()!=""){
         console.log(this.state)
-        fetch('http://localhost:5000/mail', {
+        fetch(Profil.ip+'/mail', {
           method: 'post',
           headers: {
             'Content-Type': 'application/json'
