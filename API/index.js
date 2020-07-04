@@ -70,13 +70,15 @@ app.post('/unsubscribe',(req,res)=>{
 app.get('/notif',(req,res)=>{
     const payload = JSON.stringify({"body": "test","title": "Maxleriche",	"action": [{"action": "explore","title": "Go to the site"},{"action": "close","title": "Close the notification"}]});
     Projet.collection(Config.mongo.notif).find({}).toArray(function(err,docs){
-      docs.array.forEach(element => {
+      if(err) return res.status(400).send("Max ta fait de la merdeeeeeee");
+      docs.forEach(element => {
         webpush.sendNotification(element,payload).catch(error=>{
           console.error(error.stack)
       });
       });
+      return res.status(200).send("Send")
     })
-    return res.status(200).send("Send")
+   
 })
 app.post('/mail',async (req,res)=>{
   console.log(req.body)
