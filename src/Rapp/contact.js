@@ -26,19 +26,18 @@ class Contact extends React.Component{
       }
     submitform(event){
       event.preventDefault();
+      const that = this;
       if(this.recaptchaRef.current.getValue()!=""){
-        console.log(this.state)
         fetch(Profil.ip+'/mail', {
           method: 'post',
           headers: {
             'Content-Type': 'application/json'
         },
-          body: JSON.stringify({Name:this.state.Name,Email:this.state.Email,Message:this.state.Message,Subject:this.state.Subject,Telephone:this.state.Telephone})
+          body: JSON.stringify({Name:this.state.Name,Email:this.state.Email,Message:this.state.Message,Subject:this.state.Subject,Telephone:this.state.Telephone,captcha:this.recaptchaRef.current.getValue()})
         }).then(function(response) {
           return response.json();
         }).then(function(data) {
-          this.setState({"status":"Formulaire envoyer"})
-          console.log(data)
+          that.setState({"status":"Formulaire envoyer"})
         }).catch(function(error){console.log(error)})
         this.setState({"status":""})
       }else{

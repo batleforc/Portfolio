@@ -85,6 +85,25 @@ app.get('/notif',(req,res)=>{
 })
 app.post('/mail',async (req,res)=>{
   console.log(req.body)
+  if(req.body.captcha){
+    const params = new URLSearchParams();
+    params.append('secret', Config.recaptcha.private);
+    params.append('response', req.body.captcha);
+    params.append('remoteip', req.headers['x-forwarded-for'] || req.connection.remoteAddress);
+    var options = {
+      method: 'POST',
+      url: 'https://www.google.com/recaptcha/api/siteverify',
+      headers: {
+        accept: 'application/json',
+      },
+      body: params
+      };
+      const response = await fetch( 'https://www.google.com/recaptcha/api/siteverify',options);
+    const body=await response.json();
+    console.log(body)
+    if (!response.ok) return res.status(400).json(response.statusText);
+    if(body.success==false) return res.status(401).json(body);
+  }
   if(req.body.Name&&req.body.Email&&req.body.Subject&&req.body.Message){
     var options = {
       method: 'POST',
