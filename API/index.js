@@ -7,7 +7,7 @@ const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 const Config = require('./Config.all')
 const fetch = require("node-fetch");
-
+const bcrypt = require('bcrypt');
 
 
 const port = process.env.PORT || 5000;
@@ -70,8 +70,12 @@ app.post('/unsubscribe',(req,res)=>{
   })
 })
 
-app.get('/notif',(req,res)=>{
-    const payload = JSON.stringify({"body": "test","title": "Maxleriche",	"action": [{"action": "explore","title": "Go to the site"},{"action": "close","title": "Close the notification"}]});
+app.post('/notif',(req,res)=>{
+  if(!req.body.mdp) return res.status(418).json({"status":"Dont dream you are just a teapot"})
+  bcrypt.compare(req.body.mdp, Config.password.hash, function(err, result) {
+    if(err) return res.status(400).json(err);
+    if(result){
+      const payload = JSON.stringify({"body": "test","title": "Maxleriche",	"action": [{"action": "explore","title": "Go to the site"},{"action": "close","title": "Close the notification"}]});
     Projet.collection(Config.mongo.notif).find({}).toArray(function(err,docs){
       if(err) return res.status(400).send("Max ta fait de la merdeeeeeee");
       docs.forEach(element => {
@@ -81,6 +85,12 @@ app.get('/notif',(req,res)=>{
       });
       return res.status(200).send("Send")
     })
+    }
+    else{
+      return res.status(418).json(JSON.stringify({status:"Dont dream you are just a teapot"}))
+    }
+  });
+    
    
 })
 app.post('/mail',async (req,res)=>{
@@ -152,10 +162,24 @@ app.post('/projet',(req,res)=>{
     res.status(200).json(docs);
   })
 })
+app.post('/projet/create',(req,res)=>{
+  if(!req.body.mdp) return res.status(418).json({"status":"Dont dream you are just a teapot"})
+  bcrypt.compare(req.body.mdp, Config.password.hash, function(err, result) {
+    if(err) return res.status(400).json(err);
+    if(result){
+
+    }
+    else{
+      return res.status(418).json(JSON.stringify({status:"Dont dream you are just a teapot"}))
+    }
+  });
+})
 
 app.get(`*`, (req,res) =>{
   res.sendFile(path.join(__dirname+`/../dist/index.html`));
 });
+
+
 
 http.listen(port);
 console.log("app is listening on port "+port)
