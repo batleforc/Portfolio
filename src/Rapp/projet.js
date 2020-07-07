@@ -29,6 +29,7 @@ class Projet extends React.Component{
                  <hr style={{width:"200px"}} className="w3-opacity"/>
                  <div className="projWrapper">
                    <div className="projGrid">
+                   {this.state.Projet.length==0&&<h3 style={{textAlign:"center"}}>Aucun projet n'est actuellement accessible</h3>}
                    {this.state.Projet.map((value,index)=>{
                     var todisplay = value.img==""?<FontAwesomeIcon icon={['fas','lightbulb']} size="5x" style={{display:"block",margin:"auto"}}/>:<img src={value.img}/>
                    return(<div key={value.slug} className="projItem" style={{display:"inline-block",background:'#222',margin:"2.5%",padding:"8px",height:"fit-content"}}><a href={"/projet/"+value.slug}>

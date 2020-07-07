@@ -7,6 +7,7 @@ import Footer from './footer'
 import Projet from "./projet"
 import DisplayProjet from './DisplayProjet'
 import Unsubscribe from './unsubscribe'
+import EditProjets from'./EditProjet'
 
 function article(props) {
     return(<DisplayProjet slug={props.match.params.id}/>)
@@ -30,11 +31,11 @@ class App extends React.Component{
     componentDidMount(){
         if(this.arewehome()){
             const notification =new IntersectionObserver(this.setwaypoint, {root:null,rootMargin:"0px",threshold:0.75});
-       notification.observe(document.getElementById("home"))
-       notification.observe(document.getElementById("about"))
-       notification.observe(document.getElementById("projets"))
-       notification.observe(document.getElementById("notif"))
-       notification.observe(document.getElementById("contact"))
+            notification.observe(document.getElementById("home"))
+            notification.observe(document.getElementById("about"))
+            notification.observe(document.getElementById("projets"))
+            notification.observe(document.getElementById("notif"))
+            notification.observe(document.getElementById("contact"))
         }
     }
 
@@ -76,7 +77,8 @@ class App extends React.Component{
                 </div>
                 <Contact/>
                 </Route>
-                <Route path="/projet/:id" component={article} />
+                <Route path="/projetcreate/" component={EditProjets}  />
+                <Route path="/projet/:id" component={article}  exact strict />
                 <Route path="/notif/unsubscribe" component={Unsubscribe} />
                 <Footer/>
                 </div>

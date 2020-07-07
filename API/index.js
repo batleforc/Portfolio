@@ -8,6 +8,7 @@ const assert = require('assert');
 const Config = require('./Config.all')
 const fetch = require("node-fetch");
 const bcrypt = require('bcrypt');
+const linkPreviewGenerator = require("link-preview-generator");
 
 
 const port = process.env.PORT || 5000;
@@ -156,18 +157,27 @@ app.get('/projet/count',(req,res)=>{
 })
 app.post('/projet',(req,res)=>{
   const projet = req.body.proj;
-  console.log(projet)
   Projet.collection(Config.mongo.article).find({slug:projet}).toArray(function(err,docs){
     assert.equal(err,null);
+    console.log(docs)
     res.status(200).json(docs);
   })
 })
-app.post('/projet/create',(req,res)=>{
+
+app.post('/projet/creadit',async (req,res)=>{
   if(!req.body.mdp) return res.status(418).json({"status":"Dont dream you are just a teapot"})
   bcrypt.compare(req.body.mdp, Config.password.hash, function(err, result) {
     if(err) return res.status(400).json(err);
-    if(result){
-
+    if(result&&req.body.pslug&&req.body.pname&&req.body.data){
+      Projet.collection(Config.mongo.article).updateOne(
+        {slug:req.body.pslug},
+        {$set:{name:req.body.pname,slug:req.body.pslug,data:req.body.data,img:""}},
+        {upsert:true},
+        function(err,r){
+          assert.equal(null,err)
+          console.log(r)
+          res.status(200).json(JSON.stringify({"status":"ALL IS GREEN"}))
+      })
     }
     else{
       return res.status(418).json(JSON.stringify({status:"Dont dream you are just a teapot"}))
@@ -175,9 +185,30 @@ app.post('/projet/create',(req,res)=>{
   });
 })
 
-app.get(`*`, (req,res) =>{
-  res.sendFile(path.join(__dirname+`/../dist/index.html`));
-});
+app.get('/preview',async (req,res)=>{
+  console.log(req.query)
+  var url = req.query.url;
+  url = url.includes('http')?url:"https://"+url;
+  var previewdata= await linkPreviewGenerator(url);
+  if(previewdata){
+    var response={
+      "success" : 1,
+      "meta": {
+          "title" : previewdata.title,
+          "domaine":previewdata.domain,
+          "description" :previewdata.description,
+          "image" : {
+              "url" : previewdata.img
+          },
+          "url":url
+      }
+  }
+  return res.status(200).json(response)
+  }
+  return res.status(404).json(JSON.stringify({success:0}));
+})
+
+app.get(`*`, (req,res) =>{ res.sendFile(path.join(__dirname+`/../dist/index.html`));});
 
 
 
