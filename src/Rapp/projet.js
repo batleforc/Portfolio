@@ -32,7 +32,7 @@ class Projet extends React.Component{
                    {this.state.Projet.length==0&&<h3 style={{textAlign:"center"}}>Aucun projet n'est actuellement accessible</h3>}
                    {this.state.Projet.map((value,index)=>{
                     var todisplay = value.img==""?<FontAwesomeIcon icon={['fas','lightbulb']} size="5x" style={{display:"block",margin:"auto"}}/>:<img src={value.img}/>
-                   return(<div key={value.slug} className="projItem" style={{display:"inline-block",background:'#222',margin:"2.5%",padding:"8px",height:"fit-content"}}><a href={"/projet/"+value.slug}>
+                   return(<div key={value.slug} className="projItem" style={{display:"inline-block",background:'#222',margin:"2.5%",height:"fit-content",paddingTop:"20px",paddingBottom:"6px"}}><a href={"/projet/"+value.slug}>
                      {todisplay}
                      <p style={{textAlign:"center"}}>{value.name}</p>
                      </a>
