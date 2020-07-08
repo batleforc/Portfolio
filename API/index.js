@@ -9,6 +9,7 @@ const Config = require('./Config.all')
 const fetch = require("node-fetch");
 const bcrypt = require('bcrypt');
 const linkPreviewGenerator = require("link-preview-generator");
+const {getLinkPreview} =require('link-preview-js');
 
 
 const port = process.env.PORT || 5000;
@@ -189,23 +190,28 @@ app.get('/preview',async (req,res)=>{
   console.log(req.query)
   var url = req.query.url;
   url = url.includes('http')?url:"https://"+url;
-  var previewdata= await linkPreviewGenerator(url);
-  if(previewdata){
-    var response={
-      "success" : 1,
-      "meta": {
-          "title" : previewdata.title,
-          "domaine":previewdata.domain,
-          "description" :previewdata.description,
-          "image" : {
-              "url" : previewdata.img
-          },
-          "url":url
+  getLinkPreview(url)
+    .then(data=>{
+      console.log(data)
+      if(data){
+        var response={
+          "success" : 1,
+          "meta": {
+              "title" : data.title,
+              "domaine":data.url.replace('http://',"").replace('https://',"").replace('/*',""),
+              "description" :data.description,
+              "image" : {
+                  "url" : data.images[0]?data.images[0]:data.favicons[0]?data.favicons[0]:""
+              },
+              "url":url
+          }
       }
-  }
-  return res.status(200).json(response)
-  }
-  return res.status(404).json(JSON.stringify({success:0}));
+      console.log(data);
+      return res.status(200).json(response)
+      }
+    }).catch(err=>{
+      return res.status(404).json(JSON.stringify({success:0}));
+    })
 })
 
 app.get(`*`, (req,res) =>{ res.sendFile(path.join(__dirname+`/../dist/index.html`));});
