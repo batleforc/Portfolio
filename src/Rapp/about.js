@@ -8,7 +8,7 @@ class About extends React.Component{
             <div className="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
             <h2 className="w3-text-light-grey">Qui suis je ? </h2>
             <hr style={{width:"200px"}} className="w3-opacity"/>
-            <p> Un etudiant en Fin de DUT informatique. Entre le développeur Back et Front soupoudrer d'un fan d'inphra.</p>
+            <p> Un etudiant en fin de DUT informatique. Entre le développeur Back et Front soupoudrer d'un fan d'infra.</p>
             <h3 className="w3-padding-16 w3-text-light-grey">Quelque Techno</h3>
             <p className="w3-wide">Core</p>
             <div className="w3-white" style={{paddingLeft:"10px"}}>
@@ -27,13 +27,13 @@ class About extends React.Component{
             MariaDB,MongoDB
             </div>
             <p className="w3-text-light-grey">
-            Il est bien beaux de seulement citer des Techno alors je vous invite a vous rendre sur mes git accessible dans le menu a droite afin de vous faire une idée de ce que j'ai pus effectuer avec ces techno
+            Il est bien beau de seulement citer des techno alors je vous invite à vous rendre sur mes gits accessibles dans le menu à droite afin de vous faire une idée de ce que j'ai pu effectuer avec ces techno
             </p>
             <br/>
             <h3 className="w3-padding-16 w3-text-light-grey">Quelque chiffre</h3>
             <div className="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
               <div className="w3-quarter w3-section">
-                <span className="w3-xlarge">5</span><br/>
+                <span className="w3-xlarge">3</span><br/>
                 Projet actif
               </div>
               <div className="w3-quarter w3-section">
@@ -42,7 +42,7 @@ class About extends React.Component{
               </div>
               <div className="w3-quarter w3-section">
                 <span className="w3-xlarge">7</span><br/>
-                Language pratiquer
+                Language utiliser
               </div>
               <div className="w3-quarter w3-section">
                 <span className="w3-xlarge">100+</span><br/>

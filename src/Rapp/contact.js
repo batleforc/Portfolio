@@ -54,7 +54,7 @@ class Contact extends React.Component{
                   <p><FontAwesomeIcon icon={["fas","phone"]} className="w3-text-white w3-xxlarge w3-margin-right"/> Phone: +33 6 01 09 57 40</p>
                   <p><FontAwesomeIcon icon={["fas","envelope"]} className="w3-text-white w3-xxlarge w3-margin-right"/> Email: maxime.lerichepro@gmail.com</p>
                 </div><br/>
-                <p>Envie de me contacter? Uttilise ce formulaire:</p>
+                <p>Envie de me contacter? Utilise ce formulaire:</p>
 
                 <form onSubmit={this.submitform}>
                   <p><input className="w3-input w3-padding-16" type="text" placeholder="Nom" required name="Name" onChange={this.myChangeHandler}/></p>
