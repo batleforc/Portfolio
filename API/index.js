@@ -8,7 +8,6 @@ const assert = require('assert');
 const Config = require('./Config.all')
 const fetch = require("node-fetch");
 const bcrypt = require('bcrypt');
-const linkPreviewGenerator = require("link-preview-generator");
 const {getLinkPreview} =require('link-preview-js');
 
 
