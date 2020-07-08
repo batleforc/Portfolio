@@ -35,7 +35,7 @@ class DisplayProjet extends React.Component{
         {this.state.Projet[0]&&this.state.Projet[0].data.blocks.map(function(value,index){
           var render
           if(value.type=="header"){
-             render =value.data.level==1?<h1 key={value.data.text}>{value.data.text}</h1>:value.data.level==2?<h2 key={value.data.text}>{value.data.text}</h2>:value.data.level==3?<h3 key={value.data.text}>{value.data.text}</h3>:value.data.level==4?<h4 key={value.data.text}>{value.data.text}</h4>:<h5 key={value.data.text}>{value.data.level}</h5>;
+             render =value.data.level==1?<h1 key={value.data.text}>{parse(value.data.text)}</h1>:value.data.level==2?<h2 key={value.data.text}>{value.data.text}</h2>:value.data.level==3?<h3 key={value.data.text}>{value.data.text}</h3>:value.data.level==4?<h4 key={value.data.text}>{value.data.text}</h4>:<h5 key={value.data.text}>{value.data.level}</h5>;
           }
           else if (value.type=="list"){
             render=<ul key={value.data.style}>{value.data.items.map(function(item){
@@ -46,7 +46,7 @@ class DisplayProjet extends React.Component{
             render=<UrlPreview key={value.data} info={value.data} />
           }
           else if(value.type=="paragraph"){
-            render = <p key={value.data.text}>{value.data.text}</p>
+            render = <p key={value.data.text}>{parse(value.data.text)}</p>
           }
           else if(value.type=="table"){
             render=(
