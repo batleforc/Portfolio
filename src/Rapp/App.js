@@ -30,7 +30,7 @@ class App extends React.Component{
 
     componentDidMount(){
         if(this.arewehome()){
-            const notification =new IntersectionObserver(this.setwaypoint, {root:null,rootMargin:"0px",threshold:0.75});
+            const notification =new IntersectionObserver(this.setwaypoint, {root:null,rootMargin:"0px",threshold:0.55});
             notification.observe(document.getElementById("home"))
             notification.observe(document.getElementById("about"))
             notification.observe(document.getElementById("projets"))

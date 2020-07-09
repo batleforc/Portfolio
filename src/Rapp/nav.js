@@ -21,11 +21,11 @@ class Nav extends React.Component{
                 <p>ABOUT</p>
               </a>}
               {this.arewehome()&&<a href="#projets" key="projets"className={this.props.where=="projets"?  "w3-bar-item w3-button w3-padding-large w3-black":"w3-bar-item w3-button w3-padding-large w3-hover-black"}>
-                <FontAwesomeIcon icon={['fas',"cogs"]} style={{fontSize:"36px"}}/>
+                <FontAwesomeIcon className="w3-xxlarge" icon={['fas',"cogs"]}/>
                 <p>PROJET</p>
               </a>}
               {this.arewehome()&&<a href="#notif" key="notif" className={this.props.where=="notif"?  "w3-bar-item w3-button w3-padding-large w3-black":"w3-bar-item w3-button w3-padding-large w3-hover-black"}>
-              <FontAwesomeIcon icon={['fas','bell']} style={{fontSize:"36px"}}/>
+              <FontAwesomeIcon className="w3-xxlarge" icon={['fas','bell']} />
                 <p>NOTIF</p>
               </a>}
               {this.arewehome()&&<a href="#contact" key="contact" className={this.props.where=="contact"?  "w3-bar-item w3-button w3-padding-large w3-black":"w3-bar-item w3-button w3-padding-large w3-hover-black"}>
@@ -40,18 +40,13 @@ class Nav extends React.Component{
               })}
 
             </nav>
-            <div className="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
-              <div className="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
-              <a href={this.arewehome()?"#":"/"}className="w3-bar-item w3-button" style={{width:"% !important"}}>HOME</a>
-              {this.arewehome()&&<a href="#about" className="w3-bar-item w3-button" style={{width:"% !important"}}>ABOUT</a>}
-              {this.arewehome()&& <a href="#projets" className="w3-bar-item w3-button" style={{width:"% !important"}}>PROJET</a>}
-              {this.arewehome()&&<a href="#contact" className="w3-bar-item w3-button" style={{width:"% !important"}}>CONTACT</a>}
+            <div className="w3-bottom w3-hide-large w3-hide-medium" id="myNavbar" style={{right:"0",left:"0"}}>
+              <div className="w3-bar w3-grey w3-opacity-min w3-hover-opacity-off w3-center w3-small">
+              <a href={this.arewehome()?"#":"/"} className={this.props.where=="home"?"w3-bar-item w3-button w3-dark-grey":"w3-bar-item w3-button"} style={{width:"% !important",marginTop:"0px",marginBottom:"0px",paddingBottom:"2px"}}><FontAwesomeIcon  icon={["fas","home"]}/><p style={{marginTop:"10px",marginBottom:"10px"}}>HOME</p></a>
+              {this.arewehome()&&<a href="#about" className={this.props.where=="about"?"w3-bar-item w3-button w3-dark-grey":"w3-bar-item w3-button"} style={{width:"% !important",marginTop:"0px",marginBottom:"0px",paddingBottom:"2px"}}> <FontAwesomeIcon  icon={["fas","user"]}/><p style={{marginTop:"10px",marginBottom:"10px"}}>ABOUT</p></a>}
+              {this.arewehome()&& <a href="#projets" className={this.props.where=="projets"?"w3-bar-item w3-button w3-dark-grey":"w3-bar-item w3-button"} style={{width:"% !important",marginTop:"0px",marginBottom:"0px",paddingBottom:"2px"}}><FontAwesomeIcon icon={['fas',"cogs"]} /><p style={{marginTop:"10px",marginBottom:"10px"}}>PROJET</p></a>}
+              {this.arewehome()&&<a href="#contact" className={this.props.where=="contact"?"w3-bar-item w3-button w3-dark-grey":"w3-bar-item w3-button"} style={{width:"% !important",marginTop:"0px",marginBottom:"0px",paddingBottom:"2px"}}><FontAwesomeIcon  icon={["fas","envelope"]}/><p style={{marginTop:"10px",marginBottom:"10px"}}>CONTACT</p></a>}
                 
-              </div>
-              <div className="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
-              {Profil.social.map((item)=>{
-                   return( <a href={item.url} key={item.name} className="w3-bar-item w3-button" style={{width:"% !important"}}>{item.name}</a>)
-                })}
               </div>
             </div>
             </div>
