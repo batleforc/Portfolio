@@ -13,7 +13,7 @@ class Footer extends React.Component{
           </a>)
           })}
           </div>
-           <p className="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" className="w3-hover-text-green">w3.css</a>
+           <p className="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" rel="noreferrer" className="w3-hover-text-green">w3.css</a>
             {" "}and modified by Batleforc with <FontAwesomeIcon icon={['fas','heart']}/> and too much  <FontAwesomeIcon icon={['fas','coffee']}/>
            </p>
            <p className="w3-medium"><a href="https://github.com/batleforc/Portfolio/projects/1"> Est le site est toujous en développement si tu veux voir ou en est le développement clic ici</a></p>
