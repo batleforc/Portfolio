@@ -45,6 +45,7 @@ module.exports = ({mode,presets}) =>{
                     {from: 'src/Notif.js', to:'Notif.js'},
                     {from:'src/Rapp', to:'Rapp/'},
                     {from:'src/styles', to:'styles/'},
+                    {from:'src/.well-known/assetlinks.json', to:'.well-known/assetlinks.json'},
                 ]
             }),
         ],
