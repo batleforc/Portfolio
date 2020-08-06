@@ -20,7 +20,17 @@ class Projet extends React.Component{
     .then((data)=>{
       this.setState({Projet:data});
       this.setState({test:""});
-    }).catch((res)=>this.setState({test:"Le serveur contenant les information des projet est innaccessible veuillez verifier votre connexion: " + res}))
+      localStorage.setItem("Projet",JSON.stringify(data));
+    }).catch((res)=>{
+      if(localStorage.getItem("Projet"))
+      {
+        var swap = JSON.parse(localStorage.getItem("Projet"));
+        this.setState({Projet:swap});
+        this.setState({test:""});
+
+      }else
+      this.setState({test:"Le serveur contenant les information des projet est innaccessible veuillez verifier votre connexion: " + res})
+    })
   }
     render(){
        return( 

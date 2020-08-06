@@ -61,7 +61,7 @@ class App extends React.Component{
                 <header className="w3-container w3-padding-32 w3-center w3-black" id="home">
                        <h1 className="w3-jumbo"><span className="w3-hide-small"></span> Maxime Leriche.</h1>
                        <p>Developpeur et Etudiant</p>
-                 </header>
+                </header>
                 <About/>
                 <Projet/>
                 <div className="w3-content w3-justify" id="notif">

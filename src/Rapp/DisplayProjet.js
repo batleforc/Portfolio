@@ -20,10 +20,18 @@ class DisplayProjet extends React.Component{
       },body:JSON.stringify({proj:this.props.slug})})
     .then(res=>res.json())
     .then((data)=>{
-
       this.setState({Projet:data});
       this.setState({test:""});
-    }).catch((res)=>this.setState({test:"Le serveur contenant les information des projet est innaccessible veuillez verifier votre connexion: " + res}))
+    }).catch((res)=>{
+      if(localStorage.getItem("Projet"))
+      {
+        var swap = []
+        swap.push(JSON.parse(localStorage.getItem("Projet")).find(element=>element.slug==this.props.slug))
+        this.setState({Projet:swap});
+        this.setState({test:""});
+      }else
+      this.setState({test:"Le serveur contenant les information des projet est innaccessible veuillez verifier votre connexion: " + res})
+    })
   }
     render(){
         if(this.state.Projet[0]!=undefined){
@@ -35,7 +43,7 @@ class DisplayProjet extends React.Component{
         {this.state.Projet[0]&&this.state.Projet[0].data.blocks.map(function(value,index){
           var render
           if(value.type=="header"){
-             render =value.data.level==1?<h1 key={value.data.text}>{parse(value.data.text)}</h1>:value.data.level==2?<h2 key={value.data.text}>{value.data.text}</h2>:value.data.level==3?<h3 key={value.data.text}>{value.data.text}</h3>:value.data.level==4?<h4 key={value.data.text}>{value.data.text}</h4>:<h5 key={value.data.text}>{value.data.level}</h5>;
+             render =value.data.level==1?<h1 key={value.data.text+value.data.level}>{parse(value.data.text)}</h1>:value.data.level==2?<h2 key={value.data.text}>{value.data.text}</h2>:value.data.level==3?<h3 key={value.data.text}>{value.data.text}</h3>:value.data.level==4?<h4 key={value.data.text}>{value.data.text}</h4>:<h5 key={value.data.text}>{value.data.level}</h5>;
           }
           else if (value.type=="list"){
             render=<ul key={value.data.style}>{value.data.items.map(function(item){
