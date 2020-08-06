@@ -38,6 +38,7 @@ class DisplayProjet extends React.Component{
             var todisplay = this.state.Projet[0].img==""?<FontAwesomeIcon icon={['fas','lightbulb']} size="10x" style={{display:"block",margin:"auto"}}/>:<img src={this.state.Projet[0].img}/>
         }
        return( <div>
+        {this.state.Projet[0]==undefined&&<h1>Please wait the project is loading {this.state.test}</h1>}
         {todisplay}
         <div style={{textAlign:"left"}} className="w3-padding-64 w3-content">
         {this.state.Projet[0]&&this.state.Projet[0].data.blocks.map(function(value,index){

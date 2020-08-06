@@ -41,12 +41,11 @@ class Nav extends React.Component{
 
             </nav>
             <div className="w3-bottom w3-hide-large w3-hide-medium" id="myNavbar" style={{right:"0",left:"0"}}>
-              <div className="w3-bar w3-grey w3-opacity-min w3-hover-opacity-off w3-center w3-small">
+              <div className="w3-bar w3-grey w3-opacity-min w3-hover-opacity-off w3-center w3-small mobilenavbar">
               <a href={this.arewehome()?"#":"/"} className={this.props.where=="home"?"w3-bar-item w3-button w3-dark-grey":"w3-bar-item w3-button"} style={{width:"% !important",marginTop:"0px",marginBottom:"0px",paddingBottom:"2px"}}><FontAwesomeIcon  icon={["fas","home"]}/><p style={{marginTop:"10px",marginBottom:"10px"}}>HOME</p></a>
               {this.arewehome()&&<a href="#about" className={this.props.where=="about"?"w3-bar-item w3-button w3-dark-grey":"w3-bar-item w3-button"} style={{width:"% !important",marginTop:"0px",marginBottom:"0px",paddingBottom:"2px"}}> <FontAwesomeIcon  icon={["fas","user"]}/><p style={{marginTop:"10px",marginBottom:"10px"}}>ABOUT</p></a>}
               {this.arewehome()&& <a href="#projets" className={this.props.where=="projets"?"w3-bar-item w3-button w3-dark-grey":"w3-bar-item w3-button"} style={{width:"% !important",marginTop:"0px",marginBottom:"0px",paddingBottom:"2px"}}><FontAwesomeIcon icon={['fas',"cogs"]} /><p style={{marginTop:"10px",marginBottom:"10px"}}>PROJET</p></a>}
               {this.arewehome()&&<a href="#contact" className={this.props.where=="contact"?"w3-bar-item w3-button w3-dark-grey":"w3-bar-item w3-button"} style={{width:"% !important",marginTop:"0px",marginBottom:"0px",paddingBottom:"2px"}}><FontAwesomeIcon  icon={["fas","envelope"]}/><p style={{marginTop:"10px",marginBottom:"10px"}}>CONTACT</p></a>}
-                
               </div>
             </div>
             </div>
