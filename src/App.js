@@ -1,13 +1,15 @@
-import React, { Suspense } from 'react';
+import React, { lazy,Suspense } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Nav from './App/nav';
 import About from './App/about';
 import Contact from './App/contact'
-import Footer from './App/footer'
 import Projet from "./App/projet"
-import DisplayProjet from './App/DisplayProjet'
-import Unsubscribe from './App/unsubscribe'
-import EditProjets from'./App/EditProjet'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+const Footer = lazy(() => import( './App/footer'));
+const Nav = lazy(() => import( './App/nav'));
+const DisplayProjet = lazy(() => import('./App/DisplayProjet'));
+const Unsubscribe = lazy(() => import( './App/unsubscribe'));
+const EditProjets = lazy(() => import( './App/EditProjet'));
+
 
 function article(props) {
     return(<DisplayProjet slug={props.match.params.id}/>)
@@ -46,14 +48,9 @@ class App extends React.Component{
     }
 
     render(){
-        // <img src={Profil.img} alt="boy" className="w3-image" width="992" height="1108"/>
-        //<img src="media/morpheus.png" alt="boy" className="w3-image" width="992" height="1108" style={{display:"block",marginLeft:"auto",marginRight:"auto"}} useMap="#image-map"/>
-        var test = new SpeechSynthesisUtterance("Bonjour")
-        test.voice=speechSynthesis.getVoices()[8];
-
         return(
             <Router>
-            <Suspense fallback={<h1> Loading....</h1>}/>
+            <Suspense fallback={<FontAwesomeIcon icon="spinner" spin />}>
             <div style={{width:"100%",textAlign:"center"}}>
                 <Nav where={this.state.where}/>
                 <div className="w3-padding-large" id="main">
@@ -83,6 +80,7 @@ class App extends React.Component{
                 <Footer/>
                 </div>
             </div>
+            </Suspense>
             </Router>
         )
     }
