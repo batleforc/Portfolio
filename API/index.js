@@ -33,7 +33,7 @@ app.use(express.json());
  
 webpush.setGCMAPIKey(Config.notif.gcm);
 webpush.setVapidDetails(Config.notif.mailto,Config.notif.vapid1,Config.notif.vapid2);
-app.use(express.static(path.join(__dirname, `/../dist/`)));
+app.use(express.static(path.join(__dirname, `/../build/`)));
 app.post('/subscribe',(req,res)=>{
     const subscription = req.body;
     res.status(201).json({});
@@ -213,7 +213,7 @@ app.get('/preview',async (req,res)=>{
     })
 })
 
-app.get(`*`, (req,res) =>{ res.sendFile(path.join(__dirname+`/../dist/index.html`));});
+app.get(`*`, (req,res) =>{ res.sendFile(path.join(__dirname+`/../build/index.html`));});
 
 
 
