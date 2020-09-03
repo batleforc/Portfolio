@@ -23,8 +23,6 @@ class App extends React.Component{
             where:"home"
         }
         this.setwaypoint = this.setwaypoint.bind(this)
-        var test = new SpeechSynthesisUtterance("Bonjour")
-        test.voice=speechSynthesis.getVoices()[8];
     }
     arewehome(){
         return window.location.pathname==="/"?true:false;
@@ -49,11 +47,11 @@ class App extends React.Component{
 
     render(){
         return(
-            <Router>
             <Suspense fallback={<FontAwesomeIcon icon="spinner" spin />}>
             <div style={{width:"100%",textAlign:"center"}}>
                 <Nav where={this.state.where}/>
                 <div className="w3-padding-large" id="main">
+                <Router>
                 <Route path="/" exact>
                 <header className="w3-container w3-padding-32 w3-center w3-black" id="home">
                        <h1 className="w3-jumbo"><span className="w3-hide-small"></span> Maxime Leriche.</h1>
@@ -77,11 +75,11 @@ class App extends React.Component{
                 <Route path="/projetcreate/" component={EditProjets}  />
                 <Route path="/projet/:id" component={article}  exact strict />
                 <Route path="/notif/unsubscribe" component={Unsubscribe} />
+                </Router>
                 <Footer/>
                 </div>
             </div>
             </Suspense>
-            </Router>
         )
     }
 }
