@@ -9,6 +9,7 @@ const Config = require('./Config.all')
 const fetch = require("node-fetch");
 const bcrypt = require('bcrypt');
 const {getLinkPreview} =require('link-preview-js');
+const compression = require('compression');
 
 
 const port = process.env.PORT || 5000;
@@ -30,7 +31,7 @@ app.use(function(req, res, next) {
     next();
   });
 app.use(express.json());
- 
+app.use(compression());
 webpush.setGCMAPIKey(Config.notif.gcm);
 webpush.setVapidDetails(Config.notif.mailto,Config.notif.vapid1,Config.notif.vapid2);
 app.use(express.static(path.join(__dirname, `/../build/`)));
