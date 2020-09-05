@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import About from './App/about';
 import Contact from './App/contact'
 import Projet from "./App/projet"
+import Header from './Header'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const Footer = lazy(() => import( './App/footer'));
 const Nav = lazy(() => import( './App/nav'));
@@ -53,10 +54,7 @@ class App extends React.Component{
                 <div className="w3-padding-large" id="main">
                 <Router>
                 <Route path="/" exact>
-                <header className="w3-container w3-padding-32 w3-center w3-black" id="home">
-                       <h1 className="w3-jumbo"><span className="w3-hide-small"></span> Maxime Leriche.</h1>
-                       <p>Developpeur et Etudiant</p>
-                </header>
+                <Header/>
                 <About/>
                 <Projet/>
                 <div className="w3-content w3-justify" id="notif">
