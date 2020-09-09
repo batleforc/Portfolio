@@ -1,6 +1,7 @@
 import React from"react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Profil from './ResumeData';
+import logo from './media/logo.jpeg'
 
 class Nav extends React.Component{
   arewehome(){
@@ -11,7 +12,7 @@ class Nav extends React.Component{
         return(
             <div>
             <nav className="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
-            <img src="/media/android-chrome-192x192.jpeg" style={{width:"100%"}} alt="Logo du projet" />
+            <img src={logo} style={{width:"100%"}} alt="Logo du projet" />
             <a href={this.arewehome()?"#":"/"} key="/" className={this.props.where==="home"?  "w3-bar-item w3-button w3-padding-large w3-black":"w3-bar-item w3-button w3-padding-large w3-hover-black"}> 
               <FontAwesomeIcon className="w3-xxlarge" icon={["fas","home"]}/>
               <p>HOME</p>

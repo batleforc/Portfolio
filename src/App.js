@@ -5,6 +5,8 @@ import Contact from './App/contact'
 import Projet from "./App/projet"
 import Header from './Header'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import morpheus_left from './App/media/morpheus_left.png'
+import morpheus_right from './App/media/morpheus_right.png'
 const Footer = lazy(() => import( './App/footer'));
 const Nav = lazy(() => import( './App/nav'));
 const DisplayProjet = lazy(() => import('./App/DisplayProjet'));
@@ -64,8 +66,8 @@ class App extends React.Component{
                     <h2>Choisi la pilule bleue et tout s'arrête, après tu pourras faire de beaux rêves et ne jamais avoir de notification de ma part.</h2>
                     <h2>Choisi la pilule rouge et active les notifications afin d'en savoir plus sur ce que je fais et peut-être découvrir des choses qui changeront ma vie.</h2>
                     <div width="932" height="1048" className="morpheus" style={{display:"inline-flex",marginLeft:"auto",marginRight:"auto",overflow:"hidden"}}>
-                        <img src="media/morpheus_left.png" alt="boy" className="w3-image" width="466" height="1048" onClick={function(){Notification.requestPermission().then(alert("Merci d'avoir activer les notification"));}}/>
-                        <img src="media/morpheus_right.png" alt="boy" className="w3-image" width="466" height="1048" onClick={function(){alert("Vous ne voulez vraiment pas de mes notification ?");}}/>
+                        <img src={morpheus_left} alt="boy" className="w3-image" width="466" height="1048" onClick={function(){Notification.requestPermission().then(alert("Merci d'avoir activer les notification"));}}/>
+                        <img src={morpheus_right} alt="boy" className="w3-image" width="466" height="1048" onClick={function(){alert("Vous ne voulez vraiment pas de mes notification ?");}}/>
                     </div>
                 </div>
                 <Contact/>
