@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import './styles/main.css'
-import './styles/api.css'
 import './styles/w3.css'
+import './styles/api.css'
+
 //import reportWebVitals from './reportWebVitals';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
