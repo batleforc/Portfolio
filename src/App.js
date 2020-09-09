@@ -12,7 +12,7 @@ const Nav = lazy(() => import( './App/nav'));
 const DisplayProjet = lazy(() => import('./App/DisplayProjet'));
 const Unsubscribe = lazy(() => import( './App/unsubscribe'));
 const EditProjets = lazy(() => import( './App/EditProjet'));
-import '/media/maskicon.png'
+import './App/media/maskicon.png'
 
 
 function article(props) {
