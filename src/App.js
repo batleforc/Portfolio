@@ -7,12 +7,13 @@ import Header from './Header'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import morpheus_left from './App/media/morpheus_left.png'
 import morpheus_right from './App/media/morpheus_right.png'
+import './App/media/maskicon.png'
 const Footer = lazy(() => import( './App/footer'));
 const Nav = lazy(() => import( './App/nav'));
 const DisplayProjet = lazy(() => import('./App/DisplayProjet'));
 const Unsubscribe = lazy(() => import( './App/unsubscribe'));
 const EditProjets = lazy(() => import( './App/EditProjet'));
-import './App/media/maskicon.png'
+
 
 
 function article(props) {
