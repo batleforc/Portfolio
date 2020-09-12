@@ -51,9 +51,9 @@ class App extends React.Component{
     }
     navclick=(event)=>{
         var name = event.target.name?event.target.name:event.currentTarget.name
-        console.log(name)
-        
-        this.setState({"where":name})
+        setTimeout( ()=> {
+            this.setState({"where":name})
+        }, 50);
     }
 
     render(){
