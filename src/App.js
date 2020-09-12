@@ -49,12 +49,18 @@ class App extends React.Component{
         if(this.state.where!==text)
         this.setState({"where":text})
     }
+    navclick=(event)=>{
+        var name = event.target.name?event.target.name:event.currentTarget.name
+        console.log(name)
+        
+        this.setState({"where":name})
+    }
 
     render(){
         return(
             <Suspense fallback={<FontAwesomeIcon icon="spinner" spin />}>
             <div style={{width:"100%",textAlign:"center"}}>
-                <Nav where={this.state.where}/>
+                <Nav where={this.state.where} Click={this.navclick} />
                 <div className="w3-padding-large" id="main">
                 <Router>
                 <Route path="/" exact>
