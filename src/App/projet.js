@@ -10,7 +10,7 @@ class Projet extends React.Component{
       test:""
     }
     if(localStorage.getItem("Projet"))
-    this.state.Projet=(JSON.parse(localStorage.getItem("Projet")))
+      this.state.Projet=(JSON.parse(localStorage.getItem("Projet")))
   }
 
   componentDidMount(){
@@ -32,7 +32,7 @@ class Projet extends React.Component{
         this.setState({test:""});
 
       }else
-      this.setState({test:"Le serveur contenant les information des projet est innaccessible veuillez verifier votre connexion: " + res})
+        this.setState({test:"Le serveur contenant les information des projet est innaccessible veuillez verifier votre connexion: " + res})
     })
   }
     render(){

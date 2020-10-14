@@ -47,7 +47,7 @@ class App extends React.Component{
     setwaypoint(entries){
         var text = entries[0].target.id
         if(this.state.where!==text)
-        this.setState({"where":text})
+            this.setState({"where":text})
     }
     navclick=(event)=>{
         var name = event.target.name?event.target.name:event.currentTarget.name

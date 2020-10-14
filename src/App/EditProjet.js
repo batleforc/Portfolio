@@ -22,7 +22,6 @@ class EditProjets extends React.Component{
         this.FetchData=this.FetchData.bind(this)
         this.HandleSaveData=this.HandleSaveData.bind(this)
         this.rendereditorjs = this.rendereditorjs.bind(this)
-        var editor;// eslint-disable-line
     }
 
     myChangeHandler(event) {

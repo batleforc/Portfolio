@@ -42,7 +42,7 @@ class About extends React.Component{
               </div>
               <div className="w3-quarter w3-section">
                 <span className="w3-xlarge">7</span><br/>
-                Language utiliser
+                Languages utilisés
               </div>
               <div className="w3-quarter w3-section">
                 <span className="w3-xlarge">100+</span><br/>
