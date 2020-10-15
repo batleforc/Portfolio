@@ -1,5 +1,5 @@
 import React, { lazy,Suspense } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import About from './App/about';
 import Contact from './App/contact'
 import Projet from "./App/projet"
@@ -13,7 +13,7 @@ const Nav = lazy(() => import( './App/nav'));
 const DisplayProjet = lazy(() => import('./App/DisplayProjet'));
 const Unsubscribe = lazy(() => import( './App/unsubscribe'));
 const EditProjets = lazy(() => import( './App/EditProjet'));
-
+const NotFound = lazy(() => import( './App/404'));
 
 
 function article(props) {
@@ -59,34 +59,36 @@ class App extends React.Component{
     render(){
         return(
             <Suspense fallback={<FontAwesomeIcon icon="spinner" spin />}>
-            <div style={{width:"100%",textAlign:"center"}}>
-                <Nav where={this.state.where} Click={this.navclick} />
-                <div className="w3-padding-large" id="main">
-                <Router>
-                <Route path="/" exact>
-                <Header/>
-                <About/>
-                <Projet/>
-                <div className="w3-content w3-justify" id="notif">
-                    <h2 className="w3-text-light-grey">Notification </h2>
-                    <hr style={{width:"200px"}} className="w3-opacity"/>
-
-                    <h2>Choisi la pilule bleue et tout s'arrête, après tu pourras faire de beaux rêves et ne jamais avoir de notification de ma part.</h2>
-                    <h2>Choisi la pilule rouge et active les notifications afin d'en savoir plus sur ce que je fais et peut-être découvrir des choses qui changeront ma vie.</h2>
-                    <div width="932" height="1048" className="morpheus" style={{display:"inline-flex",marginLeft:"auto",marginRight:"auto",overflow:"hidden"}}>
-                        <img src={morpheus_left} alt="boy" className="w3-image" width="466" height="1048" onClick={function(){Notification.requestPermission().then(alert("Merci d'avoir activer les notification"));}}/>
-                        <img src={morpheus_right} alt="boy" className="w3-image" width="466" height="1048" onClick={function(){alert("Vous ne voulez vraiment pas de mes notification ?");}}/>
+                <div style={{width:"100%",textAlign:"center"}}>
+                    <Nav where={this.state.where} Click={this.navclick} />
+                    <div className="w3-padding-large" id="main">
+                    <Router>
+                        <Switch>
+                            <Route path="/" exact>
+                            <Header/>
+                            <About/>
+                            <Projet/>
+                            <div className="w3-content w3-justify" id="notif">
+                                <h2 className="w3-text-light-grey">Notification </h2>
+                                <hr style={{width:"200px"}} className="w3-opacity"/>
+                                <h2>Choisi la pilule bleue et tout s'arrête, après tu pourras faire de beaux rêves et ne jamais avoir de notification de ma part.</h2>
+                                <h2>Choisi la pilule rouge et active les notifications afin d'en savoir plus sur ce que je fais et peut-être découvrir des choses qui changeront ma vie.</h2>
+                                <div width="932" height="1048" className="morpheus" style={{display:"inline-flex",marginLeft:"auto",marginRight:"auto",overflow:"hidden"}}>
+                                    <img src={morpheus_left} alt="boy" className="w3-image" width="466" height="1048" onClick={function(){Notification.requestPermission().then(alert("Merci d'avoir activer les notification"));}}/>
+                                    <img src={morpheus_right} alt="boy" className="w3-image" width="466" height="1048" onClick={function(){alert("Vous ne voulez vraiment pas de mes notification ?");}}/>
+                                </div>
+                            </div>
+                            <Contact/>
+                            </Route>
+                            <Route path="/projetcreate/" component={EditProjets}  />
+                            <Route path="/projet/:id" component={article}  exact strict />
+                            <Route path="/notif/unsubscribe" component={Unsubscribe} />
+                            <Route component={NotFound} />
+                        </Switch>
+                    </Router>
+                    <Footer/>
                     </div>
                 </div>
-                <Contact/>
-                </Route>
-                <Route path="/projetcreate/" component={EditProjets}  />
-                <Route path="/projet/:id" component={article}  exact strict />
-                <Route path="/notif/unsubscribe" component={Unsubscribe} />
-                </Router>
-                <Footer/>
-                </div>
-            </div>
             </Suspense>
         )
     }
