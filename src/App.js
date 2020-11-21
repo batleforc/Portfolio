@@ -71,11 +71,11 @@ class App extends React.Component{
                             <div className="w3-content w3-justify" id="notif">
                                 <h2 className="w3-text-light-grey">Notification </h2>
                                 <hr style={{width:"200px"}} className="w3-opacity"/>
-                                <h2>Choisi la pilule bleue et tout s'arrête, après tu pourras faire de beaux rêves et ne jamais avoir de notification de ma part.</h2>
-                                <h2>Choisi la pilule rouge et active les notifications afin d'en savoir plus sur ce que je fais et peut-être découvrir des choses qui changeront ma vie.</h2>
+                                <h2 className="MatrixText" >Choisi la pilule bleue et tout s'arrête, après tu pourras faire de beaux rêves et ne jamais avoir de notification de ma part.</h2>
+                                <h2 className="MatrixText" >Choisi la pilule rouge et active les notifications afin d'en savoir plus sur ce que je fais et peut-être découvrir des choses qui changeront ma vie.</h2>
                                 <div width="932" height="1048" className="morpheus" style={{display:"inline-flex",marginLeft:"auto",marginRight:"auto",overflow:"hidden"}}>
-                                    <img src={morpheus_left} alt="boy" className="w3-image" width="466" height="1048" onClick={function(){Notification.requestPermission().then(alert("Merci d'avoir activer les notification"));}}/>
-                                    <img src={morpheus_right} alt="boy" className="w3-image" width="466" height="1048" onClick={function(){alert("Vous ne voulez vraiment pas de mes notification ?");}}/>
+                                    <img src={morpheus_left} alt="boy" className="w3-image morpheuside" width="466" height="1048" onClick={function(){Notification.requestPermission().then(alert("Merci d'avoir activer les notification"));}}/>
+                                    <img src={morpheus_right} alt="boy" className="w3-image morpheuside" width="466" height="1048" onClick={function(){alert("Vous ne voulez vraiment pas de mes notification ?");}}/>
                                 </div>
                             </div>
                             <Contact/>
