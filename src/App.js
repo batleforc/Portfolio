@@ -5,8 +5,7 @@ import Contact from './App/contact'
 import Projet from "./App/projet"
 import Header from './Header'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import morpheus_left from './App/media/morpheus_left.png'
-import morpheus_right from './App/media/morpheus_right.png'
+import morpheus from './App/media/morpheus.png'
 import './App/media/maskicon.png'
 const Footer = lazy(() => import( './App/footer'));
 const Nav = lazy(() => import( './App/nav'));
@@ -73,9 +72,12 @@ class App extends React.Component{
                                 <hr style={{width:"200px"}} className="w3-opacity"/>
                                 <h2 className="MatrixText" >Choisi la pilule bleue et tout s'arrête, après tu pourras faire de beaux rêves et ne jamais avoir de notification de ma part.</h2>
                                 <h2 className="MatrixText" >Choisi la pilule rouge et active les notifications afin d'en savoir plus sur ce que je fais et peut-être découvrir des choses qui changeront ma vie.</h2>
-                                <div width="932" height="1048" className="morpheus" style={{display:"inline-flex",marginLeft:"auto",marginRight:"auto",overflow:"hidden"}}>
-                                    <img src={morpheus_left} alt="boy" className="w3-image morpheuside" width="466" height="1048" onClick={function(){Notification.requestPermission().then(alert("Merci d'avoir activer les notification"));}}/>
-                                    <img src={morpheus_right} alt="boy" className="w3-image morpheuside" width="466" height="1048" onClick={function(){alert("Vous ne voulez vraiment pas de mes notification ?");}}/>
+                                <div id="morpheusContainer" >
+                                    <img src={morpheus} useMap="#image-map" alt="Morpheus from Matrix" />
+                                    <map name="image-map">
+                                        <area target="" alt="Coter droit de l'image qui active les notification" title="" href="" style={{outline:"none"}} coords="0,0,407,800" shape="rect" onClick={(event)=>{event.preventDefault();Notification.requestPermission().then(alert("Merci d'avoir activer les notification"));}} />
+                                        <area target="" alt="Coter gauche de l'image qui désactive les notification" title="" href="" style={{outline:"none"}} coords="929,0,530,801" shape="rect" onClick={(event)=>{event.preventDefault();alert("Vous ne voulez vraiment pas de mes notification ?");}} />
+                                    </map>
                                 </div>
                             </div>
                             <Contact/>
