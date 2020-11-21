@@ -8,11 +8,13 @@ class Nav extends React.Component{
     return window.location.pathname==="/"?true:false;
   }
   Scroll=(event) =>{
-    event.preventDefault()
-    this.props.Click(event)
-    document.querySelector(event.currentTarget.getAttribute("href")).scrollIntoView({
-      behavior: 'smooth'
-  });
+    if(!this.arewehome()){
+      event.preventDefault()
+      this.props.Click(event)
+      document.querySelector(event.currentTarget.getAttribute("href")).scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
   }
     render(){
         //<img src="/w3images/avatar_smoke.jpg" style={{width:"100%"}} />
