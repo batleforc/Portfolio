@@ -14,7 +14,7 @@ class DisplayProjet extends React.Component{
     if(localStorage.getItem("Projet"))
       this.state.Projet.push(JSON.parse(localStorage.getItem("Projet")).find(element=>element.slug===this.props.slug))
   }
-
+  CleanText = (value)=>value.replace("<br>","").replace("&nbsp;","")
   componentDidMount(){
     fetch(Profil.ip+'/projet',{method:'post',headers: {
         'Accept': 'application/json',
@@ -41,15 +41,15 @@ class DisplayProjet extends React.Component{
         if(this.state.Projet[0]!==undefined){
             var todisplay = this.state.Projet[0].img===""?<FontAwesomeIcon icon={['fas','lightbulb']} size="10x" style={{display:"block",margin:"auto"}}/>:<img src={this.state.Projet[0].img} alt="Représentation du projet"/>
         }
-       return( 
-         <div>
+      return( 
+        <div>
           {this.state.Projet[0]===undefined&&<h1>Please wait the project is loading {this.state.test}</h1>}
           {todisplay}
           <div style={{textAlign:"left"}} className="w3-padding-64 w3-content">
           {this.state.Projet[0]&&this.state.Projet[0].data.blocks.map(function(value,index){
             var render
             if(value.type==="header"){
-              render =value.data.level===1?<h1 key={value.data.text+value.data.level}>{parse(value.data.text)}</h1>:value.data.level===2?<h2 key={value.data.text}>{value.data.text}</h2>:value.data.level===3?<h3 key={value.data.text}>{value.data.text}</h3>:value.data.level===4?<h4 key={value.data.text}>{value.data.text}</h4>:<h5 key={value.data.text}>{value.data.level}</h5>;
+              render =value.data.level===1?<h1 key={value.data.text+value.data.level}>{parse(value.data.text)}</h1>:value.data.level===2?<h2 key={value.data.text}>{parse(value.data.text)}</h2>:value.data.level===3?<h3 key={value.data.text}>{parse(value.data.text)}</h3>:value.data.level===4?<h4 key={value.data.text}>{parse(value.data.text)}</h4>:<h5 key={value.data.text}>{parse(value.data.level)}</h5>;
             }
             else if (value.type==="list"){
               render=<ul key={value.data.style}>{value.data.items.map(function(item){
@@ -68,7 +68,7 @@ class DisplayProjet extends React.Component{
                   <tbody>
                     {value.data.content.map(function(row){
                       return <tr  key={row}>{row.map(function(col){
-                        return(<td style={{border:"thin solid black"}} key={col}>{col}</td>)
+                        return(<td style={{border:"thin solid black"}} key={col}>{parse(col)}</td>)
                       })}</tr>
                     })}
                   </tbody>
