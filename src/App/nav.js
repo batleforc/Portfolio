@@ -8,7 +8,7 @@ class Nav extends React.Component{
     return window.location.pathname==="/"?true:false;
   }
   Scroll=(event) =>{
-    if(!this.arewehome()){
+    if(this.arewehome()){
       event.preventDefault()
       this.props.Click(event)
       document.querySelector(event.currentTarget.getAttribute("href")).scrollIntoView({
