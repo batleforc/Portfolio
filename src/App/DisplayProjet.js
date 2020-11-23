@@ -22,6 +22,7 @@ class DisplayProjet extends React.Component{
       },body:JSON.stringify({proj:this.props.slug})})
     .then(res=>res.json())
     .then((data)=>{
+      // eslint-disable-next-line
       this.state.Projet=[];
       this.setState({Projet:data});
       this.setState({test:""});

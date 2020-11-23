@@ -20,6 +20,7 @@ class Projet extends React.Component{
       }})
     .then(res=>res.json())
     .then((data)=>{
+      // eslint-disable-next-line
       this.state.Projet=[];
       this.setState({Projet:data});
       this.setState({test:""});
