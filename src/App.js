@@ -70,8 +70,8 @@ class App extends React.Component{
                             <div className="w3-content w3-justify" id="notif">
                                 <h2 className="w3-text-light-grey">Notification </h2>
                                 <hr style={{width:"200px"}} className="w3-opacity"/>
-                                <h2 className="MatrixText" >Choisi la pilule bleue et tout s'arrête, après tu pourras faire de beaux rêves et ne jamais avoir de notification de ma part.</h2>
-                                <h2 className="MatrixText" >Choisi la pilule rouge et active les notifications afin d'en savoir plus sur ce que je fais et peut-être découvrir des choses qui changeront ma vie.</h2>
+                                <h2 className="MatrixText" >Choisis la pilule bleue et tout s'arrêtera. Tu pourras faire de beaux rêves et jamais tu n'auras de notifications de ma part.</h2>
+                                <h2 className="MatrixText" >Choisis la pilule rouge et active les notifications afin de te tenir informé de mes projets, ce que je fais. Tu pourras découvrir des choses qui changeront ma vie.</h2>
                                 <div id="morpheusContainer" >
                                     <img src={morpheus} useMap="#image-map" alt="Morpheus from Matrix" />
                                     <map name="image-map">

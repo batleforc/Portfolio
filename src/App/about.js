@@ -6,10 +6,10 @@ class About extends React.Component{
     render(){
         return(
             <div className="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
-            <h2 className="w3-text-light-grey">Qui suis je ? </h2>
+            <h2 className="w3-text-light-grey">Qui suis-je ?</h2>
             <hr style={{width:"200px"}} className="w3-opacity"/>
-            <p> Un etudiant en fin de DUT informatique. Entre le développeur Back et Front soupoudrer d'un fan d'infra.</p>
-            <h3 className="w3-padding-16 w3-text-light-grey">Quelque Techno</h3>
+            <p>Un étudiant en fin de DUT informatique. Entre le développeur Back et Front soupoudré d'un fan d'Infra.</p>
+            <h3 className="w3-padding-16 w3-text-light-grey">Quelques Technos</h3>
             <p className="w3-wide">Core</p>
             <div className="w3-white" style={{paddingLeft:"10px"}}>
             C#,C,C++,Php,Node,Python,Java
@@ -27,10 +27,10 @@ class About extends React.Component{
             MariaDB,MongoDB
             </div>
             <p className="w3-text-light-grey">
-            Il est bien beau de seulement citer des techno alors je vous invite à vous rendre sur mes gits accessibles dans le menu à droite afin de vous faire une idée de ce que j'ai pu effectuer avec ces techno
+            Il est bien beau de seulement citer des technos alors je vous invite à vous rendre sur mes gits accessibles dans le menu à droite afin de vous faire une idée de ce que j'ai pu effectuer avec ces technos
             </p>
             <br/>
-            <h3 className="w3-padding-16 w3-text-light-grey">Quelque chiffre</h3>
+            <h3 className="w3-padding-16 w3-text-light-grey">Quelques chiffres</h3>
             <div className="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
               <div className="w3-quarter w3-section">
                 <span className="w3-xlarge">3</span><br/>
