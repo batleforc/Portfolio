@@ -1,0 +1,16 @@
+name: ci master
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  ci-master: 
+    runs-on: ubuntu-latest
+    steps:
+      - uses : actions/checkout@v2
+      - uses : actions/setup-node@v1
+        with : 
+          node-versions: '14'
+      - run : npm ci
+      - run : npm run build
