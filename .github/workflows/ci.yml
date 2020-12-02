@@ -14,3 +14,12 @@ jobs:
           node-versions: '14'
       - run : npm ci
       - run : npm run build
+  deploy:
+    runs-on: [self-hosted, linux]
+    steps:
+      - run : pwd
+      - run : docker container stop ${{secrets.CONTAINER_NAME}}
+      - run : docker container rm portfolio
+      - run : docker build -t batlefroc/portfolio . 
+      - run : docker run -p 8080:8080 -d --network weebo --name ${{secrets.CONTAINER_NAME}} batlefroc/portfolio
+      - run : docker logs portfolio
