@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses : actions/checkout@v2
       - run : pwd
-      - run : cat ${{secrets.TEST}} > ./API/Config.all.js
+      - run : echo ${{secrets.TEST}} > ./API/Config.all.js
       - run : docker container stop ${{secrets.CONTAINER_NAME}}
       - run : docker container rm portfolio
       - run : docker build -t batlefroc/portfolio . 
