@@ -1,8 +1,8 @@
 name: ci master
 on:
   push:
-    tags:
-      - "v*"
+    branches:
+      - "master"
 
 jobs:
   ci-master: 
@@ -22,4 +22,4 @@ jobs:
       - run : docker container rm portfolio
       - run : docker build -t batlefroc/portfolio . 
       - run : docker run -p 8080:8080 -d --network weebo --name ${{secrets.CONTAINER_NAME}} batlefroc/portfolio
-      - run : docker logs portfolio
+      - run : docker logs portfolio 
