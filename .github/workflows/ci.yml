@@ -20,7 +20,7 @@ jobs:
       - uses : actions/checkout@v2
       - run : pwd
       - run : echo ${{secrets.TEST}} > ./API/Config.all.js
-      - run : docker container stop ${{secrets.CONTAINER_NAME}}
+      - run : docker container stop "${{secrets.CONTAINER_NAME}}"
       - run : docker container rm portfolio
       - run : docker build -t batlefroc/portfolio . 
       - run : docker run -p 8080:8080 -d --network weebo --name ${{secrets.CONTAINER_NAME}} batlefroc/portfolio
