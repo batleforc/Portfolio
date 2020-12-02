@@ -17,6 +17,7 @@ jobs:
   deploy:
     runs-on: [self-hosted, linux]
     steps:
+      - uses : actions/checkout@v2
       - run : pwd
       - run : docker container stop ${{secrets.CONTAINER_NAME}}
       - run : docker container rm portfolio
