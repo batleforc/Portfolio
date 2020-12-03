@@ -66,7 +66,7 @@ export default class Header extends React.Component{
                 <p><span
                     className="txt-rotate"
                     data-period="2000"
-                    data-rotate='[ "Developpeur.","Etudiant.","Core.","Infra.","Front.","Bdd.", "All you need!" ]'></span></p>
+                    data-rotate='[ "Developpeur.","Etudiant.","Core.","Infra.","Front.","Bdd.","DevOps" ,"All you need!" ]'></span></p>
             </header>)
     }
 }
