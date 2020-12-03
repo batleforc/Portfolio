@@ -27,7 +27,7 @@ let Profil ={
         //}
     ],
     "RecaptchaKEY":"6LfaTWIUAAAAAPpVwUx-2MD_twYPXkqgU_ZQlaHJ",
-    "ip":"http://localhost:5000"
+    "ip":process.env.NODE_ENV==="development"?"http://localhost:5000":"maxleriche.tech"
 
 }
 

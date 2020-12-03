@@ -13,7 +13,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 
 library.add(fab, fas)
-
+console.log(process.env.NODE_ENV)
 ReactDOM.render(
   <React.StrictMode>
     <App />
