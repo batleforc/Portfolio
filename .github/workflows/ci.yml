@@ -1,8 +1,6 @@
 name: ci master
 on:
   push:
-    branches:
-      - "master"
     tags:
       - "v*.*.*"
 
