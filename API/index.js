@@ -59,7 +59,7 @@ app.post('/subscribe',(req,res)=>{
     });
 })
 app.post('/unsubscribe',(req,res)=>{
-  const mail ={mail: req.body.mail}
+  var mail ={mail: req.body.mail}
   if(mail==null){
     if(req.body.endpoint==null){
       return res.status(400).json("Mail non présent")
