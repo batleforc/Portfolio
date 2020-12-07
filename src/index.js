@@ -5,7 +5,7 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import './styles/main.css'
 import './styles/w3.css'
 import './styles/api.css'
-
+import Update from './App/Update'
 //import reportWebVitals from './reportWebVitals';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -17,6 +17,7 @@ console.log(process.env.NODE_ENV)
 ReactDOM.render(
   <React.StrictMode>
     <App />
+    <Update />
   </React.StrictMode>,
   document.getElementById('root')
 );
