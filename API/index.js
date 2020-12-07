@@ -10,7 +10,7 @@ const fetch = require("node-fetch");
 const bcrypt = require('bcrypt');
 const {getLinkPreview} =require('link-preview-js');
 const compression = require('compression');
-
+var debug = process.argv.slice(2).includes("-d")
 
 const port = process.env.PORT || 5000;
 const client = new MongoClient(Config.mongo.url);
@@ -26,7 +26,7 @@ client.connect(function(err){
 
 var test;
 app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Origin", debug?"localhost:5000":"maxleriche.tech"); // update to match the domain you will make the request from
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
   });
@@ -174,7 +174,7 @@ app.post('/projet/creadit',async (req,res)=>{
         {slug:req.body.pslug},
         {$set:{name:req.body.pname,slug:req.body.pslug,data:req.body.data,img:""}},
         {upsert:true},
-        function(err,r){
+        (err,r)=>{
           assert.equal(null,err)
           console.log(r)
           res.status(200).json(JSON.stringify({"status":"ALL IS GREEN"}))
@@ -192,7 +192,6 @@ app.get('/preview',async (req,res)=>{
   url = url.includes('http')?url:"https://"+url;
   getLinkPreview(url)
     .then(data=>{
-      console.log(data)
       if(data){
         var response={
           "success" : 1,
@@ -206,7 +205,6 @@ app.get('/preview',async (req,res)=>{
               "url":url
           }
       }
-      console.log(data);
       return res.status(200).json(response)
       }
     }).catch(err=>{

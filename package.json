@@ -46,7 +46,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "push": "node API/index.js"
+    "push": "node API/index.js",
+    "dev":"node API/index.js -d"
+
   },
   "eslintConfig": {
     "extends": "react-app"
