@@ -14,7 +14,6 @@ const Unsubscribe = lazy(() => import( './App/unsubscribe'));
 const EditProjets = lazy(() => import( './App/EditProjet'));
 const NotFound = lazy(() => import( './App/404'));
 
-
 function article(props) {
     return(<DisplayProjet slug={props.match.params.id}/>)
 }
@@ -30,7 +29,7 @@ class App extends React.Component{
     }
     arewehome(){
         return window.location.pathname==="/"?true:false;
-      }
+    }
 
     componentDidMount(){
         if(this.arewehome()){

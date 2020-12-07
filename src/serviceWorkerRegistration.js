@@ -40,8 +40,9 @@ export function register(config) {
         // service worker/PWA documentation.
         navigator.serviceWorker.ready.then(() => {
           console.log(
-            'This web app is being served cache-first by a service ' +
-              'worker. To learn more, visit https://cra.link/PWA'
+            'Ce site web est servie via un Service ' +
+              'worker. Si tu veux en savoir plus, visit https://cra.link/PWA'+
+              'Merci de ta visite et bonne navigation sur mon Portfolio'
           );
         });
       } else {
