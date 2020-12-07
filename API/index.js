@@ -13,7 +13,7 @@ const compression = require('compression');
 var debug = process.argv.slice(2).includes("-d")
 
 const port = process.env.PORT || 5000;
-const client = new MongoClient(Config.mongo.url);
+const client = new MongoClient(Config.mongo.url,{useUnifiedTopology: true});
 var Projet;
 client.connect(function(err){
   if(err==null){
