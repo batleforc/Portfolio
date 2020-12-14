@@ -13,6 +13,7 @@ jobs:
         with : 
           node-versions: '14'
       - run : npm ci
+      - run : npm install
       - run : npm run build
       - uses : actions/upload-artifact@v2
         if: ${{ always() }}
