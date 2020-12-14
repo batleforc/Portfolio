@@ -8,7 +8,7 @@ class About extends React.Component{
             <div className="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
             <h2 className="w3-text-light-grey">Qui suis-je ?</h2>
             <hr style={{width:"200px"}} className="w3-opacity"/>
-            <p>Un étudiant en fin de DUT informatique. Entre le développeur Back et Front soupoudré d'un fan d'Infra.</p>
+            <p>Un étudiant en fin de Licence Pro Dev Cloud. Entre le développeur Back et Front soupoudré d'un fan d'Infra.</p>
             <h3 className="w3-padding-16 w3-text-light-grey">Quelques Technos</h3>
             <p className="w3-wide">Core</p>
             <div className="w3-white" style={{paddingLeft:"10px"}}>
@@ -53,12 +53,12 @@ class About extends React.Component{
                 Nouvelles idées de projet et solutions
               </div>
             </div>
-           <div style={{textAlign:"center"}}>
+          <div style={{textAlign:"center"}}>
             <button className="w3-button w3-light-grey w3-padding-large w3-section" >
               <a href="media/cv.pdf" target="_blank" download="CvMaximeLeriche.pdf"><FontAwesomeIcon icon={["fas","download"]}/> Mon CV</a>
             </button>
-           </div>
-         </div>
+          </div>
+        </div>
         )
     }
 }
