@@ -38,7 +38,7 @@ class About extends React.Component{
             <div className="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
               <div className="w3-quarter w3-section">
                 <span className="w3-xlarge">3</span><br/>
-                Projet actif
+                Projets actif
               </div>
               <div className="w3-quarter w3-section">
                 <span className="w3-xlarge">1</span><br/>
