@@ -4,7 +4,28 @@ import * as serviceWorker from '../serviceWorkerRegistration'
 export default function Update() {
     const [ShowSnackBar,setShowSnackBar] = useState(false)
     const [hide, setHide] = useState(true);
+
+    navigator.serviceWorker.addEventListener('controllerchange',()=>{
+        setShowSnackBar(true)
+        setHide(false);
+    });
+
     const reload = ()=>{
+        setShowSnackBar(false);
+        if ('serviceWorker' in navigator) {
+            // Register a service worker hosted at the root of the
+            // site using the default scope.
+            navigator.serviceWorker.register('/sw.js').then(
+            (registration) => {
+                registration.waiting.postMessage({type: 'SKIP_WAITING'})
+            },
+            (error) => {
+                console.log('Service worker registration failed:', error)
+            }
+            )
+        } else {
+            console.log('Service workers are not supported.')
+        }
         window.location.reload(true)
     }
     useEffect(()=>{
