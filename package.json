@@ -25,7 +25,7 @@
     "react-dom": "^16.13.1",
     "react-google-recaptcha": "^2.1.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3",
+    "react-scripts": "^3.4.4",
     "web-push": "^3.4.4",
     "web-vitals": "^0.2.4",
     "workbox-background-sync": "^5.1.4",
@@ -47,8 +47,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "push": "node API/index.js",
-    "dev":"node API/index.js -d"
-
+    "dev": "node API/index.js -d"
   },
   "eslintConfig": {
     "extends": "react-app"
