@@ -9,7 +9,7 @@ export default function Update() {
                 setHide(false);
             },
             onSuccess:(registration)=>{
-                registration.ready().then(async ()=>{
+                registration.ready.then(async ()=>{
                     if('periodicSync' in registration){
                         try{
                             await registration.periodicSync.register('content-sync',{
