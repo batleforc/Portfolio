@@ -8,16 +8,18 @@ export default function Update() {
                 setShowSnackBar(true)
                 setHide(false);
             },
-            onSuccess:async (registration)=>{
-                if('periodicSync' in registration){
-                    try{
-                        await registration.periodicSync.register('content-sync',{
-                            minInterval : 24*60*60*1000*2 //update tout les deux jours
-                        })
-                    }catch(error){
-                        console.log("Quoi ? tu utilise un vieux navigateur ? GRRRR",error)
+            onSuccess:(registration)=>{
+                registration.ready().then(async ()=>{
+                    if('periodicSync' in registration){
+                        try{
+                            await registration.periodicSync.register('content-sync',{
+                                minInterval : 24*60*60*1000*2 //update tout les deux jours
+                            })
+                        }catch(error){
+                            console.log("Quoi ? tu utilise un vieux navigateur ? GRRRR",error)
+                        }
                     }
-                }
+                })
             }
         });
     },[])
