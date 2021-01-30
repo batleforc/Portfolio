@@ -29,12 +29,12 @@
   "url": "https://maxleriche.Tech",
   "screenshots": [
       {
-          "src": "[Embedded]",
+          "src": "/media/DesktopScreenShot.png",
           "sizes": "1280x800",
           "type": "image/png"
       },
       {
-          "src": "[Embedded]",
+          "src": "/media/MobileScreenShot.png",
           "sizes": "750x1334",
           "type": "image/png"
       }
