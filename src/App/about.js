@@ -31,7 +31,7 @@ class About extends React.Component{
             Gitlab CI , Github CI (Ce site est deployer via Github Actions)
             </div>
             <p className="w3-text-light-grey">
-            Il est bien beau de seulement citer des technos alors je vous invite à vous rendre sur mes gits accessibles dans le menu à droite afin de vous faire une idée de ce que j'ai pu effectuer avec ces technos
+            Il est bien beau de seulement citer des technos alors je vous invite à vous rendre sur mes gits accessibles dans le menu à droite(sur pc) ou tout en bas de la page, afin de vous faire une idée de ce que j'ai pu effectuer avec ces technos
             </p>
             <br/>
             <h3 className="w3-padding-16 w3-text-light-grey">Quelques chiffres</h3>

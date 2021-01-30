@@ -1,13 +1,29 @@
 import React, {useState,useEffect} from 'react'
+import * as serviceWorkerRegistration from '../serviceWorkerRegistration';
 
 export default function Update() {
+    useEffect(()=>{
+        serviceWorkerRegistration.register({
+            onUpdate:(registration)=>{
+                setShowSnackBar(true)
+                setHide(false);
+            },
+            onSuccess:async (registration)=>{
+                if('periodicSync' in registration){
+                    try{
+                        await registration.periodicSync.register('content-sync',{
+                            minInterval : 24*60*60*1000*2 //update tout les deux jours
+                        })
+                    }catch(error){
+                        console.log("Quoi ? tu utilise un vieux navigateur ? GRRRR",error)
+                    }
+                }
+            }
+        });
+    },[])
     const [ShowSnackBar,setShowSnackBar] = useState(false)
     const [hide, setHide] = useState(true);
 
-    navigator.serviceWorker.addEventListener('controllerchange',()=>{
-        setShowSnackBar(true)
-        setHide(false);
-    });
 
     const reload = ()=>{
         setShowSnackBar(false);

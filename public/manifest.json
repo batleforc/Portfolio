@@ -1,26 +1,42 @@
 {
-    "name": "Maxime Leriche",
-    "gcm_sender_id":"180169598396",
-    "short_name": "MLeriche",
-    "lang": "French",
-    "start_url": "https://maxleriche.tech/",
-    "display": "standalone",
-    "theme_color": "#0000",
-    "background_color": "#565554",
-    "icons": [
-        {
-            "src": "media/maskicon.png",
-            "sizes": "192x192",
-            "type": "image/png",
-            "purpose": "any maskable"
-          },{
-            "src": "/media/android-chrome-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-          }, {
-            "src": "/media/android-chrome-512x512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-          }
-    ]
-  }
+  "name": "Maxime Leriche",
+  "gcm_sender_id": "180169598396",
+  "short_name": "MLeriche",
+  "lang": "French",
+  "start_url": "https://maxleriche.tech/",
+  "display": "standalone",
+  "theme_color": "#0000",
+  "background_color": "#565554",
+  "icons": [
+      {
+          "src": "https://maxleriche.tech/media/maskicon.png",
+          "sizes": "192x192",
+          "type": "image/png",
+          "purpose": "any maskable"
+      },
+      {
+          "src": "https://maxleriche.tech/media/android-chrome-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+      },
+      {
+          "src": "https://maxleriche.tech/media/android-chrome-512x512.png",
+          "sizes": "512x512",
+          "type": "image/png"
+      }
+  ],
+  "url": "https://maxleriche.Tech",
+  "screenshots": [
+      {
+          "src": "[Embedded]",
+          "sizes": "1280x800",
+          "type": "image/png"
+      },
+      {
+          "src": "[Embedded]",
+          "sizes": "750x1334",
+          "type": "image/png"
+      }
+  ],
+  "description": "Mon premier vrai portfolio. il représente le début de ma vie de dev et je pense et espéré qu'il m'accompagnera pour quelques années"
+}
