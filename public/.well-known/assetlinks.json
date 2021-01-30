@@ -1,5 +1,5 @@
 [{
       "relation": ["delegate_permission/common.handle_all_urls"],
       "target" : { "namespace": "android_app", "package_name": "tech.maxleriche.twa",
-                   "sha256_cert_fingerprints": ["93:91:DB:7A:8D:C5:71:55:9C:6B:CF:A1:85:55:F3:DA:81:E2:7D:09:C1:52:C0:52:7A:7D:8E:A4:41:02:27:21"] }
+                   "sha256_cert_fingerprints": ["5C:21:8E:12:3F:18:6D:FA:3B:8A:8A:95:EE:CA:E0:FB:58:0B:F6:7F:47:4D:0D:4B:C2:DB:64:07:21:78:FD:A4"] }
     }]
