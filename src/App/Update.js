@@ -56,7 +56,7 @@ export default function Update() {
         setShowSnackBar(false);
       }, 8000);
     }
-  });
+  }, [hide]);
   return (
     <div id="snackbar" className={ShowSnackBar ? "show-bar" : ""}>
       <p>A new version of the app is available</p>
