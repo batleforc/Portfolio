@@ -11,12 +11,14 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-RUN npm install
+COPY yarn.lock ./
+
+RUN yarn
 
 COPY . .
 
 EXPOSE ${PORT}
 
-RUN npm run build
+RUN yarn build
 
 CMD ["node","API/index.js"]

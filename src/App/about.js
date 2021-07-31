@@ -11,8 +11,12 @@ class About extends React.Component {
         <h2 className="w3-text-light-grey">Qui suis-je ?</h2>
         <hr style={{ width: "200px" }} className="w3-opacity" />
         <p>
+          Attention: Ce site est actuellement retravailler afin d'intégrer toute
+          la partie Infra qui me tien particulièrement a coeur
+        </p>
+        <p>
           Un étudiant en fin de Licence Pro Dev Cloud. Entre le développeur Back
-          et Front soupoudré d'un fan d'Infra.
+          et Front saupoudré d'un fan d'Infra.
         </p>
         <h3 className="w3-padding-16 w3-text-light-grey">Quelques Technos</h3>
         <p className="w3-wide">Core</p>
