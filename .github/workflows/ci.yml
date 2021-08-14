@@ -1,11 +1,11 @@
 name: ci master
 on:
   push:
-    tags:
-      - "v*.*.*"
+    branches:
+      - master
 
 jobs:
-  deploy:
+  build:
     runs-on: [self-hosted, linux]
     steps:
       - uses : actions/checkout@v2
@@ -14,10 +14,22 @@ jobs:
         shell : bash
         env:
           test: ${{secrets.TEST}}
-      - run : docker build -t batlefroc/portfolio .
-      - run : docker container stop ${{secrets.CONTAINER_NAME}}
-        continue-on-error: true
-      - run : docker container rm portfolio
-        continue-on-error: true
-      - run : docker run -p 8080:8080 -d --network weebo --name ${{secrets.CONTAINER_NAME}} batlefroc/portfolio
-      - run : docker logs portfolio
+      - run : echo "$robotPwd" | docker login -u $robotUsername --password-stdin harbor.weebo.fr
+        env:
+          robotPwd : ${{secrets.robotPWD}}
+          robotUsername : ${{secrets.robotUsername}}
+      - run : docker build -t harbor.weebo.fr/weebo/portfolio:$(echo $GITHUB_SHA | head -c7) .
+      - run : docker push harbor.weebo.fr/weebo/portfolio
+  deploy:
+    runs-on: [self-hosted, linux]
+    steps:
+      - uses : actions/checkout@v2
+      - run : pwd
+      - name: Update deployment file
+        run: TAG=$(echo $GITHUB_SHA | head -c7) && sed -i 's|<IMAGE>|harbor.weebo.fr/weebo/portfolio:'${TAG}'|' $GITHUB_WORKSPACE/deploy.yml
+      - uses: Azure/k8s-deploy@v1.4
+        with:
+          namespace: 'default'
+          manifests: |
+              deploy.yaml
+          kubectl-version: 'latest'
