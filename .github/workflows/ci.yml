@@ -19,7 +19,8 @@ jobs:
           robotPwd : ${{secrets.robotPWD}}
           robotUsername : ${{secrets.robotUsername}}
       - run : docker build -t harbor.weebo.fr/weebo/portfolio:$(echo $GITHUB_SHA | head -c7) .
-      - run : docker push harbor.weebo.fr/weebo/portfolio
+      - run : docker push harbor.weebo.fr/weebo/portfolio:$(echo $GITHUB_SHA | head -c7)
+      - run : echo " l'image harbor.weebo.fr/weebo/portfolio:$(echo $GITHUB_SHA | head -c7) a été build/push"
       - run : docker logout harbor.weebo.fr
   deploy:
     needs: build
