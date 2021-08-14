@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: portfolio
-        image: harbor.weebo.fr/weebo/portfolio:latest
+        image: <IMAGE>
         ports:
           - name: http
             containerPort: 8080
