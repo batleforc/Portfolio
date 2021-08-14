@@ -29,6 +29,11 @@ jobs:
       - run : pwd
       - name: Update deployment file
         run: TAG=$(echo $GITHUB_SHA | head -c7) && sed -i 's|<IMAGE>|harbor.weebo.fr/weebo/portfolio:'${TAG}'|' $GITHUB_WORKSPACE/deploy.yaml
+      - uses: azure/k8s-set-context@v1
+        with:
+          method: kubeconfig
+          kubeconfig: ${{secrets.kubeConfig}}
+        id: setcontext
       - uses: Azure/k8s-deploy@v1.4
         with:
           namespace: 'default'
