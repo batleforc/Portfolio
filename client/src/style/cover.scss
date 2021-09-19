@@ -1,7 +1,7 @@
 .coverPage {
   height: 100vh;
-  background-color: #1b203a;
-  color: #f2f4f3;
+  background-color: $color-bgCover;
+  color: $color-textCover;
   display: flex;
 }
 .coverPageContent > .txt-rotate-wrapper {
@@ -11,5 +11,14 @@
 .txt-rotate > .wrap {
   border-right: 0.08em solid #666;
 }
-.PageTittle {
+.coverMedia {
+  display: flex;
+}
+.ico-cover {
+  font-size: 38px;
+  color: $color-textCover;
+  border-radius: 50%;
+  border: 1px solid $color-textCover;
+  padding: 5px;
+  margin: 5px;
 }

@@ -8,7 +8,7 @@ export interface MediaContent {
 
 const Media = ({ medias }: { medias: Array<MediaContent> }) => {
   return (
-    <div className="justify-center place-items-center">
+    <div className="coverMedia justify-center place-items-center">
       {medias.map((media) => (
         <MediaItem
           key={media.label}
