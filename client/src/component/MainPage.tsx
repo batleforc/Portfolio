@@ -1,4 +1,5 @@
 import React from "react";
+import properties from "../propertie";
 import CoverPage from "./MainPage/CoverPage/CoverPage";
 import Nav from "./MainPage/Nav";
 
@@ -11,27 +12,33 @@ export interface Content {
 const MainPage = () => {
   const Contents = [
     {
-      Label: "",
-      Icon: "",
-      href: "",
+      Label: "Home",
+      Icon: "home",
+      href: "cover",
     },
     {
-      Component: () => <p>truc1</p>,
-      Label: "",
-      Icon: "",
-      href: "",
+      Component: () => <p>About</p>,
+      Label: "About",
+      Icon: "user",
+      href: "about",
     },
     {
-      Component: () => <p>truc2</p>,
-      Label: "",
-      Icon: "",
-      href: "",
+      Component: () => <p>Projet</p>,
+      Label: "Projet",
+      Icon: "gear",
+      href: "project",
+    },
+    {
+      Component: () => <p>Contact</p>,
+      Label: "Contact",
+      Icon: "envelope",
+      href: "contact",
     },
   ];
   return (
     <div>
       <CoverPage />
-      <Nav contents={Contents} />
+      <Nav contents={Contents} media={properties.media} />
 
       {Contents.map(({ Component }) =>
         Component !== undefined ? <Component /> : <></>
