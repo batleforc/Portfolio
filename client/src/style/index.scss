@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.coverPage {
+  height: 100vh;
+  background-color: #1b203a;
+  color: #f2f4f3;
+}
+
+.txt-rotate > .wrap {
+  border-right: 0.08em solid #666;
+}

@@ -1,13 +1,10 @@
 import React from "react";
-
+import { Route } from "react-router-dom";
+import MainPage from "./component/MainPage";
 function App() {
   return (
     <div className="App">
-      <span className="decoration-clone bg-gradient-to-b from-yellow-400 to-red-500 ">
-        Hello
-        <br />
-        You
-      </span>
+      <Route path="/" component={MainPage} />
     </div>
   );
 }
