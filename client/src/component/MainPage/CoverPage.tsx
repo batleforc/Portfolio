@@ -2,6 +2,7 @@ import React from "react";
 import TextRotate from "./TextRotate";
 import properties from "../../propertie";
 import Media from "./Media";
+import IcoMoonSVG from "../helper/IcomoonSVG";
 const CoverPage = () => {
   return (
     <div className="coverPage justify-center place-items-center	">
@@ -12,6 +13,9 @@ const CoverPage = () => {
           className="justify-center place-items-center"
         />
         <Media medias={properties.media} />
+      </div>
+      <div>
+        <IcoMoonSVG icon="chevron-down" />
       </div>
     </div>
   );
