@@ -3,6 +3,7 @@
   background-color: $color-bgCover;
   color: $color-textCover;
   display: flex;
+  flex-direction: column;
 }
 .coverPageContent > .txt-rotate-wrapper {
   display: flex;
@@ -21,4 +22,11 @@
   border: 1px solid $color-textCover;
   padding: 5px;
   margin: 5px;
+}
+.ico-next-content {
+  position: absolute;
+  bottom: 25px;
+  width: 100%;
+  margin: 0 auto;
+  display: block;
 }
