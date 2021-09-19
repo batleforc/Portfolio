@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 
 const TextRotate = ({
   dataRotate,
+  className,
   dataPeriod = 2000,
 }: {
   dataRotate: Array<string>;
   dataPeriod?: number;
+  className?: string;
 }) => {
   const [text, setText] = useState("");
   const [timeoutId, setTimeoutId] = useState<any>(0);
@@ -39,11 +41,11 @@ const TextRotate = ({
     // eslint-disable-next-line
   }, []);
   return (
-    <p>
+    <div className={`txt-rotate-wrapper ${className}`}>
       <span className="txt-rotate">
         <span className="wrap">{text}</span>
       </span>
-    </p>
+    </div>
   );
 };
 
