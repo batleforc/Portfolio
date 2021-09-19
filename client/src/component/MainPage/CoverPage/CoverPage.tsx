@@ -5,7 +5,7 @@ import Media from "./Media";
 import IcoMoonSVG from "../../helper/IcomoonSVG";
 const CoverPage = () => {
   return (
-    <div className="coverPage justify-center place-items-center	">
+    <div id="cover" className="coverPage justify-center place-items-center	">
       <div className="coverPageContent">
         <h1 className="PageTittle text-6xl text-center">{properties.name}</h1>
         <TextRotate
