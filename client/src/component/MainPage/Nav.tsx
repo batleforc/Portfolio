@@ -13,8 +13,8 @@ const Nav = ({
 }) => {
   return (
     <div>
-      {[DesktopNav, MobileNav].map((Component) => (
-        <Component contents={contents} media={media} />
+      {[DesktopNav, MobileNav].map((Component, index) => (
+        <Component key={index} contents={contents} media={media} />
       ))}
     </div>
   );

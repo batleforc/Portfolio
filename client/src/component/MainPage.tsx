@@ -40,9 +40,12 @@ const MainPage = () => {
       <CoverPage />
       <Nav contents={Contents} media={properties.media} />
 
-      {Contents.map(({ Component }) =>
-        Component !== undefined ? <Component /> : <></>
-      )}
+      <div className="MainContent">
+        {Contents.filter(({ Component }) => Component !== undefined).map(
+          ({ Component, Label }) =>
+            Component !== undefined ? <Component key={Label} /> : <></>
+        )}
+      </div>
     </div>
   );
 };
