@@ -1,0 +1,49 @@
+apiVersion: 1.0.0
+metadata:
+  generateName: pfolio-
+projects:
+  - name: portfolio
+    source:
+      type: git
+      location: "https://github.com/batleforc/Portfolio"
+      branch: "PrototypeV2"
+components:
+  - type: chePlugin
+    id: vscode/typescript-language-features/latest
+  - type: chePlugin
+    id: esbenp/prettier-vscode/latest
+  - type: chePlugin
+    id: redhat/dependency-analytics/latest
+  - type: chePlugin
+    id: che-incubator/typescript/latest
+  - type: chePlugin
+    id: redhat/dependency-analytics/latest
+  - type: chePlugin
+    id: donjayamanne/githistory/latest
+  - type: chePlugin
+    id: sonarsource/sonarlint-vscode/latest
+  - type: cheEditor
+    id: cdr/code-server/latest
+  - type: dockerimage
+    alias: nodejs
+    image: "quay.io/eclipse/che-nodejs8-centos@sha256:d8a97250ad639914a68677a0cc0ba5b96647c77062b0d6eaabeef680e63696b7"
+    memoryLimit: 512Mi
+    endpoints:
+      - name: nodejs
+        port: 4100
+      - name: nodejs
+        port: 4101
+    mountSources: true
+commands:
+  - name: install all required dependencies
+    actions:
+      - type: exec
+        component: nodejs
+        command: yarn install
+        workdir: "${CHE_PROJECTS_ROOT}/portfolio/client"
+  - name: start the local server
+    actions:
+      - type: exec
+        component: nodejs
+        command: yarn start
+        workdir: "${CHE_PROJECTS_ROOT}/portfolio/client"
