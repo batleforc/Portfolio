@@ -1,6 +1,7 @@
 import React from "react";
 import { Content } from "../../MainPage";
 import { MediaContent } from "../CoverPage/Media";
+import ItemNav from "./ItemNav";
 
 const DesktopNav = ({
   contents,
@@ -9,7 +10,15 @@ const DesktopNav = ({
   contents: Array<Content>;
   media: Array<MediaContent>;
 }) => {
-  return <div></div>;
+  return (
+    <div className="w-28 DeskNavBar sticky top-0 m-0 hidden md:block">
+      <div className=" sm:relative shadow flex-col flex ">
+        {contents.map(({ Label, Icon, href }) => (
+          <ItemNav key={Label} Label={Label} Icon={Icon} href={href} />
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default DesktopNav;

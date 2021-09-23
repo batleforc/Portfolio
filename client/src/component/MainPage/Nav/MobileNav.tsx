@@ -9,7 +9,11 @@ const MobileNav = ({
   contents: Array<Content>;
   media: Array<MediaContent>;
 }) => {
-  return <div></div>;
+  return (
+    <div className="MobileNavBar flex md:hidden">
+      <p>MobileNavBar</p>
+    </div>
+  );
 };
 
 export default MobileNav;

@@ -12,11 +12,11 @@ const Nav = ({
   media: Array<MediaContent>;
 }) => {
   return (
-    <div>
+    <>
       {[DesktopNav, MobileNav].map((Component, index) => (
         <Component key={index} contents={contents} media={media} />
       ))}
-    </div>
+    </>
   );
 };
 

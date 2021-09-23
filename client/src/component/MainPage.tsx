@@ -14,39 +14,45 @@ const MainPage = () => {
     {
       Label: "Home",
       Icon: "home",
-      href: "cover",
+      href: "#cover",
     },
     {
       Component: () => <p>About</p>,
       Label: "About",
       Icon: "user",
-      href: "about",
+      href: "#about",
     },
     {
       Component: () => <p>Projet</p>,
       Label: "Projet",
-      Icon: "gear",
-      href: "project",
+      Icon: "gears",
+      href: "#project",
     },
     {
       Component: () => <p>Contact</p>,
       Label: "Contact",
       Icon: "envelope",
-      href: "contact",
+      href: "#contact",
     },
   ];
   return (
-    <div>
+    <>
       <CoverPage />
-      <Nav contents={Contents} media={properties.media} />
-
       <div className="MainContent">
-        {Contents.filter(({ Component }) => Component !== undefined).map(
-          ({ Component, Label }) =>
-            Component !== undefined ? <Component key={Label} /> : <></>
-        )}
+        <Nav contents={Contents} media={properties.media} />
+        <div className="container content	md:ml-32">
+          {Contents.filter(({ Component }) => Component !== undefined).map(
+            ({ Component, Label }) =>
+              Component !== undefined ? <Component key={Label} /> : <></>
+          )}
+          {Array(100)
+            .fill(42, 0, 100)
+            .map((value, index) => (
+              <p key={index}>{value}</p>
+            ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
