@@ -17,8 +17,6 @@ components:
   - type: chePlugin
     id: che-incubator/typescript/latest
   - type: chePlugin
-    id: redhat/dependency-analytics/latest
-  - type: chePlugin
     id: donjayamanne/githistory/latest
   - type: chePlugin
     id: sonarsource/sonarlint-vscode/latest
