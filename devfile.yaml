@@ -27,9 +27,9 @@ components:
     image: "quay.io/eclipse/che-nodejs8-centos@sha256:d8a97250ad639914a68677a0cc0ba5b96647c77062b0d6eaabeef680e63696b7"
     memoryLimit: 512Mi
     endpoints:
-      - name: nodejs
+      - name: nodejsClient
         port: 4100
-      - name: nodejs
+      - name: nodejsServeur
         port: 4101
     mountSources: true
 commands:
