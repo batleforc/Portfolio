@@ -12,11 +12,6 @@ const properties = {
   ],
   media: [
     {
-      label: "Linkedin",
-      icon: "linkedin2",
-      link: "https://www.linkedin.com/in/maxime-leriche-weebo/",
-    },
-    {
       label: "Github",
       icon: "github",
       link: "https://github.com/batleforc",
@@ -25,6 +20,11 @@ const properties = {
       label: "Gitlab",
       icon: "gitlab",
       link: "https://gitlab.com/maxLeriche.weebo",
+    },
+    {
+      label: "Linkedin",
+      icon: "linkedin2",
+      link: "https://www.linkedin.com/in/maxime-leriche-weebo/",
     },
   ],
 };
