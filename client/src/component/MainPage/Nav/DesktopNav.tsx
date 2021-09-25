@@ -16,6 +16,15 @@ const DesktopNav = ({
         {contents.map(({ Label, Icon, href }) => (
           <ItemNav key={Label} Label={Label} Icon={Icon} href={href} />
         ))}
+        {media.map(({ label, icon, link }) => (
+          <ItemNav
+            key={label}
+            Label={label}
+            Icon={icon}
+            href={link}
+            externalLink={true}
+          />
+        ))}
       </div>
     </div>
   );
