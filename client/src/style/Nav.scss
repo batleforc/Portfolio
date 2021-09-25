@@ -17,5 +17,8 @@
   width: 100%;
 }
 
-.content {
+@media (min-width: $md) {
+  .content {
+    margin-top: -100vh;
+  }
 }

@@ -11,7 +11,7 @@ const MobileNav = ({
 }) => {
   return (
     <div className="MobileNavBar flex md:hidden">
-      <p>MobileNavBar</p>
+      <p>WIP:MobileNavBar</p>
     </div>
   );
 };
