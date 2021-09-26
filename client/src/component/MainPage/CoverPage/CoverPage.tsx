@@ -14,7 +14,16 @@ const CoverPage = () => {
         />
         <Media medias={properties.media} />
       </div>
-      <a href="#about">
+      <a
+        href="#about"
+        onClick={(event) => {
+          if (!event) return;
+          event.preventDefault();
+          document.querySelector(`#about`)?.scrollIntoView({
+            behavior: "smooth",
+          });
+        }}
+      >
         <IcoMoonSVG
           icon="chevron-down"
           className="ico-next-content animate-bounce"

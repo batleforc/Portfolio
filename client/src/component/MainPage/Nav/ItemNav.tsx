@@ -24,6 +24,13 @@ const ItemNav = ({
       href={externalLink ? href : `#${href}`}
       target={externalLink ? "_blank" : "_self"}
       rel={externalLink ? "noreferrer" : "tag"}
+      onClick={(event) => {
+        if (!event || externalLink) return;
+        event.preventDefault();
+        document.querySelector(`#${href}`)?.scrollIntoView({
+          behavior: "smooth",
+        });
+      }}
       className={`flex-col text-center m-2 ${WrapperClassName}`}
     >
       <IcoMoonSVG className={IconClassName} icon={Icon} />
