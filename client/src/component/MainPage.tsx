@@ -49,11 +49,6 @@ const MainPage = () => {
                 <></>
               )
           )}
-          {Array(100)
-            .fill(42, 0, 100)
-            .map((value, index) => (
-              <p key={index}>{value}</p>
-            ))}
         </div>
       </div>
     </>

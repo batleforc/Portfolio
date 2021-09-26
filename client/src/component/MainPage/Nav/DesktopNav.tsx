@@ -12,7 +12,7 @@ const DesktopNav = ({
 }) => {
   return (
     <div className="w-28 DeskNavBar sticky top-0 m-0 hidden md:block">
-      <div className=" sm:relative shadow flex-col flex ">
+      <div className="sm:relative flex-col flex ">
         {contents.map(({ Label, Icon, href }) => (
           <ItemNav
             key={Label}
