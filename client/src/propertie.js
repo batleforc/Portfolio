@@ -51,7 +51,12 @@ const properties = {
       categorie: [
         {
           Label: "Language",
-          List: ["JS", "ReactJS", "VueJS"],
+          List: ["Html", "Css", "JS"],
+          Horizontal: false,
+        },
+        {
+          Label: "Framework",
+          List: ["ReactJs", "VueJs", "SvelteJs"],
           Horizontal: false,
         },
       ],
@@ -61,8 +66,8 @@ const properties = {
       Icon: [{ icon: "github", label: "Exemple" }],
       categorie: [
         {
-          Label: "Language",
-          List: ["Heroku", "Docker", "Kubernetes", "Vm", "VPS"],
+          Label: "Support",
+          List: ["Vm", "VPS", "Docker", "Heroku", "Kubernetes"],
           Horizontal: false,
         },
         {

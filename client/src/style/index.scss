@@ -6,3 +6,8 @@
 @import "./cover.scss";
 @import "./icon.scss";
 @import "./Nav.scss";
+@import "./About.scss";
+
+body {
+  background-color: $color-textCover;
+}
