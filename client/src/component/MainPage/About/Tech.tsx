@@ -20,9 +20,9 @@ interface ITech {
 
 const Tech = ({ techs }: { techs: ITech[] }) => {
   return (
-    <div id="Tech" className="flex justify-center">
+    <div id="Tech" className="flex flex-col md:flex-row justify-center flex-wr">
       {techs.map(({ Label, Icon, categorie }, index) => (
-        <div id={`${Label}`} key={index} className="flex-row mx-2">
+        <div id={`${Label}`} key={index} className="flex flex-col mx-2">
           <p id={`${Label}Label`}>{Label}</p>
           <div id={`${Label}Icon`} className="flex justify-center my-1">
             {Icon.map(({ icon }, indexIcon) => (
