@@ -13,13 +13,11 @@ const MobileNav = ({
 }) => {
   const [open, setOpen] = useState(false);
   return (
-    <div className="md:hidden">
+    <div className={`md:hidden ${open ? "fadeIn" : "fadeOut"}`}>
       <div className="MobileNavBar" onClick={() => setOpen(!open)}>
         <IcoMoonSVG icon={open ? "cross" : "burger"} className="burgerIcon" />
       </div>
-      <div
-        className={`MobileNavBarVertical ${open ? "flex" : "hidden"}  flex-col`}
-      >
+      <div className={`MobileNavBarVertical flex  flex-col`}>
         {contents.map(({ Label, Icon, href }) => (
           <ItemNav
             key={Label}
@@ -31,11 +29,7 @@ const MobileNav = ({
           />
         ))}
       </div>
-      <div
-        className={`MobileNavBarHorizontal flex flex-row ${
-          open ? "flex" : "hidden"
-        }`}
-      >
+      <div className={`MobileNavBarHorizontal flex-row flex`}>
         {media.map(({ label, icon, link }) => (
           <ItemNav
             key={label}

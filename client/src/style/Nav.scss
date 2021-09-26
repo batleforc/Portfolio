@@ -33,8 +33,8 @@
 
 .MobileNavBar {
   position: fixed;
-  bottom: 5%;
-  right: 5%;
+  bottom: $margin;
+  right: $margin;
   .burgerIcon {
     border-radius: 10px;
     text-align: center;
@@ -44,17 +44,101 @@
     color: $color-textCover;
   }
 }
+
 .MobileNavBarVertical {
   justify-content: center;
   position: fixed;
-  right: 3%;
-  top: 5%;
-  height: 80%;
+  right: $outPosition;
+  top: $margin;
+  height: $size;
 }
 .MobileNavBarHorizontal {
   justify-content: center;
   position: fixed;
-  bottom: 3%;
-  width: 80%;
-  margin-left: 5%;
+  bottom: $outPosition;
+  width: $size;
+  margin-left: $margin;
+}
+
+.fadeIn {
+  .MobileNavBarVertical {
+    animation: slideInVertical $anime-timer linear 1;
+    right: $inPosition;
+  }
+  .MobileNavBarHorizontal {
+    animation: slideInHorizontal $anime-timer linear 1;
+    bottom: $inPosition;
+  }
+  .MobileNavBar {
+    animation: spinIn $anime-timerBurger linear 1;
+  }
+}
+
+.fadeOut {
+  .MobileNavBarVertical {
+    animation: slideOutVertical $anime-timer linear 1;
+  }
+  .MobileNavBarHorizontal {
+    animation: slideOutHorizontal $anime-timer linear 1;
+  }
+  .MobileNavBar {
+    animation: spinOut $anime-timerBurger linear 1;
+  }
+}
+
+@keyframes slideInVertical {
+  from {
+    right: $outPosition;
+  }
+
+  to {
+    right: $inPosition;
+  }
+}
+@keyframes slideInHorizontal {
+  from {
+    bottom: $outPosition;
+  }
+
+  to {
+    bottom: $inPosition;
+  }
+}
+
+@keyframes slideOutVertical {
+  from {
+    right: $inPosition;
+  }
+
+  to {
+    right: $outPosition;
+  }
+}
+@keyframes slideOutHorizontal {
+  from {
+    bottom: $inPosition;
+  }
+
+  to {
+    bottom: $outPosition;
+  }
+}
+
+@keyframes spinOut {
+  from {
+    transform: rotate($spinOutDeg);
+  }
+
+  to {
+    transform: rotate($spinInDeg);
+  }
+}
+@keyframes spinIn {
+  from {
+    transform: rotate($spinInDeg);
+  }
+
+  to {
+    transform: rotate($spinOutDeg);
+  }
 }
