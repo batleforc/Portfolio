@@ -4,6 +4,12 @@
   height: 100vh;
 }
 
+@media (max-height: 590px) {
+  .DeskNavBar {
+    overflow: scroll;
+  }
+}
+
 .DeskNavBarIcon {
   font-size: 40px;
   color: $color-textCover;
