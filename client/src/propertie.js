@@ -34,8 +34,8 @@ const properties = {
     {
       Label: "Core",
       Icon: [
-        { icon: "github", label: "Exemple" },
-        { icon: "github", label: "Exemple" },
+        { icon: "dot-net", label: "Dot Net" },
+        { icon: "node-dot-js", label: "Node.js" },
       ],
       categorie: [
         {
@@ -47,7 +47,10 @@ const properties = {
     },
     {
       Label: "Front",
-      Icon: [{ icon: "github", label: "Exemple" }],
+      Icon: [
+        { icon: "javascript", label: "Js" },
+        { icon: "react", label: "ReactJs" },
+      ],
       categorie: [
         {
           Label: "Language",
@@ -63,7 +66,11 @@ const properties = {
     },
     {
       Label: "Infra",
-      Icon: [{ icon: "github", label: "Exemple" }],
+      Icon: [
+        { icon: "docker", label: "Docker" },
+        { icon: "kubernetes", label: "Kubernetes" },
+        { icon: "gitea", label: "Gitea" },
+      ],
       categorie: [
         {
           Label: "Support",
@@ -86,7 +93,10 @@ const properties = {
     },
     {
       Label: "Base de donnée",
-      Icon: [{ icon: "github", label: "Exemple" }],
+      Icon: [
+        { icon: "mongodb", label: "MongoDb" },
+        { icon: "postgresql", label: "PostgreSQL" },
+      ],
       categorie: [
         {
           Label: "Gérer",
