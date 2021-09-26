@@ -4,7 +4,7 @@ import { MediaContent } from "./Media";
 
 const MediaItem = ({ label, icon, link }: MediaContent) => {
   return (
-    <a href={link} target="_blank" rel="noreferrer">
+    <a href={`#${link}`} target="_blank" rel="noreferrer">
       <IcoMoonSVG icon={icon} className="ico-cover" />
     </a>
   );

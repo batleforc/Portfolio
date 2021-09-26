@@ -21,7 +21,7 @@ const ItemNav = ({
   // eslint-disable-next-line
   return (
     <a
-      href={href}
+      href={externalLink ? href : `#${href}`}
       target={externalLink ? "_blank" : "_self"}
       rel={externalLink ? "noreferrer" : "tag"}
       className={`flex-col text-center m-2 ${WrapperClassName}`}
