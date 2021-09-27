@@ -1,6 +1,6 @@
 import React from "react";
 import TextRotate from "./TextRotate";
-import properties from "../../../propertie";
+import properties from "../../../properties";
 import Media from "./Media";
 import IcoMoonSVG from "../../helper/IcomoonSVG";
 const CoverPage = () => {

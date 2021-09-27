@@ -1,5 +1,5 @@
 import React from "react";
-import properties from "../propertie";
+import properties from "../properties";
 import CoverPage from "./MainPage/CoverPage/CoverPage";
 import Nav from "./MainPage/Nav";
 import About from "./MainPage/About/About";

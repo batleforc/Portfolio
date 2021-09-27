@@ -1,16 +1,16 @@
 import React from "react";
 import { Content } from "../../MainPage";
-import propeties from "../../../propertie";
+import properties from "../../../properties";
 import WhoAmI from "./WhoAmI";
 import Tech from "./Tech";
 
-const Cover = ({ Label, Icon, href }: Content) => {
+const About = ({ Label, Icon, href }: Content) => {
   return (
     <div id={href} className="py-5">
-      <WhoAmI about={propeties.about} />
-      <Tech techs={propeties.tech} />
+      <WhoAmI about={properties.about} />
+      <Tech techs={properties.tech} />
     </div>
   );
 };
 
-export default Cover;
+export default About;
