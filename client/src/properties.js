@@ -1,5 +1,6 @@
 const properties = {
   name: "Maxime Leriche",
+  cvUrl: "/CV.pdf",
   attribute: [
     "Développeur.",
     "Étudiant.",
