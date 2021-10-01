@@ -43,27 +43,25 @@ const Tech = ({ techs }: { techs: ITech[] }) => {
             ))}
           </div>
           <div id={`${Label}Categorie`}>
-            {categorie.map(
-              ({ Label: labelCategorie, List, Horizontal }, indexCat) => (
-                <div key={indexCat} className="mt-2 mb-1">
-                  <p className="font-bold">{labelCategorie}</p>
-                  <div className="flex flex-col xl:flex-row justify-center">
-                    {List.map((listItem, indexList) => (
-                      <p key={indexList}>
-                        {listItem}
-                        <span
-                          className={`hidden ${
-                            indexList < List.length - 1 ? "xl:contents" : ""
-                          }`}
-                        >
-                          {" , "}
-                        </span>
-                      </p>
-                    ))}
-                  </div>
+            {categorie.map(({ Label: labelCategorie, List }, indexCat) => (
+              <div key={indexCat} className="mt-2 mb-1">
+                <p className="font-bold">{labelCategorie}</p>
+                <div className="flex flex-col xl:flex-row justify-center">
+                  {List.map((listItem, indexList) => (
+                    <p key={indexList}>
+                      {listItem}
+                      <span
+                        className={`hidden ${
+                          indexList < List.length - 1 ? "xl:contents" : ""
+                        }`}
+                      >
+                        {","}&nbsp;
+                      </span>
+                    </p>
+                  ))}
                 </div>
-              )
-            )}
+              </div>
+            ))}
           </div>
         </div>
       ))}
