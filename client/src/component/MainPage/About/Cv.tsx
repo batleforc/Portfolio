@@ -9,7 +9,7 @@ const Cv = ({
   ico?: string;
 }) => {
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center my-8">
       <a
         className="border-2 rounded-full cvButton px-5 py-2"
         href={cvUrl}
