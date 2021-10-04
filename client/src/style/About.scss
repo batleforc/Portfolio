@@ -8,3 +8,40 @@
   background-color: $color-bgCover;
   color: $color-textCover;
 }
+
+#verticalTimeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 18px;
+  height: 100%;
+  width: 4px;
+  background: $color-textCoverDarker;
+}
+
+@media (min-width: $md) {
+  #verticalTimeline::before {
+    left: 50%;
+    margin-left: 2px;
+  }
+  .timelineIcon {
+    margin: 0;
+  }
+}
+
+#verticalTimeline {
+  position: relative;
+  height: 100%;
+}
+
+.timelineIcon {
+  font-size: 20px;
+  padding: 2px;
+  color: $color-textCover;
+  background-color: $color-bgCover;
+}
+
+.timelineIconBlock {
+  z-index: 100;
+  margin-left: 10px;
+}
