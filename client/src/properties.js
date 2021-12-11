@@ -115,8 +115,8 @@ const properties = {
       to: "2018",
       location: "Nogent-sur-oise",
       where: "Lycée Marie-Curie",
-      description: "",
-      Icon: "logoLyceeMarieCurie.png?",
+      description: "Mention Bien",
+      Icon: "logoLyceeMarieCurie.png",
     },
     {
       Label: "DUT Info",
@@ -126,7 +126,7 @@ const properties = {
       location: "Amiens",
       where: "Iut amiens",
       description: "",
-      Icon: "logoIutAmiens.png",
+      Icon: "logoIutAmiens.jpg",
     },
     {
       Label: "LP Dev Cloud",
@@ -136,7 +136,7 @@ const properties = {
       location: "Niort",
       where: "IUT La rochelle",
       description: "",
-      Icon: "logoIUTLaRochelle.png?",
+      Icon: "logoIUTLaRochelle.png",
     },
     {
       Label: "Master Architecte Logicielle",
@@ -146,7 +146,7 @@ const properties = {
       location: "Niort",
       where: "Université La rochelle",
       description: "",
-      Icon: "logoUniversitéLaRochelle.png?",
+      Icon: "logoUniversiteLaRochelle.png",
     },
     {
       Label: "Dev Natif et PWA",
@@ -156,7 +156,7 @@ const properties = {
       location: "Aigrefeuille d'aunis",
       where: "Nexi conseils",
       description: "",
-      Icon: "nexiConseils.png?",
+      Icon: "nexiConseils.png",
     },
     {
       Label: "DevOps",
@@ -166,17 +166,17 @@ const properties = {
       location: "Niort",
       where: "Macif",
       description: "",
-      Icon: "macif.png?",
+      Icon: "macif.png",
     },
     {
-      Label: "Codeur Museomix",
+      Label: "Codeur",
       type: "Event",
       from: "2019",
       to: "2019",
       location: "Amiens",
       where: "Museomix",
       description: "",
-      Icon: "museomixLogo.png?",
+      Icon: "museomixLogo.png",
     },
   ],
 };
