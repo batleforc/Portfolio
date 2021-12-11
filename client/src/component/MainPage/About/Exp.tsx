@@ -14,15 +14,15 @@ export interface IExperience {
 
 const Experience = ({ exp }: { exp: Array<IExperience> }) => {
   return (
-    <div className="my-8">
-      <div id="verticalTimeline">
+    <div className="my-8 truc">
+      <div className="timeline">
         {[...exp]
           .sort(
             (a: IExperience, b: IExperience) =>
               Number.parseInt(a.from) - Number.parseInt(b.from)
           )
-          .map((expItem) => (
-            <ExpItem {...expItem} />
+          .map((expItem,index) => (
+            <ExpItem key={expItem.Label} index={index} item={expItem} />
           ))}
       </div>
     </div>

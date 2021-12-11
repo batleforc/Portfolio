@@ -41,6 +41,7 @@
   position: fixed;
   bottom: $margin;
   right: $margin;
+  z-index: 10;
   .burgerIcon {
     border-radius: 10px;
     text-align: center;
@@ -57,6 +58,7 @@
   right: $outPosition;
   top: $margin;
   height: $size;
+  z-index: 10;
 }
 .MobileNavBarHorizontal {
   justify-content: center;
@@ -64,6 +66,7 @@
   bottom: $outPosition;
   width: $size;
   margin-left: $margin;
+  z-index: 10;
 }
 
 .fadeIn {
