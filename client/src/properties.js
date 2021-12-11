@@ -29,7 +29,7 @@ const properties = {
     },
   ],
   about: [
-    "Un étudiant en Master Architecte Logicielle. Entre le développeur Back et Front saupoudré d'un fan d'Infra.",
+    "Un étudiant en Master Architecte Logicielle. Entre le développeur Back et Front avec un amour profond pour l'infra.",
   ],
   tech: [
     {
@@ -68,8 +68,8 @@ const properties = {
     {
       Label: "Infra",
       Icon: [
-        { icon: "docker", label: "Docker" },
         { icon: "kubernetes", label: "Kubernetes" },
+        { icon: "docker", label: "Docker" },
         { icon: "gitea", label: "Gitea" },
       ],
       categorie: [
@@ -81,7 +81,7 @@ const properties = {
         {
           Label: "Kubernetes",
           List: [
-            "Microk8s",
+            "K3S / Microk8s",
             "Keycloak",
             "Gitea",
             "Harbor",
