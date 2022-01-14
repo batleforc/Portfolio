@@ -1,5 +1,4 @@
 import React from "react";
-import IcoMoonSVG from "../../../helper/IcomoonSVG";
 import { IExperience } from "../Exp";
 
 const ExpItem = ({
@@ -30,7 +29,9 @@ const ExpItem = ({
           </p>
           <p className="font-normal">{description}</p>
         </div>
-        {Icon&&<img src={"logo/"+Icon}/>}
+        <div className="imageExpContainer">
+        {Icon && <img alt={Label} className="imageExp" src={"logo/"+Icon}/>}
+        </div>
       </div>
     </div>
   );
