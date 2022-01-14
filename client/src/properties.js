@@ -33,7 +33,7 @@ const properties = {
   ],
   tech: [
     {
-      Label: "Core",
+      Label: "Back",
       Icon: [
         { icon: "dot-net", label: "Dot Net" },
         { icon: "node-dot-js", label: "Node.js" },

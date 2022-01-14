@@ -21,7 +21,7 @@ const ItemNav = ({
   // eslint-disable-next-line
   return (
     <a
-      href={externalLink ? href : `#${href}`}
+      href={externalLink || href.includes("/") ? href : `#${href}`}
       target={externalLink ? "_blank" : "_self"}
       rel={externalLink ? "noreferrer" : "tag"}
       onClick={(event) => {
