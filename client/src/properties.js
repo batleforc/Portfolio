@@ -19,7 +19,7 @@ const properties = {
     },
     {
       label: "Gitlab",
-      icon: "gitlab",
+      icon: "gitlab1",
       link: "https://gitlab.com/maxLeriche.weebo",
     },
     {
@@ -37,11 +37,12 @@ const properties = {
       Icon: [
         { icon: "dot-net", label: "Dot Net" },
         { icon: "node-dot-js", label: "Node.js" },
+        { icon: "go", label: "Go" },
       ],
       categorie: [
         {
           Label: "Language",
-          List: ["C#", "C", "C++", "Php", "Node", "Python", "Java"],
+          List: ["C#", "C", "C++", "Php", "Node", "Python", "Java", "go"],
           Horizontal: false,
         },
       ],
@@ -71,17 +72,27 @@ const properties = {
         { icon: "kubernetes", label: "Kubernetes" },
         { icon: "docker", label: "Docker" },
         { icon: "gitea", label: "Gitea" },
+        { icon: "helm", label: "Helm3" },
       ],
       categorie: [
         {
           Label: "Support",
-          List: ["Vm", "VPS", "Docker", "Heroku", "Kubernetes"],
+          List: [
+            "Vm",
+            "Ovh",
+            "Ansible",
+            "VPS",
+            "Docker",
+            "Heroku",
+            "Kubernetes",
+          ],
           Horizontal: false,
         },
         {
           Label: "Kubernetes",
           List: [
             "K3S / Microk8s",
+            "Helm3",
             "Keycloak",
             "Gitea",
             "Harbor",
@@ -93,15 +104,20 @@ const properties = {
       ],
     },
     {
-      Label: "Base de donnée",
+      Label: "Stockage",
       Icon: [
         { icon: "mongodb", label: "MongoDb" },
         { icon: "postgresql", label: "PostgreSQL" },
       ],
       categorie: [
         {
-          Label: "Gérer",
+          Label: "Base de donnée",
           List: ["MariaDB", "MongoDB", "PostgreSQL"],
+          Horizontal: false,
+        },
+        {
+          Label: "Bucket",
+          List: ["MinIo"],
           Horizontal: false,
         },
       ],
