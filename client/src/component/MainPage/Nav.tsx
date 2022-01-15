@@ -8,10 +8,12 @@ const Nav = ({
   contents,
   media,
   selected,
+  onClick
 }: {
   contents: Array<Content>;
   media: Array<MediaContent>;
   selected: string;
+  onClick: (arg0: string) => void;
 }) => {
   return (
     <>
@@ -21,6 +23,7 @@ const Nav = ({
           key={index}
           contents={contents}
           media={media}
+          onClick={onClick}
         />
       ))}
     </>

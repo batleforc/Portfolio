@@ -7,6 +7,7 @@ interface ItemContent extends Content {
   IconClassName?: string;
   TextClassName?: string;
   WrapperClassName?: string;
+  onClick?: (arg0: string) => void;
 }
 
 const ItemNav = ({
@@ -17,6 +18,7 @@ const ItemNav = ({
   IconClassName = "",
   TextClassName = "",
   WrapperClassName = "",
+  onClick,
 }: ItemContent) => {
   // eslint-disable-next-line
   return (
@@ -30,6 +32,7 @@ const ItemNav = ({
         document.querySelector(`#${href}`)?.scrollIntoView({
           behavior: "smooth",
         });
+        if (onClick !== undefined) onClick(href);
       }}
       className={`flex-col text-center m-2 ${WrapperClassName}`}
     >

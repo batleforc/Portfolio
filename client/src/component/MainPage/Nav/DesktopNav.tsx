@@ -6,11 +6,13 @@ import ItemNav from "./ItemNav";
 const DesktopNav = ({
   contents,
   media,
-  selected
+  selected,
+  onClick,
 }: {
   contents: Array<Content>;
   media: Array<MediaContent>;
   selected: string;
+  onClick: (arg0: string) => void;
 }) => {
   return (
     <div className="w-28 DeskNavBar sticky top-0 m-0 hidden md:block">
@@ -21,8 +23,11 @@ const DesktopNav = ({
             Label={Label}
             Icon={Icon}
             href={href}
-            WrapperClassName={href===selected?"DeskNavBarIconSelected rounded-lg":""}
+            WrapperClassName={
+              href === selected ? "DeskNavBarIconSelected rounded-lg" : ""
+            }
             IconClassName={"DeskNavBarIcon"}
+            onClick={onClick}
           />
         ))}
         <p className="text-center">====</p>

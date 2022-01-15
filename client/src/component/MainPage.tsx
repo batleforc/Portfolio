@@ -72,7 +72,7 @@ const MainPage = () => {
     <>
       <CoverPage />
       <div className="MainContent">
-        <Nav contents={Contents} media={properties.media} selected={where} />
+        <Nav contents={Contents} media={properties.media} selected={where} onClick={setWhere} />
         <div className="content	md:ml-32">
           {Contents.filter(({ Component }) => Component !== undefined).map(
             ({ Component, Label, Icon, href }) =>
