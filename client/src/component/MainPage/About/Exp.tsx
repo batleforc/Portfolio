@@ -14,7 +14,7 @@ export interface IExperience {
 
 const Experience = ({ exp }: { exp: Array<IExperience> }) => {
   return (
-    <div className="my-8 truc">
+    <div id="about-exp" className="my-8 truc about">
       <div className="timeline">
         {[...exp]
           .sort(

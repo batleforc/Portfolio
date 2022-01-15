@@ -21,8 +21,8 @@ interface ITech {
 const Tech = ({ techs }: { techs: ITech[] }) => {
   return (
     <div
-      id="Tech"
-      className="flex flex-col md:flex-row justify-center flex-wrap"
+      id="about-Tech"
+      className="about flex flex-col md:flex-row justify-center flex-wrap"
     >
       {techs.map(({ Label, Icon, categorie }, index) => (
         <div

@@ -17,8 +17,8 @@ export interface IProject {
 const Projet = ({ Label, Icon, href }: Content) => {
   return (
     <div id={href} className="py-5">
-      <h1 className="text-4xl">Projet</h1>
-      <div className="flex flex-col md:flex-row justify-center flex-wrap">
+      <h1 className="text-4xl font-bold m-1">Projets</h1>
+      <div className="flex flex-col md:flex-row justify-center flex-wrap m-3">
         {properties.project.map((project) => (
           <ProjectItem key={project.Slug} project={project} />
         ))}

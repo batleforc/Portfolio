@@ -15,12 +15,14 @@ const MainPage = () => {
   const notification = new IntersectionObserver(
     (entries) => {
       var id = entries[0].target.id;
+      if (id.includes("-"))
+        id = id.split("-")[0]
       if (id !== where) setWhere(id);
     },
     {
       root: null,
       rootMargin: "0px",
-      threshold: 0.20,
+      threshold: 0.30,
     }
   );
   const Contents = [
@@ -28,28 +30,35 @@ const MainPage = () => {
       Label: "Home",
       Icon: "home",
       href: "cover",
+      checkClass: false
     },
     {
       Component: About,
       Label: "About",
       Icon: "user",
       href: "about",
+      checkClass: true
     },
     {
       Component: Projet,
       Label: "Projet",
       Icon: "gears",
       href: "project",
+      checkClass: false
     },
     {
       Component: ({ Label, Icon, href }: Content) => <p id={href}>Contact</p>,
       Label: "Contact",
       Icon: "envelope",
       href: "contact",
+      checkClass: false
     },
   ];
   useEffect(() => {
-    Contents.forEach(({ href }) => {
+    Contents.forEach(({ href, checkClass }) => {
+      if (checkClass) {
+        Array.from(document.getElementsByClassName(href)).forEach((el)=>notification.observe(el))
+      }
       var element = document.getElementById(href);
       if (element !== null) notification.observe(element);
     });
