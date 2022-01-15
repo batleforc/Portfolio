@@ -3,6 +3,7 @@ import properties from "../properties";
 import CoverPage from "./MainPage/CoverPage/CoverPage";
 import Nav from "./MainPage/Nav";
 import About from "./MainPage/About/About";
+import Projet from "./MainPage/Projet/Projet";
 export interface Content {
   Label: string;
   Icon: string;
@@ -35,7 +36,7 @@ const MainPage = () => {
       href: "about",
     },
     {
-      Component: ({ Label, Icon, href }: Content) => <p id={href}>Projet</p>,
+      Component: Projet,
       Label: "Projet",
       Icon: "gears",
       href: "project",
