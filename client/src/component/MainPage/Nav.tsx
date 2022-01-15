@@ -7,14 +7,21 @@ import MobileNav from "./Nav/MobileNav";
 const Nav = ({
   contents,
   media,
+  selected,
 }: {
   contents: Array<Content>;
   media: Array<MediaContent>;
+  selected: string;
 }) => {
   return (
     <>
       {[DesktopNav, MobileNav].map((Component, index) => (
-        <Component key={index} contents={contents} media={media} />
+        <Component
+          selected={selected}
+          key={index}
+          contents={contents}
+          media={media}
+        />
       ))}
     </>
   );

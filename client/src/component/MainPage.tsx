@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import properties from "../properties";
 import CoverPage from "./MainPage/CoverPage/CoverPage";
 import Nav from "./MainPage/Nav";
@@ -10,6 +10,18 @@ export interface Content {
 }
 
 const MainPage = () => {
+  const [where, setWhere] = useState<string>("");
+  const notification = new IntersectionObserver(
+    (entries) => {
+      var id = entries[0].target.id;
+      if (id !== where) setWhere(id);
+    },
+    {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.20,
+    }
+  );
   const Contents = [
     {
       Label: "Home",
@@ -23,23 +35,34 @@ const MainPage = () => {
       href: "about",
     },
     {
-      Component: ({ Label, Icon, href }: Content) => <p>Projet</p>,
+      Component: ({ Label, Icon, href }: Content) => <p id={href}>Projet</p>,
       Label: "Projet",
       Icon: "gears",
       href: "project",
     },
     {
-      Component: ({ Label, Icon, href }: Content) => <p>Contact</p>,
+      Component: ({ Label, Icon, href }: Content) => <p id={href}>Contact</p>,
       Label: "Contact",
       Icon: "envelope",
       href: "contact",
     },
   ];
+  useEffect(() => {
+    Contents.forEach(({ href }) => {
+      var element = document.getElementById(href);
+      if (element !== null) notification.observe(element);
+    });
+    return () => {
+      notification.disconnect();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <>
       <CoverPage />
       <div className="MainContent">
-        <Nav contents={Contents} media={properties.media} />
+        <Nav contents={Contents} media={properties.media} selected={where} />
         <div className="content	md:ml-32">
           {Contents.filter(({ Component }) => Component !== undefined).map(
             ({ Component, Label, Icon, href }) =>

@@ -14,6 +14,9 @@
   font-size: 40px;
   color: $color-textCover;
 }
+.DeskNavBarIconSelected {
+  background-color: $color-bgCoverLighter;
+}
 
 .MainContent {
   width: 100%;
@@ -27,6 +30,10 @@
 
 .MobileNavBarIcon {
   font-size: 32px;
+}
+.MobileNavBarIconSelected {
+  font-size: 32px;
+  background-color: $color-bgCoverLighter !important;
 }
 .MobileNavBarWrapper {
   color: $color-textCover;

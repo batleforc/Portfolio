@@ -7,9 +7,11 @@ import ItemNav from "./ItemNav";
 const MobileNav = ({
   contents,
   media,
+  selected
 }: {
   contents: Array<Content>;
   media: Array<MediaContent>;
+  selected: string;
 }) => {
   const [open, setOpen] = useState(false);
   return (
