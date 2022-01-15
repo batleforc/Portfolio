@@ -1,10 +1,12 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route,Routes } from "react-router-dom";
 import MainPage from "./component/MainPage";
 function App() {
   return (
     <div className="App">
-      <Route path="/" component={MainPage} />
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+      </Routes>
     </div>
   );
 }
