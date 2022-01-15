@@ -41,7 +41,7 @@ const MainPage = () => {
     },
     {
       Component: Projet,
-      Label: "Projet",
+      Label: "Projets",
       Icon: "gears",
       href: "project",
       checkClass: false
