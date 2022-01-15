@@ -13,7 +13,7 @@ const ProjectItem = ({
         <p>{ShortDescription}</p>
         <p className="text-xs"> + En savoir plus</p>
       </div>
-      <div className="border rounded-xl border-black flex flex-row flex-wrap overflow-auto absolute bottom-0 w-52 h-11">
+      <div className="border rounded-xl border-b-0 border-x-0 border-black flex flex-row flex-wrap overflow-auto absolute bottom-0 w-52 h-11">
         {Tag.map((value) => (
           <p className="border rounded-xl border-black m-1 p-1 h-max" key={value}>
             {value}
