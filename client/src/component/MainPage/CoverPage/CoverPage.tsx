@@ -3,6 +3,7 @@ import TextRotate from "./TextRotate";
 import properties from "../../../properties";
 import Media from "./Media";
 import IcoMoonSVG from "../../helper/IcomoonSVG";
+import { AreWeHome } from "../../helper";
 const CoverPage = () => {
   return (
     <div id="cover" className="coverPage justify-center place-items-center	">
@@ -15,11 +16,11 @@ const CoverPage = () => {
         <Media medias={properties.media} />
       </div>
       <a
-        href="#about"
+        href={AreWeHome()?"#about":"#title"}
         onClick={(event) => {
           if (!event) return;
           event.preventDefault();
-          document.querySelector(`#about`)?.scrollIntoView({
+          document.querySelector(event.currentTarget.href)?.scrollIntoView({
             behavior: "smooth",
           });
         }}
