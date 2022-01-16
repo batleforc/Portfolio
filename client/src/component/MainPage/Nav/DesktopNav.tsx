@@ -1,5 +1,5 @@
 import React from "react";
-import { Content } from "../../MainPage";
+import { IContent } from "../../MainPage";
 import { MediaContent } from "../CoverPage/Media";
 import ItemNav from "./ItemNav";
 
@@ -9,7 +9,7 @@ const DesktopNav = ({
   selected,
   onClick,
 }: {
-  contents: Array<Content>;
+  contents: Array<IContent>;
   media: Array<MediaContent>;
   selected: string;
   onClick: (arg0: string) => void;

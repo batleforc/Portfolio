@@ -1,5 +1,5 @@
 import React from "react";
-import { Content } from "../../MainPage";
+import { Content } from "../../../App";
 import properties from "../../../properties";
 import WhoAmI from "./WhoAmI";
 import Tech from "./Tech";

@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import IcoMoonSVG from "../../helper/IcomoonSVG";
-import { Content } from "../../MainPage";
 import { MediaContent } from "../CoverPage/Media";
 import ItemNav from "./ItemNav";
+import { IContent } from "../../MainPage";
 
 const MobileNav = ({
   contents,
   media,
   selected,
 }: {
-  contents: Array<Content>;
+  contents: Array<IContent>;
   media: Array<MediaContent>;
   selected: string;
   onClick: (arg0: string) => void;

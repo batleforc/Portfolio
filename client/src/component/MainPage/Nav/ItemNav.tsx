@@ -1,6 +1,6 @@
 import React from "react";
 import IcoMoonSVG from "../../helper/IcomoonSVG";
-import { Content } from "../../MainPage";
+import { Content } from "../../../App";
 /* eslint-disable react/jsx-no-target-blank*/
 interface ItemContent extends Content {
   externalLink?: boolean;
@@ -27,7 +27,7 @@ const ItemNav = ({
       target={externalLink ? "_blank" : "_self"}
       rel={externalLink ? "noreferrer" : "tag"}
       onClick={(event) => {
-        if (!event || externalLink) return;
+        if (!event || externalLink || href.includes("/")) return;
         event.preventDefault();
         document.querySelector(`#${href}`)?.scrollIntoView({
           behavior: "smooth",

@@ -1,5 +1,6 @@
 import React from "react";
-import { Content } from "../MainPage";
+import { AreWeHome } from "../helper";
+import { IContent } from "../MainPage";
 import { MediaContent } from "./CoverPage/Media";
 import DesktopNav from "./Nav/DesktopNav";
 import MobileNav from "./Nav/MobileNav";
@@ -10,7 +11,7 @@ const Nav = ({
   selected,
   onClick
 }: {
-  contents: Array<Content>;
+  contents: Array<IContent>;
   media: Array<MediaContent>;
   selected: string;
   onClick: (arg0: string) => void;
@@ -21,7 +22,7 @@ const Nav = ({
         <Component
           selected={selected}
           key={index}
-          contents={contents}
+          contents={contents.filter((value)=>AreWeHome()||!value.OnlyHome)}
           media={media}
           onClick={onClick}
         />

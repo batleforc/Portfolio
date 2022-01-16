@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Content } from "../../MainPage";
+import { Content } from "../../../App";
 import properties from "../../../properties";
 import ProjectItem from "./ProjectItem";
 
