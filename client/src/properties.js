@@ -199,6 +199,7 @@ const properties = {
     {
       Slug: "portfolio",
       Name: "Portfolio",
+      Description: ["Projet de mise en place d'un portfolio"],
       ShortDescription: "Plateforme pour me vendre",
       Tag: ["react", "V2"],
       Status: "En cours de dev",
@@ -215,6 +216,7 @@ const properties = {
     {
       Slug: "make-pwa",
       Name: "MaKe Pwa",
+      Description: [""],
       ShortDescription: "",
       Tag: ["react", "gulp", "plein de truc", "jojo"],
       Status: "Archivé",

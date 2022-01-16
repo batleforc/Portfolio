@@ -7,6 +7,7 @@ export interface IProject {
   Slug: string;
   Name: string;
   ShortDescription: string;
+  Description: string[];
   Tag: string[];
   Status: string;
   Techno: string[];
