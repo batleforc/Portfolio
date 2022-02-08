@@ -1,7 +1,7 @@
 #@data/values
 ---
 project:
-  name: pos
+  name: portfolio
   harbor: harbor.weebo.fr
   helm: harbor.weebo.fr/chartrepo/pos
   domain: weebo.fr
