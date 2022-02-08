@@ -1,0 +1,39 @@
+{{ range $key, $val := .Values.client -}}
+{{- with $ -}}
+{{ if has $key .Values.project.env }}
+{{- $deployName := printf "%s-client-%s-deploy" .Values.project.name $key -}}
+{{- $configclient := printf "%s-client-%s-configmap" .Values.project.name $key -}}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{$deployName}}
+  namespace: {{.Values.project.name}}
+  labels:
+    app: {{$deployName}}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{$deployName}}
+  template:
+    metadata:
+      labels:
+        app: {{$deployName}}
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      containers:
+        - name: {{$deployName}}
+          image: {{ printf "%s/%s/client:%s" .Values.server.registry .Values.project.name $val.tag}}
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: {{$val.port}}
+          readinessProbe:
+            httpGet:
+              path: {{$val.path}}
+              port: {{$val.port}}
+{{ end }}
+{{ end }}
+{{ end }}

@@ -1,0 +1,15 @@
+#@data/values
+---
+project:
+  name: pos
+  harbor: harbor.weebo.fr
+  helm: harbor.weebo.fr/chartrepo/pos
+  domain: weebo.fr
+  qube: qube.weebo.fr
+  webhook: https://discord.com/api/webhooks/914864934884618271/T74XBXS7sO0eoXnzP0Y_qziF4rXxTNeeKmgAQECevCx_73wIl0Mum3b2PJ7jgqpNoTz3
+
+api:
+  git_url: "git@github.com:batleforc/Portfolio.git"
+
+client:
+  git_url: "git@github.com:batleforc/Portfolio.git"

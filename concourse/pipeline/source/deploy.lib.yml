@@ -1,0 +1,31 @@
+#@ load("@ytt:data", "data")
+#@ load("discord.lib.yml","discordMessage")
+#@ def deploy(proj,env,label):
+put: deploy-ressource
+params:
+  kubectl: #@ "rollout restart deploy "+ data.values.project.name+"-"+proj+"-"+env+"-deploy"
+on_success:
+  put: notif-discord
+  params:
+    status: "success"
+    scan: False
+    env: #@ env
+on_failure:
+  put: notif-discord
+  params:
+    status: "failed"
+    scan: False
+    env: #@ env
+on_error:
+  put: notif-discord
+  params:
+    status: "errored"
+    scan: False
+    env: #@ env
+on_abort:
+  put: notif-discord
+  params:
+    status: "aborted"
+    scan: False
+    env: #@ env
+#@ end

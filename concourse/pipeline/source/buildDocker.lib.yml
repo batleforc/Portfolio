@@ -1,0 +1,16 @@
+#@ load("deploy.lib.yml","deploy")
+#@ def buildDockerTemplate(label,trigger,app,env,folder,password):
+name: #@ "build-and-push-"+env
+plan:
+  - get: #@ "git" + label
+    trigger: #@ trigger
+  - put: harbor
+    params:
+      build: #@ "./git" + label +"/"+folder
+      tag_file: #@ "./git" + label +"/.git/ref"
+      additional_tags: #@ "./git" + label +"/"+env+"Tag.txt"
+      build_args:
+        ENV: #@ env
+        PASSWORD: #@ password
+  -  #@ deploy(app,env,label)
+#@ end

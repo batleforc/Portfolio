@@ -1,0 +1,26 @@
+#@ def discordMessage(env,scan):
+on_success:
+  put: notif-discord
+  params:
+    status: "succeeded"
+    scan: #@ scan
+    env: #@ env
+on_failure:
+  put: notif-discord
+  params:
+    status: "failed"
+    scan: #@ scan
+    env: #@ env
+on_error:
+  put: notif-discord
+  params:
+    status: "errored"
+    scan: #@ scan
+    env: #@ env
+on_abort:
+  put: notif-discord
+  params:
+    status: "aborted"
+    scan: #@ scan
+    env: #@ env
+#@ end

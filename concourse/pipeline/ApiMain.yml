@@ -1,0 +1,26 @@
+#@ load("@ytt:data", "data")
+#@ load("git.lib.yml", "gitTemplate")
+#@ load("harbor.lib.yml","harborTemplate")
+#@ load("buildDocker.lib.yml","buildDockerTemplate")
+#@ load("qube.lib.yml","qubeScannTemplate")
+#@ load("discord.lib.yml","discordMessage")
+#@ load("discordRessource.lib.yml","discordRessources")
+#@ load("discordRessourceType.lib.yml","discordRessourceType")
+#@ load("deployressource.lib.yml","deployressource")
+#@ load("deploytype.lib.yml","deploytype")
+
+resource_types:
+  -  #@ discordRessourceType()
+  -  #@ deploytype()
+
+resources:
+  -  #@ gitTemplate(data.values.api.git_url,"develop","apidevelop","Server/*")
+  -  #@ gitTemplate(data.values.api.git_url,"master","apimaster","Server/*")
+  -  #@ harborTemplate("api")
+  -  #@ discordRessources("/api","api")
+  -  #@ deployressource()
+
+jobs:
+  -  #@ qubeScannTemplate("apidevelop",True,"dev","api","Server")
+  -  #@ buildDockerTemplate("apidevelop",True,"api","dev","Server","posPasswordDev")
+  -  #@ buildDockerTemplate("apimaster",True,"api","prod","Server","posPasswordProd")

@@ -1,0 +1,10 @@
+#@ load("@ytt:data", "data")
+#@ def harborTemplate(project_part):
+name: harbor
+type: docker-image
+icon: docker
+source:
+  repository: #@ data.values.project.harbor +"/" + data.values.project.name + "/" + project_part
+  username: ((ci.robotUsername))
+  password: ((ci.robotPassword))
+#@ end

@@ -1,0 +1,24 @@
+{{- range $key,$val := .Values.db }}
+{{- with $ }}
+{{ if has $key .Values.project.env}}
+{{- $configName := printf "%s-db-%s-pv-claim" .Values.project.name $key -}}
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ $configName}}
+  namespace: {{.Values.project.name}}
+  annotations:
+    "helm.sh/resource-policy": keep
+    "meta.helm.sh/release-namespace": "default"
+  labels:
+    app: mongodb-POS
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+{{- end }}
+{{- end }}
+{{- end }}

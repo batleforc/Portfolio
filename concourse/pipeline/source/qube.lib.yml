@@ -1,0 +1,47 @@
+#@ load("@ytt:data", "data")
+#@ load("discord.lib.yml","discordMessage")
+#@ def qubeScannTemplate(git_label,trigger,env,app,path):
+name: #@ "qube" + git_label
+public: true
+plan:
+  - get: #@ "git" + git_label
+    trigger: #@ trigger
+  - task: analyse-project
+    on_success:
+      put: notif-discord
+      params:
+        status: "success"
+        scan: True
+        env: #@ env
+    on_failure:
+      put: notif-discord
+      params:
+        status: "failed"
+        scan: True
+        env: #@ env
+    on_error:
+      put: notif-discord
+      params:
+        status: "errored"
+        scan: True
+        env: #@ env
+    on_abort:
+      put: notif-discord
+      params:
+        status: "aborted"
+        scan: True
+        env: #@ env
+    config:
+      inputs:
+        - name: #@ "git" + git_label
+      platform: linux
+      image_resource:
+        type: registry-image
+        source:
+          repository: sonarsource/sonar-scanner-cli
+      run:
+        path: sh
+        args:
+          - -exc
+          -  #@ "sonar-scanner -Dsonar.projectKey="+ env+"-"+app+"-"+ data.values.project.name+ " -Dsonar.sources=git"+git_label+"/"+path +" -Dsonar.host.url=https://qube.weebo.fr -Dsonar.login=((ci.qubeToken))"
+#@ end
