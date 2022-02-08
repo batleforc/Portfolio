@@ -22,5 +22,6 @@ resources:
 
 jobs:
   -  #@ qubeScannTemplate("clientdevelop",True,"dev","client","client")
+  -  #@ qubeScannTemplate("clientmaster",True,"prod","client","client")
   -  #@ buildDockerTemplate("clientdevelop",True,"client","dev","client","")
   -  #@ buildDockerTemplate("clientmaster",True,"client","prod","client","")
