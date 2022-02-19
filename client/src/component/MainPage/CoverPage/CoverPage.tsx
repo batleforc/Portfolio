@@ -20,7 +20,7 @@ const CoverPage = () => {
         onClick={(event) => {
           if (!event) return;
           event.preventDefault();
-          document.querySelector(event.currentTarget.href)?.scrollIntoView({
+          document.querySelector(AreWeHome()?"#about":"#title")?.scrollIntoView({
             behavior: "smooth",
           });
         }}
