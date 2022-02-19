@@ -104,7 +104,7 @@ const properties = {
       ],
     },
     {
-      Label: "Stockage",
+      Label: "Interaction de donnée",
       Icon: [
         { icon: "mongodb", label: "MongoDb" },
         { icon: "postgresql", label: "PostgreSQL" },
@@ -118,6 +118,11 @@ const properties = {
         {
           Label: "Bucket",
           List: ["MinIo"],
+          Horizontal: false,
+        },
+        {
+          Label: "Event",
+          List: ["Apache Kafka"],
           Horizontal: false,
         },
       ],
@@ -175,7 +180,7 @@ const properties = {
       Icon: "nexiConseils.png",
     },
     {
-      Label: "DevOps",
+      Label: "Alternant DevOps/Couche d'échange",
       type: "Work",
       from: "2021",
       to: "",
