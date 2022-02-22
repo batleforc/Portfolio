@@ -7,7 +7,7 @@ import properties from "./properties";
 import About from "./component/MainPage/About/About";
 import Projet from "./component/MainPage/Projet/Projet";
 import Nav from "./component/MainPage/Nav";
-import { AreWeHome } from "./component/helper";
+import { useLocation } from 'react-router-dom';
 export interface Content {
   Label: string;
   Icon: string;
@@ -16,6 +16,7 @@ export interface Content {
 
 function App() {
   const [where, setWhere] = useState<string>("");
+  const location = useLocation();
   const notification = new IntersectionObserver(
     (entries) => {
       var id = entries[0].target.id;
@@ -32,7 +33,7 @@ function App() {
     {
       Label: "Home",
       Icon: "home",
-      href: AreWeHome() ? "cover" : "/",
+      href: location.pathname ==="/" ? "cover" : "/",
       checkClass: false,
       OnlyHome: false,
     },
