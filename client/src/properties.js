@@ -210,13 +210,21 @@ const properties = {
       Tag: ["react", "V2"],
       Status: "En cours de dev",
       Techno: [
-        "Api :",
-        "Nodejs",
-        "Express ,bcrypt, mongodb, LinkPreviewGenerator, node-fetch,WebPush",
-        "Mongodb",
-        "Ui :",
-        "ReactJs",
-        "EditorJs,React Router, FontAwesome, Recaptcha et W3CSchool",
+        {
+          Label: "Api",
+          Content: [
+            "Nodejs",
+            "Express ,bcrypt, mongodb, LinkPreviewGenerator, node-fetch,WebPush",
+            "Mongodb",
+          ],
+        },
+        {
+          Label: "Ui",
+          Content: [
+            "ReactJs",
+            "EditorJs,React Router, FontAwesome, Recaptcha et W3CSchool",
+          ],
+        },
       ],
       Link: [
         { Label: "Git", Lien: "https://github.com/batleforc/Portfolio" },

@@ -10,8 +10,13 @@ export interface IProject {
   Description: string[];
   Tag: string[];
   Status: string;
-  Techno: string[];
+  Techno: ITechno[];
   Link: ILink[]
+}
+
+export interface ITechno{
+  Label: string;
+  Content: string[];
 }
 
 export interface ILink{
