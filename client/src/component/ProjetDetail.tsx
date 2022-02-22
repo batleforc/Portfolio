@@ -17,10 +17,10 @@ const ProjetDetail = () => {
       )}
       {project !== undefined && (
         <>
-          <h1 className="text-4xl font-bold m-1">{project.Name}</h1>
+          <h1 id="title" className="text-4xl font-bold m-1">{project.Name}</h1>
           <div className="flex flex-col flex-wrap">
-            <div className="flex-row flex ">
-              <div className="mr-4">
+            <div className="flex-row flex mb-10">
+              <div className="mr-10 grow">
                 {/* Bloc de gauche */}
                 <p>{project.Description}</p>
               </div>
@@ -42,12 +42,12 @@ const ProjetDetail = () => {
                 </ul>
               )}
               {project.Tag.length !== 0 && (
-                <div>
+                <div className="my-2">
                   <p key="init">Tag : </p>
                   <div className="flex">
                     {project.Tag.map((value) => (
                       <p
-                        className="border rounded-xl border-black m-1 p-1 h-min w-min"
+                        className="border rounded-xl border-black m-1 p-1 h-max"
                         key={value}
                       >
                         {value}
