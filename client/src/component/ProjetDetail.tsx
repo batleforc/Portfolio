@@ -9,7 +9,6 @@ const ProjetDetail = () => {
   useEffect(() => {
     setProject(properties.project.find(({ Slug }) => Slug === params.slug));
   }, [params]);
-  console.log(project);
   return (
     <div className="content md:ml-32">
       {project === undefined && (
@@ -17,30 +16,44 @@ const ProjetDetail = () => {
       )}
       {project !== undefined && (
         <>
-          <h1 id="title" className="text-4xl font-bold m-1">{project.Name}</h1>
+          <h1 id="title" className="text-4xl font-bold m-1">
+            {project.Name}
+          </h1>
           <div className="flex flex-col flex-wrap">
             <div className="flex-row flex mb-10">
               <div className="mr-10 grow">
                 {/* Bloc de gauche */}
                 <p>{project.Description}</p>
+                <div className="my-2">
+                  {project.Techno.length !== 0 && (
+                    <ul>
+                      <li key="init">Techno : </li>
+                      {project.Techno.map((value) => (
+                        <li key={value}>{value}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
               </div>
-              <div>
+              <div className="flex flex-col">
                 {/* Bloc de droite */}
                 <p> Status : {project.Status}</p>
-                {project.Git !== "" && <p> Git : {project.Git}</p>}
-                {project.Lien !== "" && <p> Lien : {project.Lien}</p>}
+                {project.Git !== "" && (
+                  <a href={project.Git} target="_blank" rel="noreferrer">
+                    {" "}
+                    Git : {project.Git.replace("https://","")}
+                  </a>
+                )}
+                {project.Lien !== "" && (
+                  <a href={project.Lien} target="_blank" rel="noreferrer">
+                    {" "}
+                    Lien : {project.Lien.replace("https://","")}
+                  </a>
+                )}
               </div>
             </div>
 
             <div>
-              {project.Techno.length !== 0 && (
-                <ul>
-                  <li key="init">Techno : </li>
-                  {project.Techno.map((value) => (
-                    <li key={value}>{value}</li>
-                  ))}
-                </ul>
-              )}
               {project.Tag.length !== 0 && (
                 <div className="my-2">
                   <p key="init">Tag : </p>
