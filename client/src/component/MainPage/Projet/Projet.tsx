@@ -11,7 +11,11 @@ export interface IProject {
   Tag: string[];
   Status: string;
   Techno: string[];
-  Git: string;
+  Link: ILink[]
+}
+
+export interface ILink{
+  Label: string;
   Lien: string;
 }
 

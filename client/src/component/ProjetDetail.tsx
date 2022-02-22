@@ -29,7 +29,9 @@ const ProjetDetail = () => {
                     <ul>
                       <li key="init">Techno : </li>
                       {project.Techno.map((value) => (
-                        <li key={value}>{value}</li>
+                        <li className="mx-2" key={value}>
+                          {value}
+                        </li>
                       ))}
                     </ul>
                   )}
@@ -38,18 +40,12 @@ const ProjetDetail = () => {
               <div className="flex flex-col">
                 {/* Bloc de droite */}
                 <p> Status : {project.Status}</p>
-                {project.Git !== "" && (
-                  <a href={project.Git} target="_blank" rel="noreferrer">
+                {project.Link.map(({ Label, Lien }) => (
+                  <a href={Lien} target="_blank" rel="noreferrer">
                     {" "}
-                    Git : {project.Git.replace("https://","")}
+                    {Label} : {Lien.replace("https://", "")}
                   </a>
-                )}
-                {project.Lien !== "" && (
-                  <a href={project.Lien} target="_blank" rel="noreferrer">
-                    {" "}
-                    Lien : {project.Lien.replace("https://","")}
-                  </a>
-                )}
+                ))}
               </div>
             </div>
 

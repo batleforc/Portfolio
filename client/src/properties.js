@@ -9,6 +9,7 @@ const properties = {
     "Front.",
     "Bdd.",
     "DevOps.",
+    "Architecture",
     "All you need!",
   ],
   media: [
@@ -209,14 +210,18 @@ const properties = {
       Tag: ["react", "V2"],
       Status: "En cours de dev",
       Techno: [
-        "Une api NodeJs",
+        "Api :",
+        "Nodejs",
         "Express ,bcrypt, mongodb, LinkPreviewGenerator, node-fetch,WebPush",
         "Mongodb",
-        "Une interface ReactJS",
-        "EditorJs,React Router, FontAwesome,Recaptcha et W3CSchool",
+        "Ui :",
+        "ReactJs",
+        "EditorJs,React Router, FontAwesome, Recaptcha et W3CSchool",
       ],
-      Git: "https://github.com/batleforc/Portfolio",
-      Lien: "https://maxleriche.tech",
+      Link: [
+        { Label: "Git", Lien: "https://github.com/batleforc/Portfolio" },
+        { Label: "Lien", Lien: "https://maxleriche.tech" },
+      ],
     },
     {
       Slug: "make-pwa",
@@ -226,8 +231,7 @@ const properties = {
       Tag: ["react", "gulp", "plein de truc", "jojo"],
       Status: "Archivé",
       Techno: [],
-      Git: "",
-      Lien: "",
+      Link: [],
     },
   ],
 };
