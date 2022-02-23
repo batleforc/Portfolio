@@ -42,7 +42,7 @@ const ProjetDetail = () => {
                 {/* Bloc de droite */}
                 <p> Status : {project.Status}</p>
                 {project.Link.map(({ Label, Lien }) => (
-                  <a href={Lien} target="_blank" rel="noreferrer">
+                  <a key={Lien+Label} href={Lien} target="_blank" rel="noreferrer">
                     {" "}
                     {Label} : {Lien.replace("https://", "")}
                   </a>
