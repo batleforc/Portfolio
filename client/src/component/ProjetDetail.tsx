@@ -28,10 +28,14 @@ const ProjetDetail = () => {
                   {project.Techno.length !== 0 && (
                     <ul>
                       <li key="init">Techno : </li>
-                      {project.Techno.map(({Label,Content}) => (
+                      {project.Techno.map(({ Label, Content }) => (
                         <li className="mx-2" key={Label}>
-                          <p key={Label}>{Label } :</p>
-                          {Content.map((value)=><p className="mx-2" key={value}>{value}</p>)}
+                          <p key={Label}>{Label} :</p>
+                          {Content.map((value) => (
+                            <p className="mx-2" key={value}>
+                              {value}
+                            </p>
+                          ))}
                         </li>
                       ))}
                     </ul>
@@ -42,7 +46,12 @@ const ProjetDetail = () => {
                 {/* Bloc de droite */}
                 <p> Status : {project.Status}</p>
                 {project.Link.map(({ Label, Lien }) => (
-                  <a key={Lien+Label} href={Lien} target="_blank" rel="noreferrer">
+                  <a
+                    key={Lien + Label}
+                    href={Lien}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     {" "}
                     {Label} : {Lien.replace("https://", "")}
                   </a>
