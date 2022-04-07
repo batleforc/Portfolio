@@ -20,7 +20,7 @@ const ProjetDetail = () => {
             {project.Name}
           </h1>
           <div className="flex flex-col flex-wrap">
-            <div className="flex-row flex mb-10">
+            <div className="md:flex-row flex-col flex mb-10">
               <div className="mr-10 grow">
                 {/* Bloc de gauche */}
                 <p>{project.Description}</p>
