@@ -4,7 +4,7 @@ metadata:
   name: bpg-event-listener
   namespace: batleforc-portfolio-cicd
 spec:
-  serviceAccountName: bpg-event-listener
+  serviceAccountName: batleforc-portfolio-cicd
   triggers:
     - name: bpg-trigger
       interceptors:

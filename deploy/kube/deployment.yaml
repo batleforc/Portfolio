@@ -1,0 +1,44 @@
+---
+apiVersion: apps/V1
+kind: Deployment
+metadata:
+  name: prod-client
+  namespace: batleforc-portfolio
+  label:
+    app: prod-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prod-client
+  template:
+    metadata:
+      labels:
+        app: prod-client
+    spec:
+      containers:
+        - name: prod-client
+          image: harbor.weebo.fr/batleforc/portfolio:latest
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 80
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          resources:
+            limits:
+              cpu: 100m
+              memory: 64Mi
+            requests:
+              cpu: 100m
+              memory: 64Mi
