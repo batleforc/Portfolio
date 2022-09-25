@@ -1,0 +1,29 @@
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: EventListener
+metadata:
+  name: bpg-event-listener
+  namespace: batleforc-portfolio-cicd
+spec:
+  serviceAccountName: bpg-event-listener
+  triggers:
+    - name: bpg-trigger
+      interceptors:
+        - ref:
+            name: "github"
+          params:
+            - name: secretRef
+              value:
+                secretName: github-interceptor-secret
+                secretKey: secretToken
+            - name: eventTypes
+              value:
+                - push
+        - ref:
+            name: "cel"
+          params:
+            - name: filter
+              value: "body.created == true && body.ref.startsWith('refs/heads/')"
+      bindings:
+        - ref: bpg-trigger-binding
+      template:
+        ref: bpg-trigger-template
