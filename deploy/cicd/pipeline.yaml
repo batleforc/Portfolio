@@ -2,6 +2,7 @@ apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
   name: bpg-pipeline
+  namespace: batleforc-portfolio-cicd
 spec:
   description: |
     This pipeline builds batleforc Portfolio.
