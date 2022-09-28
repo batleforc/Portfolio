@@ -2,6 +2,7 @@ apiVersion: triggers.tekton.dev/v1alpha1
 kind: TriggerTemplate
 metadata:
   name: bpg-pipeline-template
+  namespace: batleforc-portfolio-cicd
 spec:
   params:
     - name: gitrevision
