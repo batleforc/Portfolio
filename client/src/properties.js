@@ -86,6 +86,7 @@ const properties = {
             "Docker",
             "Heroku",
             "Kubernetes",
+            "GitOps",
           ],
           Horizontal: false,
         },
