@@ -26,4 +26,4 @@ spec:
       bindings:
         - ref: bpg-trigger-binding
       template:
-        ref: bpg-trigger-template
+        ref: bpg-pipeline-template
