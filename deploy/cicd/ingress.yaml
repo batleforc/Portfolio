@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: webhook.batleforc.com
+    - host: webhook.weebo.fr
       http:
         paths:
           - path: /batleforc/portfolio
