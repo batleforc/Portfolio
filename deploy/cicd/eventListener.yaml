@@ -22,7 +22,7 @@ spec:
             name: "cel"
           params:
             - name: filter
-              value: "body.created == true && body.ref.startsWith('refs/heads/')"
+              value: "body.ref.startsWith('refs/heads/')"
       bindings:
         - ref: bpg-trigger-binding
       template:
