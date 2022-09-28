@@ -5,7 +5,7 @@ metadata:
   name: prod-client
   namespace: batleforc-portfolio
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   ingressClassName: nginx
   tls:
