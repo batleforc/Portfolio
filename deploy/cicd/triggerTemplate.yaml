@@ -31,7 +31,7 @@ spec:
                   requests:
                     storage: 1Gi
         params:
-          - name: gitrevision
+          - name: repo-revision
             value: $(tt.params.gitrevision)
           - name: repo-branch
             value: $(tt.params.gitbranch)
