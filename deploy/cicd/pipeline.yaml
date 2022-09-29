@@ -23,6 +23,10 @@ spec:
       description: |
         This workspace contains the cloned repo files, so they can be read by the
         next task.
+    - name: dockerconfig
+      description: |
+        This workspace contains the docker config.json file, so it can be used by
+        the next task.
   tasks:
     - name: fetch-source
       taskRef:
@@ -42,6 +46,8 @@ spec:
       workspaces:
         - name: source
           workspace: shared-data
+        - name: dockerconfig
+          workspace: dockerconfig
       params:
         - name: DOCKERFILE
           value: ./client/Dockerfile

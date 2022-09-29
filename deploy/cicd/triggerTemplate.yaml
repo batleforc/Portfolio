@@ -30,6 +30,9 @@ spec:
                 resources:
                   requests:
                     storage: 1Gi
+          - name: dockerconfig
+            secret:
+              secretName: harbor-auth
         params:
           - name: repo-revision
             value: $(tt.params.gitrevision)
