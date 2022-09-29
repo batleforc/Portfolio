@@ -5,6 +5,30 @@ metadata:
   name: batleforc-portfolio-cicd
 ---
 apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: batleforc-portfolio
+  name: batleforc-portfolio-cicd-role
+rules:
+  - apiGroups: ["apps", "extensions"]
+    resources: ["deployments", "pods"]
+    verbs: ["get", "patch", "list", "watch"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  namespace: batleforc-portfolio
+  name: batleforc-portfolio-binding
+subjects:
+  - kind: ServiceAccount
+    name: batleforc-portfolio-cicd
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: batleforc-portfolio-cicd-role
+---
+apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   namespace: batleforc-portfolio-cicd
