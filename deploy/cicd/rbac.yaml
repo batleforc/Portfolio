@@ -57,6 +57,7 @@ metadata:
   name: batleforc-portfolio-cicd-trois
 subjects:
   - kind: ServiceAccount
+    namespace: batleforc-portfolio-cicd
     name: batleforc-portfolio-cicd
 roleRef:
   apiGroup: rbac.authorization.k8s.io
