@@ -54,3 +54,12 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: tekton-triggers-eventlistener-clusterroles
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: batleforc-portfolio-cicd
+  namespace: batleforc-portfolio-cicd
+  annotations:
+    kubernetes.io/service-account.name: batleforc-portfolio-cicd
+type: kubernetes.io/service-account-token
