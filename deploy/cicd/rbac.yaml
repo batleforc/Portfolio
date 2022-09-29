@@ -21,8 +21,7 @@ rules:
         "ingress",
         "persistentvolumeclaims",
       ]
-    verbs: ["get", "patch", "list", "watch"]
-
+    verbs: ["get", "patch", "list", "watch", "update"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
@@ -50,6 +49,19 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: tekton-triggers-eventlistener-roles
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  namespace: batleforc-portfolio
+  name: batleforc-portfolio-cicd-trois
+subjects:
+  - kind: ServiceAccount
+    name: batleforc-portfolio-cicd
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: edit
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
