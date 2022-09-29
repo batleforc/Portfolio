@@ -55,3 +55,14 @@ spec:
           value: ./client
         - name: IMAGE
           value: harbor.weebo.fr/batleforc/portfolio:$(params.repo-branch)
+    - name: Rollout
+      runAfter: ["build-docker"]
+      taskRef:
+        name: kubernetes-actions
+      workspaces:
+        - name: source
+          workspace: shared-data
+      params:
+        - name: script
+          value: |
+            kubectl rollout restart deploy prod-client -n batleforc-portfolio

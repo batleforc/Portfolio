@@ -7,7 +7,7 @@ import properties from "./properties";
 import About from "./component/MainPage/About/About";
 import Projet from "./component/MainPage/Projet/Projet";
 import Nav from "./component/MainPage/Nav";
-import { useLocation } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 export interface Content {
   Label: string;
   Icon: string;
@@ -33,7 +33,7 @@ function App() {
     {
       Label: "Home",
       Icon: "home",
-      href: location.pathname ==="/" ? "cover" : "/",
+      href: location.pathname === "/" ? "cover" : "/",
       checkClass: false,
       OnlyHome: false,
     },
@@ -109,6 +109,7 @@ function App() {
           </Route>
         </Routes>
       </div>
+      <p>test</p>
     </div>
   );
 }
