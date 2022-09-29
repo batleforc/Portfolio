@@ -67,7 +67,7 @@ roleRef:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: batleforc-portfolio-cicd-clusterbinding
+  name: batleforc-portfolio-cicd-clusterbindingdeux
 subjects:
   - kind: ServiceAccount
     name: batleforc-portfolio-cicd
