@@ -23,6 +23,10 @@ spec:
           params:
             - name: filter
               value: "body.ref.startsWith('refs/heads/')"
+            - name: overlays
+              value:
+                - key: branch_name
+                  expression: "body.ref.split('/')[2]"
       bindings:
         - ref: bpg-trigger-binding
       template:

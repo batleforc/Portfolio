@@ -10,4 +10,4 @@ spec:
     - name: gitrevision
       value: $(body.head_commit.id)
     - name: gitbranch
-      value: $(body.ref.replace('refs/heads/', ''))
+      value: $(extensions.branch_name)

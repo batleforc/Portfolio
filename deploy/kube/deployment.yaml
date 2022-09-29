@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: prod-client
-          image: harbor.weebo.fr/batleforc/portfolio:latest
+          image: harbor.weebo.fr/batleforc/portfolio:PrototypeV2
           imagePullPolicy: Always
           ports:
             - name: http

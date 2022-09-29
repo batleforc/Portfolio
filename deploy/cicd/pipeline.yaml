@@ -48,4 +48,4 @@ spec:
         - name: CONTEXT
           value: ./client
         - name: IMAGE
-          value: habror.weebo.fr/batleforc/portfolio:$(params.repo-branch)
+          value: harbor.weebo.fr/batleforc/portfolio:$(params.repo-branch)
