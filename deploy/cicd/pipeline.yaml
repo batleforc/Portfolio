@@ -59,9 +59,6 @@ spec:
       runAfter: ["build-docker"]
       taskRef:
         name: kubernetes-actions
-      workspaces:
-        - name: source
-          workspace: shared-data
       params:
         - name: script
           value: |
