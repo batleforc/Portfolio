@@ -10,8 +10,17 @@ metadata:
   namespace: batleforc-portfolio
   name: batleforc-portfolio-cicd-role
 rules:
-  - apiGroups: ["apps", "extensions"]
-    resources: ["deployments", "pods"]
+  - apiGroups: [""]
+    resources:
+      [
+        "deployments",
+        "pods",
+        "secrets",
+        "services",
+        "configmaps",
+        "ingress",
+        "persistentvolumeclaims",
+      ]
     verbs: ["get", "patch", "list", "watch"]
 
 ---
