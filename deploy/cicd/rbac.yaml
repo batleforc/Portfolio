@@ -63,3 +63,12 @@ metadata:
   annotations:
     kubernetes.io/service-account.name: batleforc-portfolio-cicd
 type: kubernetes.io/service-account-token
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: batleforc-portfolio-cicd
+  namespace: batleforc-portfolio
+  annotations:
+    kubernetes.io/service-account.name: batleforc-portfolio-cicd
+type: kubernetes.io/service-account-token
