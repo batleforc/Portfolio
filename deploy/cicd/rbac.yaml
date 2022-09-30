@@ -90,6 +90,20 @@ roleRef:
   kind: ClusterRole
   name: view
 ---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  namespace: batleforc-portfolio
+  name: batleforc-portfolio-cicd-quatre
+subjects:
+  - kind: ServiceAccount
+    namespace: batleforc-portfolio-cicd
+    name: batleforc-portfolio-cicd
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: view
+---
 apiVersion: v1
 kind: Secret
 metadata:
