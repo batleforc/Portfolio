@@ -16,6 +16,7 @@ spec:
       labels:
         app: prod-client
     spec:
+      serviceAccount: batleforc-portfolio
       containers:
         - name: prod-client
           image: harbor.weebo.fr/batleforc/portfolio:PrototypeV2
