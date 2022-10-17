@@ -11,7 +11,7 @@ spec:
     - host: webhook.weebo.fr
       http:
         paths:
-          - path: /batleforc/portfolio
+          - path: /batleforc/portfolio2
             pathType: Exact
             backend:
               service:
