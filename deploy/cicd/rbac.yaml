@@ -8,7 +8,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   namespace: batleforc-portfolio
-  name: batleforc-portfolio-binding
+  name: batleforc-portfolio-binding-2
 subjects:
   - kind: ServiceAccount
     name: batleforc-portfolio
