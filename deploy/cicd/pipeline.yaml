@@ -27,6 +27,9 @@ spec:
       description: |
         This workspace contains the docker config.json file, so it can be used by
         the next task.
+    - name: kubeconfig
+      description: |
+        This workspace contains the kubeconfig file, it define the namespace to rollout.
   tasks:
     - name: fetch-source
       taskRef:
@@ -59,6 +62,9 @@ spec:
       runAfter: ["build-docker"]
       taskRef:
         name: kubernetes-actions
+      workspaces:
+        - name: kubeconfig-dir
+          workspace: kubeconfig
       params:
         - name: script
           value: |
