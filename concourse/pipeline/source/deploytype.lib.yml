@@ -1,6 +1,0 @@
-#@ def deploytype():
-name: deploy
-type: docker-image
-source:
-  repository: jgriff/k8s-resource
-#@ end

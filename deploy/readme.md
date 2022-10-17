@@ -1,4 +1,8 @@
-# Deploy Portoflio
+# Weebo's Pipeline V3
+
+## What is Weebo's Pipeline?
+
+Weebo's Pipeline is one of the part of the WeeboGitOps environment. It's a Tekton CI/CD full workflow that allow you to deploy your application in a Kubernetes cluster and have full controll over it.
 
 ## Dependencies
 
