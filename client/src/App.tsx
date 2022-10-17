@@ -109,7 +109,6 @@ function App() {
           </Route>
         </Routes>
       </div>
-      <p>test</p>
     </div>
   );
 }
