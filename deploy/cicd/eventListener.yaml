@@ -2,9 +2,9 @@ apiVersion: triggers.tekton.dev/v1alpha1
 kind: EventListener
 metadata:
   name: bpg-event-listener
-  namespace: batleforc-portfolio-cicd
+  namespace: batleforc-portfolio
 spec:
-  serviceAccountName: batleforc-portfolio-cicd
+  serviceAccountName: batleforc-portfolio
   triggers:
     - name: bpg-trigger
       interceptors:

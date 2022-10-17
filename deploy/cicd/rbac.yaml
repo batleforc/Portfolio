@@ -1,27 +1,8 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  namespace: batleforc-portfolio-cicd
-  name: batleforc-portfolio-cicd
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
-metadata:
   namespace: batleforc-portfolio
-  name: batleforc-portfolio-cicd-role
-rules:
-  - apiGroups: ["*"]
-    resources:
-      [
-        "deployments",
-        "pods",
-        "secrets",
-        "services",
-        "configmaps",
-        "ingress",
-        "persistentvolumeclaims",
-      ]
-    verbs: ["get", "patch", "list", "watch", "update"]
+  name: batleforc-portfolio
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
@@ -30,85 +11,30 @@ metadata:
   name: batleforc-portfolio-binding
 subjects:
   - kind: ServiceAccount
-    namespace: batleforc-portfolio-cicd
-    name: batleforc-portfolio-cicd
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: Role
-  name: batleforc-portfolio-cicd-role
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  namespace: batleforc-portfolio-cicd
-  name: batleforc-portfolio-cicd-binding
-subjects:
-  - kind: ServiceAccount
-    name: batleforc-portfolio-cicd
+    name: batleforc-portfolio
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: tekton-triggers-eventlistener-roles
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  namespace: batleforc-portfolio
-  name: batleforc-portfolio-cicd-trois
-subjects:
-  - kind: ServiceAccount
-    namespace: batleforc-portfolio-cicd
-    name: batleforc-portfolio-cicd
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: edit
----
-apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: batleforc-portfolio-cicd-clusterbinding
+  name: batleforc-portfolio-clusterbinding
 subjects:
   - kind: ServiceAccount
-    name: batleforc-portfolio-cicd
-    namespace: batleforc-portfolio-cicd
+    name: batleforc-portfolio
+    namespace: batleforc-portfolio
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: tekton-triggers-eventlistener-clusterroles
 ---
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
-metadata:
-  name: batleforc-portfolio-cicd-clusterbindingdeux
-subjects:
-  - kind: ServiceAccount
-    name: batleforc-portfolio-cicd
-    namespace: batleforc-portfolio-cicd
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: view
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  namespace: batleforc-portfolio
-  name: batleforc-portfolio-cicd-quatre
-subjects:
-  - kind: ServiceAccount
-    namespace: batleforc-portfolio-cicd
-    name: batleforc-portfolio-cicd
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: view
----
 apiVersion: v1
 kind: Secret
 metadata:
-  name: batleforc-portfolio-cicd
-  namespace: batleforc-portfolio-cicd
+  name: batleforc-portfolio
+  namespace: batleforc-portfolio
   annotations:
-    kubernetes.io/service-account.name: batleforc-portfolio-cicd
+    kubernetes.io/service-account.name: batleforc-portfolio
 type: kubernetes.io/service-account-token
