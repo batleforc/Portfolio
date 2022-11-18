@@ -5,8 +5,9 @@ metadata:
   namespace: batleforc-portfolio
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    haproxy-ingress.github.io/ssl-redirect: "false"
 spec:
-  ingressClassName: nginx
+  ingressClassName: haproxy
   rules:
     - host: webhook.weebo.fr
       http:
