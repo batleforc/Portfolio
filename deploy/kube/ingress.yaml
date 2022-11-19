@@ -6,8 +6,8 @@ metadata:
   namespace: batleforc-portfolio
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    kubernetes.io/ingress.class: haproxy
 spec:
-  ingressClassName: haproxy
   tls:
     - hosts:
         - weebo.fr
