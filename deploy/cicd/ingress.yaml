@@ -6,8 +6,8 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     haproxy-ingress.github.io/ssl-redirect: "false"
+    kubernetes.io/ingress.class: haproxy
 spec:
-  ingressClassName: haproxy
   rules:
     - host: webhook.weebo.fr
       http:
