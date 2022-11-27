@@ -1,0 +1,32 @@
+.ico-cover {
+  font-size: 38px;
+  color: var(--cover-bgCover);
+  border-radius: 50%;
+  border: 1px solid var(--color-textCover);
+  padding: 5px;
+  margin: 5px;
+}
+
+.coverMedia {
+  @apply flex justify-center place-items-center;
+}
+.ico-next-content {
+  position: absolute;
+  bottom: 10%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30px;
+  font-size: 30px;
+}
+
+.coverPage {
+  @apply flex flex-col h-screen justify-center place-items-center;
+  background-color: var(--color-bgCover);
+  color: var(--color-textCover);
+}
+
+.coverContentTitle {
+  @apply text-6xl text-center font-bold;
+}
