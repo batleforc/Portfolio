@@ -70,7 +70,6 @@ const properties = {
     {
       Label: "Infra",
       Icon: [
-        { icon: "kubernetes", label: "Kubernetes" },
         { icon: "docker", label: "Docker" },
         { icon: "gitea", label: "Gitea" },
         { icon: "helm", label: "Helm3" },
@@ -101,6 +100,27 @@ const properties = {
             "EclipseChe",
             "Concourse",
           ],
+          Horizontal: false,
+        },
+      ],
+    },
+    {
+      Label: "&Ops",
+      Icon: [{ icon: "kubernetes", label: "Kubernetes" }],
+      categorie: [
+        {
+          Label: "DevOps",
+          List: ["K3S", "MicroK8S", "Helm3", "Ansible"],
+          Horizontal: false,
+        },
+        {
+          Label: "GitOps",
+          List: ["FluxCD"],
+          Horizontal: false,
+        },
+        {
+          Label: "CiCd",
+          List: ["Gitlab Ci", "Github Actions", "Concourse", "Tekton"],
           Horizontal: false,
         },
       ],
