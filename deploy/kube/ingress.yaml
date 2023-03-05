@@ -12,8 +12,21 @@ spec:
     - hosts:
         - weebo.fr
       secretName: weebo-tls
+    - hosts:
+        - maxleriche.net
+      secretName: maxleriche-tls
   rules:
     - host: weebo.fr
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: prod-client
+                port:
+                  number: 80
+    - host: maxleriche.net
       http:
         paths:
           - path: /
