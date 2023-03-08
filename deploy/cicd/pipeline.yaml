@@ -45,19 +45,21 @@ spec:
     - name: build-docker
       runAfter: ["fetch-source"]
       taskRef:
-        name: kaniko
+        name: build
       workspaces:
         - name: source
           workspace: shared-data
         - name: dockerconfig
           workspace: dockerconfig
       params:
-        - name: DOCKERFILE
-          value: ./client/Dockerfile
-        - name: CONTEXT
+        - name: path-dockerfile
+          value: ./client/
+        - name: context-dockerfile
           value: ./client
         - name: IMAGE
-          value: harbor.weebo.fr/batleforc/portfolio:$(params.repo-branch)
+          value: batleforc/portfolio
+        - name: repo-branch
+          value: $(params.repo-branch)
     - name: rollout
       runAfter: ["build-docker"]
       taskRef:
