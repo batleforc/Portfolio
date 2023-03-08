@@ -47,7 +47,7 @@ spec:
       taskRef:
         name: build
       workspaces:
-        - name: source
+        - name: shared-data
           workspace: shared-data
         - name: dockerconfig
           workspace: dockerconfig
