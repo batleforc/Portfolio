@@ -1,0 +1,27 @@
+image:
+  repository: "harbor.weebo.fr"
+  name: "batleforc/portfolio"
+
+branch:
+  master: "PortfolioV2"
+  actual: "PortfolioV2"
+
+domain:
+  master:
+    - host: weebo.fr
+      secret: weebo-tls
+    - host: maxleriche.net
+      secret: maxleriche-tls
+  dev:
+    - host: portfolio.dev.weebo.fr
+      secret: portfolio-dev-weebo-tls
+
+namespace: batleforc-portfolio
+
+ressources:
+  limits:
+    cpu: 100m
+    memory: 64Mi
+  requests:
+    cpu: 100m
+    memory: 64Mi

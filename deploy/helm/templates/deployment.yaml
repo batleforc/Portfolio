@@ -2,24 +2,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: prod-client
-  namespace: batleforc-portfolio
+  name: {{ include "helm.deployment" . }}-client
+  namespace: {{ .Values.namespace}}
   label:
-    app: prod-client
+    app: {{ include "helm.deployment" . }}-client
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: prod-client
+      app: {{ include "helm.deployment" . }}-client
   template:
     metadata:
       labels:
-        app: prod-client
+        app: {{ include "helm.deployment" . }}-client
     spec:
-      serviceAccount: batleforc-portfolio
+      serviceAccount: {{ .Values.namespace}}
       containers:
-        - name: prod-client
-          image: harbor.weebo.fr/batleforc/portfolio:PrototypeV2
+        - name: {{ include "helm.deployment" . }}-client
+          image: "{{- .Values.image.repository -}}/{{- .Values.image.name -}}:{{- .Values.branch.actual -}}"
           imagePullPolicy: Always
           ports:
             - name: http
@@ -27,19 +27,14 @@ spec:
           readinessProbe:
             httpGet:
               path: /
-              port: 80
+              port: http
             initialDelaySeconds: 5
             periodSeconds: 10
           livenessProbe:
             httpGet:
               path: /
-              port: 80
+              port: http
             initialDelaySeconds: 15
             periodSeconds: 20
           resources:
-            limits:
-              cpu: 100m
-              memory: 64Mi
-            requests:
-              cpu: 100m
-              memory: 64Mi
+            {{- toYaml .Values.ressources | nindent 12 }}

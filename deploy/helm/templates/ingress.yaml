@@ -1,0 +1,56 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "helm.deployment" . }}-client
+  namespace: {{ .Values.namespace}}
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    kubernetes.io/ingress.class: haproxy
+spec:
+  tls:
+  {{- if eq .Values.branch.actual .Values.branch.master -}}
+  {{- range $key,$val := .Values.domain.master }}
+    - hosts:
+        - {{ $val.host }}
+      secretName: {{ $val.secret }}
+  {{ end -}}
+  {{ else }}
+  {{- range $key,$val := .Values.domain.dev -}}
+  {{- with $ -}}
+    - hosts:
+        - "{{.Values.branch.actual}}.{{ $val.host }}"
+      secretName: "{{.Values.branch.actual}}-{{ $val.secret }}"
+  {{ end -}}
+  {{ end -}}
+  {{ end -}}
+  rules:
+  {{- if eq .Values.branch.actual .Values.branch.master }}
+  {{- range $key,$val := .Values.domain.master }}
+    - host: {{ $val.host }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ include "helm.deployment" $ }}-client
+                port:
+                  number: 80
+  {{ end }}
+  {{ else }}
+  {{- range $key,$val := .Values.domain.dev }}
+  {{- with $ }}
+    - host: "{{.Values.branch.actual}}-{{ $val.secret }}"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ include "helm.deployment" $ }}-client
+                port:
+                  number: 80
+  {{ end }}
+  {{ end }}
+  {{ end}}

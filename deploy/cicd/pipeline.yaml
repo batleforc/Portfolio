@@ -60,14 +60,30 @@ spec:
           value: batleforc/portfolio
         - name: repo-branch
           value: $(params.repo-branch)
-    - name: rollout
+    - name: helm-upgrade
       runAfter: ["build-docker"]
       taskRef:
-        name: kubernetes-actions
+        name: helm-upgrade-from-source
       workspaces:
-        - name: kubeconfig-dir
-          workspace: kubeconfig
+        - name: source
+          workspace: shared-data
       params:
-        - name: script
-          value: |
-            kubectl rollout restart deploy prod-client -n batleforc-portfolio
+        - name: charts_dir
+          value: ./deploy/helm
+        - name: release_name
+          value: $(params.repo-branch)
+        - name: release_namespace
+          value: batleforc-portfolio
+        - name: overwrite_values
+          value: "branch.actual=$(params.repo-branch)"
+    #- name: rollout
+    #  runAfter: ["build-docker"]
+    #  taskRef:
+    #    name: kubernetes-actions
+    #  workspaces:
+    #    - name: kubeconfig-dir
+    #      workspace: kubeconfig
+    #  params:
+    #    - name: script
+    #      value: |
+    #        kubectl rollout restart deploy prod-client -n batleforc-portfolio
