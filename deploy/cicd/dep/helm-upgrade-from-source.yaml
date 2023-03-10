@@ -40,11 +40,17 @@ spec:
       default: ""
   workspaces:
     - name: source
+    - name: kubeconfig-dir
+      optional: true
   steps:
     - name: upgrade
       image: $(params.helm_image)
       workingDir: /workspace/source
       script: |
+        echo "Setting up kubeconfig..."
+        [[ "$(workspaces.kubeconfig-dir.bound)" == "true" ]] && \
+        [[ -f $(workspaces.kubeconfig-dir.path)/kubeconfig ]] && \
+        export KUBECONFIG=$(workspaces.kubeconfig-dir.path)/kubeconfig
         echo "Setting up variables..."
         release_name="$(echo '$(params.release_name)' | tr '[:upper:]' '[:lower:]')"
         echo "Release name: $release_name"

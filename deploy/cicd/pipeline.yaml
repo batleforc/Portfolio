@@ -67,6 +67,8 @@ spec:
       workspaces:
         - name: source
           workspace: shared-data
+        - name: kubeconfig-dir
+          workspace: kubeconfig
       params:
         - name: charts_dir
           value: ./deploy/helm
