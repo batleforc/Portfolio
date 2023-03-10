@@ -9,7 +9,7 @@ Expand the name of the chart.
 {{- if eq .Values.branch.master .Values.branch.actual -}}
 {{ printf "prod" }}
 {{- else -}}
-{{ .Values.branch.actual | replace "/" "-" | replace "." "-" | replace "_" "-" }}
+{{ .Values.branch.actual | replace "/" "-" | replace "." "-" | replace "_" "-" | lower }}
 {{- end -}}
 {{- end}}
 

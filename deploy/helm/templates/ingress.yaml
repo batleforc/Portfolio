@@ -12,18 +12,18 @@ spec:
   {{- if eq .Values.branch.actual .Values.branch.master -}}
   {{- range $key,$val := .Values.domain.master }}
     - hosts:
-        - {{ $val.host }}
-      secretName: {{ $val.secret }}
+        - {{ $val.host | quote }}
+      secretName: {{ $val.secret | quote }}
   {{ end -}}
   {{ else }}
-  {{- range $key,$val := .Values.domain.dev -}}
-  {{- with $ -}}
+  {{- range $key,$val := .Values.domain.dev }}
+  {{ with $ }}
     - hosts:
-        - "{{.Values.branch.actual}}.{{ $val.host }}"
-      secretName: "{{.Values.branch.actual}}-{{ $val.secret }}"
+        - "{{.Values.branch.actual | lower}}.{{ $val.host }}"
+      secretName: "{{.Values.branch.actual | lower}}-{{ $val.secret }}"
   {{ end -}}
   {{ end -}}
-  {{ end -}}
+  {{- end -}}
   rules:
   {{- if eq .Values.branch.actual .Values.branch.master }}
   {{- range $key,$val := .Values.domain.master }}
@@ -34,21 +34,21 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: {{ include "helm.deployment" $ }}-client
+                name: "{{ include "helm.deployment" $ }}-client"
                 port:
                   number: 80
   {{ end }}
   {{ else }}
   {{- range $key,$val := .Values.domain.dev }}
   {{- with $ }}
-    - host: "{{.Values.branch.actual}}-{{ $val.secret }}"
+    - host: "{{.Values.branch.actual | lower}}.{{ $val.host }}"
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: {{ include "helm.deployment" $ }}-client
+                name: "{{ include "helm.deployment" $ }}-client"
                 port:
                   number: 80
   {{ end }}

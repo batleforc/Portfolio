@@ -3,8 +3,8 @@ image:
   name: "batleforc/portfolio"
 
 branch:
-  master: "PortfolioV2"
-  actual: "PortfolioV2"
+  master: "PrototypeV2"
+  actual: "PrototypeV2"
 
 domain:
   master:
