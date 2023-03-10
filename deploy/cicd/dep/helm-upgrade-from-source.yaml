@@ -45,5 +45,9 @@ spec:
       image: $(params.helm_image)
       workingDir: /workspace/source
       script: |
+        #!/usr/bin/env bash
+        set -e
+        echo "Setting up variables..."
+        release_name= echo $(params.release_name) | tr '[:upper:]' '[:lower:]'
         echo installing helm chart...
-        helm upgrade --install --wait --values "$(params.charts_dir)/$(params.values_file)" --namespace "$(params.release_namespace)" --version "$(params.release_version)" "$(params.release_name)" "$(params.charts_dir)" --debug --set "$(params.overwrite_values)" $(params.upgrade_extra_params)
+        helm upgrade --install --wait --values "$(params.charts_dir)/$(params.values_file)" --namespace "$(params.release_namespace)" --version "$(params.release_version)" "$release_name" "$(params.charts_dir)" --debug --set "$(params.overwrite_values)" $(params.upgrade_extra_params)
