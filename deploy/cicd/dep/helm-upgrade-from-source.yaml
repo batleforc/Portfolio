@@ -45,8 +45,6 @@ spec:
       image: $(params.helm_image)
       workingDir: /workspace/source
       script: |
-        #!/usr/bin/env bash
-        set -e
         echo "Setting up variables..."
         release_name= echo $(params.release_name) | tr '[:upper:]' '[:lower:]'
         echo installing helm chart...
