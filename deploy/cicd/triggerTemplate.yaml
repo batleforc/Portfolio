@@ -30,6 +30,7 @@ spec:
                 resources:
                   requests:
                     storage: 1Gi
+                storageClassName: local-path
           - name: dockerconfig
             secret:
               secretName: harbor-auth
