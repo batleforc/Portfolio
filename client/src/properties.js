@@ -3,12 +3,10 @@ const properties = {
   cvUrl: "/CV.pdf",
   attribute: [
     "Développeur.",
-    "Étudiant.",
+    "Ops.",
     "Back.",
-    "Infra.",
     "Front.",
-    "Bdd.",
-    "DevOps.",
+    "Kube and Co.",
     "Architecture",
     "All you need!",
   ],
@@ -19,8 +17,8 @@ const properties = {
       link: "https://github.com/batleforc",
     },
     {
-      label: "Gitlab",
-      icon: "gitlab1",
+      label: "Gitea",
+      icon: "gitea",
       link: "https://gitlab.com/maxLeriche.weebo",
     },
     {
@@ -30,7 +28,7 @@ const properties = {
     },
   ],
   about: [
-    "Un étudiant en Master Architecte Logicielle. Entre le développeur Back et Front avec un amour profond pour l'infra.",
+    "Jeune diplomé d'un Master Architecte Logicielle. Entre le Dev et l'Ops.",
   ],
   tech: [
     {
@@ -39,11 +37,21 @@ const properties = {
         { icon: "dot-net", label: "Dot Net" },
         { icon: "node-dot-js", label: "Node.js" },
         { icon: "go", label: "Go" },
+        { icon: "", label: "Rust" },
       ],
       categorie: [
         {
           Label: "Language",
-          List: ["C#", "C", "C++", "Php", "Node", "Python", "Java", "go"],
+          List: [
+            "Rust",
+            "Go",
+            "Javascript/Node",
+            "C#",
+            "C++",
+            "Python",
+            "Java",
+            "Php",
+          ],
           Horizontal: false,
         },
       ],
@@ -52,17 +60,13 @@ const properties = {
       Label: "Front",
       Icon: [
         { icon: "javascript", label: "Js" },
+        { icon: "vue-dot-js", label: "VueJS" },
         { icon: "react", label: "ReactJs" },
       ],
       categorie: [
         {
-          Label: "Language",
-          List: ["Html", "Css", "JS"],
-          Horizontal: false,
-        },
-        {
           Label: "Framework",
-          List: ["ReactJs", "VueJs", "SvelteJs"],
+          List: ["VueJs", "ReactJs", "SvelteJs"],
           Horizontal: false,
         },
       ],
@@ -81,9 +85,9 @@ const properties = {
             "Vm",
             "Ovh",
             "Ansible",
+            "Terraform",
             "VPS",
             "Docker",
-            "Heroku",
             "Kubernetes",
             "GitOps",
           ],
@@ -94,11 +98,11 @@ const properties = {
           List: [
             "K3S / Microk8s",
             "Helm3",
-            "Keycloak",
+            "Keycloak/Zitadel",
             "Gitea",
             "Harbor",
             "EclipseChe",
-            "Concourse",
+            "Tekton/GitlabCi",
           ],
           Horizontal: false,
         },
@@ -109,7 +113,7 @@ const properties = {
       Icon: [{ icon: "kubernetes", label: "Kubernetes" }],
       categorie: [
         {
-          Label: "DevOps",
+          Label: "Ops",
           List: ["K3S", "MicroK8S", "Helm3", "Ansible"],
           Horizontal: false,
         },
@@ -120,7 +124,7 @@ const properties = {
         },
         {
           Label: "CiCd",
-          List: ["Gitlab Ci", "Github Actions", "Concourse", "Tekton"],
+          List: ["Tekton", "Gitlab Ci", "Github Actions"],
           Horizontal: false,
         },
       ],
@@ -185,7 +189,7 @@ const properties = {
       Label: "Master Architecte Logicielle",
       type: "School",
       from: "2021",
-      to: "",
+      to: "2023",
       location: "Niort",
       where: "Université La rochelle",
       description: "",
@@ -205,10 +209,21 @@ const properties = {
       Label: "Alternant DevOps/Couche d'échange",
       type: "Work",
       from: "2021",
-      to: "",
+      to: "2023",
       location: "Niort",
       where: "Macif",
       description: "",
+      Icon: "macif.png",
+    },
+    {
+      Label: "Socle de fabrication/Couche d'échange",
+      type: "Work",
+      from: "2023",
+      to: "",
+      location: "Niort",
+      where: "Macif",
+      description:
+        "A la suite du master en alternance, la Macif ma fait confiance en me proposant un CDI dans la même équipe.",
       Icon: "macif.png",
     },
     {
