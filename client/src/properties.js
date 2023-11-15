@@ -19,7 +19,7 @@ const properties = {
     {
       label: "Gitea",
       icon: "gitea",
-      link: "https://gitlab.com/maxLeriche.weebo",
+      link: "https://git.Weebo.fr/",
     },
     {
       label: "Linkedin",
